@@ -1,0 +1,58 @@
+/* .Login__part{
+
+    
+} */
+
+.Login__input{
+    border-radius: 30px;
+    border: solid 2px;
+    padding: 20px;
+    background: rgb(253, 224, 190);
+    width: auto;
+
+}
+
+/* .Login__avatar{
+
+    width: 50px;
+    align-items: center;
+} */
+
+.Login__header{
+
+    font-size: 40px;
+}
+
+.Login__button{
+    padding: 10px;
+    margin-top: 20px;
+    width: 15em;
+    border: solid;
+    font-weight: 999;
+    font-size: large;
+}
+
+
+.Input__checkbox{
+    display: flex;
+    padding: 15px;
+}
+
+.Input__rememberme{
+    margin-left: 20px;
+    margin-top: -3px;
+}
+
+.Input__forgotpass{
+    margin-left: 40px;
+    margin-top: -3px;
+}
+
+.Login__line{
+
+    margin-top: 20px;
+}
+
+/* .Login__regis{
+    display: flex;
+} */

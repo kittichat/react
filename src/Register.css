@@ -1,0 +1,201 @@
+.Register__bg{
+
+    border: grey solid 2px;
+    padding: 10px;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 
+    inset 0 2px 9px  rgba(255,255,255,0.3),
+    inset 0 -2px 6px rgba(0,0,0,0.4);
+
+
+}
+
+.Register__topic{
+    font-size: 40px;
+    margin-left: 20px;
+}
+
+.Register__form{
+   
+    padding: 20px;
+}
+
+/* .Firstname{
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.Lastname{
+    padding-left: 20px;
+    padding-right: 10px;
+} */
+
+.Name{
+    margin-bottom: 10px;
+    margin-left: -7px;
+  
+}
+
+.Register__firstname{
+    
+    
+    height: 35px;
+    width: 7cm;
+    border: grey solid;
+    border-radius: 10px;
+    font-size: large;
+    
+    
+   
+
+}
+
+.Register__lastname{
+    height: 35px;
+    width: 7cm;
+    margin-left: 0.5cm;
+    border: grey solid;
+    border-radius: 10px;
+    font-size: large;
+    
+}
+
+.Register__email{
+    width: 14.8cm;
+    margin: 10px;
+    height: 35px;
+    border: grey solid;
+    border-radius: 10px;
+    margin-left: 2px;
+    font-size: large;
+}
+
+
+
+.Register__username{
+    width: 14.8cm;
+    margin: 10px;
+    height: 35px;
+    border: grey solid;
+    border-radius: 10px;
+    margin-left: 2px;
+    font-size: large;
+}
+
+.Register__password{
+    width: 14.8cm;
+    margin: 10px;
+    height: 35px;
+    border: grey solid;
+    border-radius: 10px;
+    margin-left: 2px;
+    font-size: large;
+}
+
+.Register__confirmpassword{
+
+    width: 14.8cm;
+    margin: 10px;
+    height: 35px;
+    border: grey solid;
+    border-radius: 10px;
+    margin-left: 2px;
+    font-size: large;
+}
+
+.Register__gender{
+    display: flex;
+    /* margin-left: 20px;
+    margin-top: 5px; */
+    margin: 10px;
+    font-size: 15px;
+}
+
+.Gender{
+    display: flex;
+}
+
+.Checkbox__male{
+    margin-left: 20px;
+    border: solid 2px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.Checkbox__female{
+    margin-left: 20px;
+    border: solid 2px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.Male{
+    padding: 10px;
+}
+
+.Female{
+    padding: 10px;
+}
+.control-group{
+    margin: 20px;
+}
+
+
+
+.Register__birthday__label{
+    display: flex;
+    /* margin-left: 20px;
+    margin-top: 10px; */
+    font-size: 15px;
+    margin: 10px;
+    /* border: solid; */
+}
+
+.Register__birthday{
+    display: flex;
+}
+
+.Register__day{
+    width: 120px;
+    padding:10px;
+    /* margin: 20px; */
+    margin-left: 20px;
+    border: black solid 2px;
+    border-radius: 10px;
+}
+
+.Register__month{
+    width: 120px;
+    padding:10px;
+    /* margin: 20px; */
+    margin-left: 20px;
+    border: black solid 2px;
+    border-radius: 10px;
+}
+
+.Register__year{
+    width: 120px;
+    padding:10px;
+    /* margin: 20px; */
+    margin-left: 20px;
+    border: black solid 2px;
+    border-radius: 10px;
+}   
+
+.Register__button__position{
+    margin: 10px;
+}
+
+.Register__button__size{
+    padding: 15px;
+    font-size: large;
+    border-radius: 10px;
+    margin: 15px;
+    
+}
+

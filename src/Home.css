@@ -1,0 +1,24 @@
+/* .home{
+    margin-top: 25%;
+} */
+
+
+body, html {
+    height: 100%;
+    }
+    
+.home{
+    
+    background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* position: absolute; */
+    
+    
+}
+
+/* .home__text{
+    margin-top:200px;
+} */

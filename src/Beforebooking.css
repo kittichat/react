@@ -1,0 +1,37 @@
+.booking{
+    margin-top: 25%;
+}
+
+.booking__page{
+    display: flex;
+}
+
+.booking__process{
+    margin-top: 20%;
+    margin-left: 20%;
+}
+
+.booking__verticalline{
+    /* margin-top: 200px; */
+    top: 150px;
+    height: 500px;
+    border-left:  solid ;
+    color: black;
+    left: 50%;
+    margin-left: -2px;
+    position: absolute;
+}
+
+.booking__redirect{
+    margin-top: 20%;
+    margin-left: 35%;
+    
+
+}
+
+.booking__button{
+    padding: 20px;
+    border: solid;
+    border-radius: 5px;
+    font-size: 20px;
+}
