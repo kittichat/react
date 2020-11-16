@@ -1,5 +1,5 @@
 import React from 'react'
-import './Beforebooking.css'
+import './css/Beforebooking.css'
 import {Link} from 'react-router-dom'
 import { LineStyle } from '@material-ui/icons'
 

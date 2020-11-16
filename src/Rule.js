@@ -1,5 +1,5 @@
 import React from 'react'
-import './Rule.css';
+import './css/Rule.css';
 function Rule() {
     return (
         <div className="rule">

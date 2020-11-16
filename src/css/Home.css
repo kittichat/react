@@ -7,18 +7,24 @@ body, html {
     height: 100%;
     }
     
-.home{
+.home__background{
     
     background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).jpg");
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* position: absolute; */
+    /* position: relative; */
+   
+  
     
     
 }
 
-/* .home__text{
-    margin-top:200px;
-} */
+.home__text{
+    top:45%;
+    left: 45%;
+    color: white;
+    position: absolute;
+
+}

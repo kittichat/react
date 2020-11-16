@@ -1,3 +1,69 @@
 .after__booking{
-    margin-top: 25%;
+    margin-top: auto;
+    /* margin-left: 25%; */
+}
+
+
+.booking__table{
+    margin-top: 69px;
+    border: solid 2px;
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+
+}
+
+.court__header{
+    position: fixed;
+    padding: 20px;
+    border: solid 2px;
+    border-collapse: collapse;
+
+    width: 100%;
+}
+
+.booking__table tr{
+    /* padding: 20px; */
+
+}
+
+.booking__table td{
+    padding: 20px;
+    border: solid 2px;
+    border-collapse: collapse;
+    /* background-color: white; */
+    cursor: pointer;
+
+  
+}
+
+.booking__table td:hover{
+    transform: translate(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.booking__table td:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* .booking__table td:hover::after{
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+} */
+
+
+.booking__table th{
+    padding: 20px;
+    border: solid 2px;
+    border-collapse: collapse;
+    /* background-color: white; */
+  
+}
+
+
+
+.booking__table td:hover{
+    background-color: red;
 }

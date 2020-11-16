@@ -1,6 +1,6 @@
 import { InputRounded } from '@material-ui/icons';
 import React from 'react'
-import './Register.css';
+import './css/Register.css';
 
 
 

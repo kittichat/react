@@ -13,18 +13,17 @@
 
 .booking__verticalline{
     /* margin-top: 200px; */
-    top: 150px;
     height: 500px;
     border-left:  solid ;
     color: black;
-    left: 50%;
-    margin-left: -2px;
-    position: absolute;
+    margin-left: 230px;
+    margin-top: 120px;
+
 }
 
 .booking__redirect{
-    margin-top: 20%;
-    margin-left: 35%;
+    margin-top: 316px;
+    margin-left: 300px;
     
 
 }
