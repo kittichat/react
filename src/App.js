@@ -1,14 +1,14 @@
 import React from 'react';
 import './css/App.css';
 import Header from './Header';
-import Login from './Login';
+import Login from './authen/Login';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Register from './Register';
-import Contact from './Contact';
-import Rule from './Rule';
-import Beforebooking from './Beforebooking';
-import Home from './Home';
-import Afterbooking from './Afterbooking';
+import Register from './authen/Register';
+import Contact from './component/Contact';
+import Rule from './component/Rule';
+import Beforebooking from './booking/Beforebooking';
+import Home from './component/Home';
+import Afterbooking from './booking/Afterbooking';
 
 function App() {
   return (

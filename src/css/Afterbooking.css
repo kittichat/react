@@ -1,37 +1,41 @@
 .after__booking{
-    margin-top: auto;
-    /* margin-left: 25%; */
+    margin-top: 100px;
+   
 }
 
+
+/* .Court__header {
+    border: solid 2px;
+    padding:20px;
+    border-collapse: collapse;
+    width: 100%;
+} 
+
+.Court__header th{
+    padding: 20px;
+    border-collapse: collapse;
+    border: 2px solid;
+   
+}
+.Court__header1 {
+    padding: 90px;
+    width: 150px;
+} */
 
 .booking__table{
     margin-top: 69px;
     border: solid 2px;
     border-collapse: collapse;
     width: 100%;
-    height: 100%;
+    height: 100%; 
 
 }
 
-.court__header{
-    position: fixed;
-    padding: 20px;
-    border: solid 2px;
-    border-collapse: collapse;
-
-    width: 100%;
-}
-
-.booking__table tr{
-    /* padding: 20px; */
-
-}
 
 .booking__table td{
     padding: 20px;
     border: solid 2px;
     border-collapse: collapse;
-    /* background-color: white; */
     cursor: pointer;
 
   
@@ -47,23 +51,64 @@
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-
-/* .booking__table td:hover::after{
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
-} */
-
-
 .booking__table th{
     padding: 20px;
     border: solid 2px;
     border-collapse: collapse;
-    /* background-color: white; */
-  
+   
 }
-
 
 
 .booking__table td:hover{
     background-color: red;
+} 
+ 
+
+
+.booking__table td:hover::after{
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
 }
+
+
+.court__header{
+    position: fixed;
+    padding: 20px;
+    border: solid 2px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.Booking__submit{
+    padding: 20px;
+    display: flex;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 80%;
+    
+    
+}
+
+.Submit__button{
+    border: solid 2px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 20px;
+    font-size: 30px;
+    color: white;
+    background-color: green;
+}
+
+.Cancle__button{
+    border: solid 2px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 20px;
+    font-size: 30px;
+    color: white;
+    background-color: orangered;
+}
+/* .Date__header{
+    width: 175px;
+} */
+
