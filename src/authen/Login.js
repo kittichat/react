@@ -106,7 +106,7 @@ class Login extends React.Component {
                      this.form = c;
                  }}  
                 >
-
+{/* 
                 <Input_login 
                 Icon={PersonIcon} 
                 title={"username"}
@@ -125,9 +125,9 @@ class Login extends React.Component {
                     onChange={this.onChangePassword}
                     validations={[required]}
                     type={"password"}
-                 />
+                 /> */}
 
-                {/* <Input
+                 <Input
                 type="text"
                 className="form-control"
                 name="username"
@@ -144,7 +144,7 @@ class Login extends React.Component {
                 value={this.state.password}
                 onChange={this.onChangePassword}
                 validations={[required]}
-                  /> */}
+                  /> 
                 
                     <button 
                         className="Login__button" 

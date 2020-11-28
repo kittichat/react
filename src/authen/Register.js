@@ -149,8 +149,10 @@ class Register extends React.Component {
 
     this.form.validateAll();
 
-    if (this.checkBtn.context._error.length === 0 ){
+    if (this.checkBtn.context._errors.length === 0 ){
       AuthService.register(
+        this.state.firstname,
+        this.state.lastname,
         this.state.username,
         this.state.passowrd,
         this.state.confirmpassword,
@@ -283,11 +285,28 @@ class Register extends React.Component {
         </div>
         {/*this space for register component*/}
 
-
+        
         <div className="Register__button__position">
-          <button type="submit" className="Register__button__size" >Submit</button>
+          <button 
+            // type="submit"
+            className="Register__button__size" 
+            
+           >
+             Submit
+           </button>
         </div>
+        
 
+        <CheckButton 
+            // type="submit"
+            className="Register__button__size" 
+            style={{display:"none"}}
+            ref={c => {
+              this.checkBtn = c;
+            }}
+           >
+             
+           </CheckButton>
       </Form>
 
     </div>
