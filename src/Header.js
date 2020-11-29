@@ -8,15 +8,18 @@ import HomeIcon from '@material-ui/icons/Home';
 
 
 class Header extends React.Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             currentUser :undefined,
+           
         }
+
+        this.logOut = this.logOut.bind(this)
     }
 
     componentDidMount(){
-        const user = AuthService.getCurrentUser
+        const user = AuthService.getCurrentUser()
 
         if (user) {
             this.setState({
@@ -65,7 +68,7 @@ class Header extends React.Component {
                         {currentUser ? (
                             <div className="navbar-nav ml-auto">
                                 <li className="nav-item">
-                                    <Link to = {`/profile`} >
+                                    <Link to = {"/profile"} >
                                         {/* it should be profile page */}
                                             {currentUser.username}
                                             {/* <button className="Header__login">Login</button> */}

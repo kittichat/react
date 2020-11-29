@@ -67,7 +67,7 @@ class Login extends React.Component {
             () => {
              
                 this.props.history.push("/profile");
-                // window.location.reload();
+                window.location.reload();
                 
             },
             error => {

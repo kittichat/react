@@ -11,7 +11,7 @@ class  AuthService {
         })
     .then(response => {
         if (response.data.accessToken){
-            localStorage.setItem('uesr',JSON.stringify(response.data));
+            localStorage.setItem('user',JSON.stringify(response.data));
         }
 
         return response.data;
@@ -19,7 +19,8 @@ class  AuthService {
     }
 
     logout(){
-        localStorage.removeItem('user');
+        window.localStorage.removeItem("user");
+        
     }
 
     register(firstname,lastname,username,password,confirmpass,email){
@@ -34,9 +35,7 @@ class  AuthService {
     }
 
     getCurrentUser(){
-       const x = JSON.parse(localStorage.getItem('user'));
-        console.log(alert(x.accessToken));
-        return JSON.parse(localStorage.getItem('user'));
+        return JSON.parse(localStorage.getItem("user"));
         
     }
 }
