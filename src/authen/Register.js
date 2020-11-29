@@ -224,7 +224,7 @@ class Register extends React.Component {
                   placeholder="example@email.com"
                   name="email"
                   value={this.state.email}
-                  onChage={this.onChangeEmail}
+                  onChange={this.onChangeEmail}
                   validations={[required, vemail]}
                   />
 
@@ -234,7 +234,7 @@ class Register extends React.Component {
                   placeholder="Username"
                   name="username"
                   value={this.state.username}
-                  onChangeLastname={this.onChamgeUsername}
+                  onChange={this.onChangeUsername}
                   validations={[required, vusername]}
                   />
 

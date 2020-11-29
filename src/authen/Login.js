@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { Link} from "react-router-dom";
+import { withRouter,Link} from "react-router-dom";
 import Form from "react-validation/build/form"
 import Input from "react-validation/build/input"
 import CheckButton from "react-validation/build/button"
@@ -65,8 +65,10 @@ class Login extends React.Component {
     if (this.checkBtn.context._errors.length === 0){
         AuthService.login(this.state.username, this.state.password).then(
             () => {
+             
                 this.props.history.push("/profile");
-                window.location.reload();
+                // window.location.reload();
+                
             },
             error => {
                 const resMessage = 
@@ -197,5 +199,5 @@ class Login extends React.Component {
     }
 }
 
+export default withRouter(Login)
 
-export default Login

@@ -21,13 +21,13 @@ function App() {
       <Router>
         <Header />
         <Switch>
-          <Route path="/afterbooking"  component={Afterbooking} />
-          <Route path="/beforebooking" component={Beforebooking} />
-          <Route path="/rule" component={Rule}/>
-          <Route path="/contact" component={Contact}/>
-          <Route path="/register" component={Register}/> 
-          <Route path="/profile" component={Profile}/>
-          <Route path="/login">
+          <Route exact path="/afterbooking"  component={Afterbooking} />
+          <Route exact path="/beforebooking" component={Beforebooking} />
+          <Route exact path="/rule" component={Rule}/>
+          <Route exact path="/contact" component={Contact}/>
+          <Route exact path="/register" component={Register}/> 
+          <Route exact path="/profile" component={Profile}/>
+          <Route exact path="/login">
             <div className="App__login">
               <Login />
             </div>
