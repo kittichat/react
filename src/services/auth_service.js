@@ -31,9 +31,6 @@ class  AuthService {
             password,
             confirmpass,
         });
-
-
-
     }
 
     getCurrentUser(){

@@ -53,6 +53,26 @@
     margin-top: 20px;
 }
 
+.Input__type{
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    border: solid;
+    border-radius: 20px;
+}
+.Input__icon{
+    padding-right: 10px;
+}
+
+.Input__input{
+    width: 20em;
+    height: 30px;
+    background-color: rgb(255, 233, 209);
+    border: none;
+}
+
+
+
 /* .Login__regis{
     display: flex;
 } */

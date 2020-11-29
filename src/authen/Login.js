@@ -107,51 +107,59 @@ class Login extends React.Component {
                  }}  
                 >
 {/* 
-                <Input_login 
-                Icon={PersonIcon} 
-                title={"username"}
-                name="username"
-                value={this.state.username}
-                onChange={this.onChangeUsername}
-                validations={[required]}
-                type={"text"}
-                />
-
-                <Input_login 
-                    Icon={LockIcon}
-                    title={"password"}
-                    name='password'
-                    value={this.state.password}
-                    onChange={this.onChangePassword}
+                    <Input_login 
+                    Icon={PersonIcon} 
+                    title={"username"}
+                    name="username"
+                    value={this.state.username}
+                    onChange={this.onChangeUsername}
                     validations={[required]}
-                    type={"password"}
-                 /> */}
+                    type={"text"}
+                    />
 
-                 <Input
-                type="text"
-                className="form-control"
-                name="username"
-                value={this.state.username}
-                onChange={this.onChangeUsername}
-                validations={[required]}
-                 />
-           
+                    <Input_login 
+                        Icon={LockIcon}
+                        title={"password"}
+                        name='password'
+                        value={this.state.password}
+                        onChange={this.onChangePassword}
+                        validations={[required]}
+                        type={"password"}
+                    /> */}
+                    <div className="Input__login">
+                        <div className="Input__type">
+                            <PersonIcon className="Input__icon"/>
+                            <Input
+                                type="text"
+                                placeholder="Username"
+                                className="Input__input"
+                                name="username"
+                                value={this.state.username}
+                                onChange={this.onChangeUsername}
+                                validations={[required]}
+                            />
+                        </div>
 
-              <Input
-                type="password"
-                className="form-control"
-                name="password"
-                value={this.state.password}
-                onChange={this.onChangePassword}
-                validations={[required]}
-                  /> 
-                
+                        <div className="Input__type">
+                            <LockIcon className="Input__icon"/>
+                            <Input
+                                type="password"
+                                placeholder="Password"
+                                className="Input__input"
+                                name="password"
+                                value={this.state.password}
+                                onChange={this.onChangePassword}
+                                validations={[required]}
+                            />    
+                        </div>
+                    </div>
+                    
                     <button 
                         className="Login__button" 
                         type="submit"
                         disabled={this.state.loading}
-                        >
-                            {this.state.loading && (<span className=""></span>)}
+                    >
+                        {this.state.loading && (<span className=""/>)}
                         <span>Login</span> 
                     </button>
                 
@@ -162,7 +170,7 @@ class Login extends React.Component {
                     }}
                     >
 
-                </CheckButton>
+                    </CheckButton>
                 </Form>
                  {/* this.state.message */}
            

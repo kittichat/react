@@ -5,11 +5,8 @@
     border: solid;
     border-radius: 20px;
 }
-
 .Input__icon{
-
     padding-right: 10px;
-    /* border: solid 2px; */
 }
 
 .Input__input{
@@ -17,8 +14,5 @@
     height: 30px;
     background-color: rgb(255, 233, 209);
     border: none;
-    
-    
-
 }
 

@@ -263,28 +263,27 @@ class Register extends React.Component {
                     <label >Gender</label>
                 </div>
 
+                
+
+                <div className="Gender">
+                  <div className="Checkbox__male">
+                    <input type="checkbox" />
+                    <label className="Male" >Male</label>
+                  </div>
+                  <div className="Checkbox__female">
+                    <input type="checkbox" />
+                    <label className="Female" >Female</label>
+                  </div>
+                </div>
+
+                <div className="Register__birthday__label">
+                  <label >Birthday</label>
+                </div>
+                {/*this space for register component*/}
+
             </div>
           </div>
         )}
-        
-        {/* not yet handle this place gender and etc */}
-
-        <div className="Gender">
-          <div className="Checkbox__male">
-            <input type="checkbox" />
-            <label className="Male" >Male</label>
-          </div>
-          <div className="Checkbox__female">
-            <input type="checkbox" />
-            <label className="Female" >Female</label>
-          </div>
-        </div>
-
-        <div className="Register__birthday__label">
-          <label >Birthday</label>
-        </div>
-        {/*this space for register component*/}
-
         
         <div className="Register__button__position">
           <button 
@@ -295,7 +294,17 @@ class Register extends React.Component {
              Submit
            </button>
         </div>
-        
+        {/* alert response message */}
+        {this.state.message && (
+          <div className="form-group">
+            <div 
+              className={
+                this.state.successful ? "alert alert-succcess" : "alert alert-danger"} role="alert"
+              >
+              {this.state.message}
+            </div>
+          </div>
+        )}
 
         <CheckButton 
             // type="submit"
@@ -306,7 +315,7 @@ class Register extends React.Component {
             }}
            >
              
-           </CheckButton>
+        </CheckButton>
       </Form>
 
     </div>
