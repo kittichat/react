@@ -3,17 +3,28 @@
 } */
 
 
-body, html {
+ body, html {
     height: 100%;
-    }
+    }  
     
 .home__background{
     
-    background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).jpg");
-    height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-image: url('/LCW-jump-smash.jpg') ;
+    /* height: 300px;
+    width: 100%; */
+    background-position:left;
+    background-repeat: no-repeat; 
     background-size: cover;
+    /* background-position: top;  */
+    /* top: 0;
+    left: 0; */
+    /* min-width: 100%;
+    min-height: 100%; */
+    width: 100%;
+    height: 190vh;
+    
+    /* top: 0;
+    left: 0; */
     /* position: relative; */
    
   

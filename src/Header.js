@@ -24,7 +24,7 @@ class Header extends React.Component {
         if (user) {
             this.setState({
                 currentUser: user,
-
+                
 
             })
         }
@@ -66,32 +66,32 @@ class Header extends React.Component {
                     </div>
                     <div>
                         {currentUser ? (
-                            <div className="navbar-nav ml-auto">
-                                <li className="nav-item">
-                                    <Link to = {"/profile"} >
+                            <div className="Header__right">
+                                {/* <li className="nav-item"> */}
+                                    <Link to = {"/profile"} className="nav-link-login" >
                                         {/* it should be profile page */}
                                             {currentUser.username}
                                             {/* <button className="Header__login">Login</button> */}
                                     </Link>
-                                </li>
-                                <li className="nav-item">
-                                    <a href="/login" className="nav-link" onClick={this.logOut}>
+                                {/* </li> */}
+                                {/* <li className="nav-item"> */}
+                                    <a href="/login" className="nav-link" onClick={this.logOut} className="nav-link-signup">
                                         LogOut
                                     </a>
-                                </li>
+                                {/* </li> */}
                             </div>
                         ) : (
-                            <div className="navbar-nav ml-auto">
-                                <li className="nav-item">
-                                    <Link to={"/login"} className="nav-link">
-                                        <button className="Header__login">Login</button>
+                            <div className="Header__right">
+                                {/* <li className="nav-item"> */}
+                                    <Link to={"/login"} className="nav-link-login">
+                                        Login
                                     </Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link to={"/register"} className="nav-link">
+                                {/* </li> */}
+                                {/* <li className="nav-item"> */}
+                                    <Link to={"/register"} className="nav-link-signup">
                                         Sign up
                                     </Link>
-                                </li>
+                                {/* </li> */}
                             </div>
                         )
                         }

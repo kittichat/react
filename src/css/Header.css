@@ -1,7 +1,7 @@
 .Header__part{
     align-items: center;
-    background-color: white;
-    /* background-color: transparent ; */
+    background-color: whitesmoke;
+    background-color: transparent ;
     display: flex;
     position: fixed;
     justify-content: space-between;
@@ -29,26 +29,16 @@
 .Header__right{
     display: flex;
     align-items: center;
-    /* color: black; */
     cursor: pointer;
     text-align: center;
     margin-right: 10px;
     
 }
 
-.Header__login{
-    padding: 15px;
-    background-color:black;
-    border-radius: 10px;
-    color: white;
-    margin-right: 20px;
-    margin-top: 7px;
-
-}
 .Header__text{
 
     font-size: 20px;
-    font-weight: bold;
+    /* font-weight: bold; */
     padding: 20px;
     float: left;
 
@@ -56,11 +46,56 @@
 
 
 .Header__home > :hover{
-    color: red;
+    color: rgb(238, 86, 86);
 }
 
 .Header__right > :hover{
-    background-color: red;
+    /* background-color: rgb(238, 86, 86); */
+    color: white;
+    background-color: rgb(19, 18, 18);
+}
+
+.nav-link{
+    
+    margin-right: 20px;
+   
+}
+
+.nav-link-a{ 
+    border: solid 2px;
+    border-radius: 4px;
+    background-color: rgb(240, 98, 122);
+    color: white;
+}
+
+.nav-link-login{
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    margin-right: 20px;
+    margin-top: 7px;
+    background-color: rgb(98, 155, 240);
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 20px;
+    
+}
+
+.nav-link-signup{
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    margin-right: 20px;
+    margin-top: 7px;
+    background-color: rgb(240, 98, 122);
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 20px;
+    
+}
+
+.nav-link-signup > :hover{
+    color: black;
 }
 
 /* .Header__rightbutton > :hover{
