@@ -48,12 +48,12 @@
 .Header__home > :hover{
     color: rgb(238, 86, 86);
 }
-
+/* 
 .Header__right > :hover{
-    /* background-color: rgb(238, 86, 86); */
+    background-color: rgb(238, 86, 86);
     color: white;
     background-color: rgb(19, 18, 18);
-}
+} */
 
 .nav-link{
     
@@ -96,6 +96,10 @@
 
 .nav-link-signup > :hover{
     color: black;
+}
+
+.Header__dropdown li{
+    list-style: none;
 }
 
 /* .Header__rightbutton > :hover{

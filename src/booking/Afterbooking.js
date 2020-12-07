@@ -33,7 +33,6 @@ class Afterbooking extends React.Component {
     handleClick(){
         //, backgroundColor:{bgColor1,bgColor2,bgColor3,bgColor4,bgColor5,bgColor6,bgColor7,bgColor8,bgColor9}
         
- 
         return this.state.Row1.map((test) => {
             const { id, time, court1, court2, court3, court4, court5, court6, court7, court8, court9, backgroundColor:{bgColor1,bgColor2,bgColor3,bgColor4,bgColor5,bgColor6,bgColor7,bgColor8,bgColor9}} = test
             // test.backgroundColor.map(color =>{
@@ -61,8 +60,6 @@ class Afterbooking extends React.Component {
     
 
     bgChange(id){ 
-     
-
         if (id === 1){this.state.test4 ? this.setState({bgColor1 : 'lime', test4 : false}) : this.setState({bgColor1 : '', test4 : true})} 
         if (id === 2){this.state.test4 ? this.setState({bgColor2 : 'lime', test4 : false}) : this.setState({bgColor2 : '', test4 : true})}
         if (id === 3){this.state.test4 ? this.setState({bgColor3 : 'lime', test4 : false}) : this.setState({bgColor3 : '', test4 : true})}
@@ -75,9 +72,7 @@ class Afterbooking extends React.Component {
         if (id === 10){this.state.test4 ? this.setState({bgColor10 : 'lime', test4 : false}) : this.setState({bgColor10 : '', test4 : true})}
         if (id === 11){this.state.test4 ? this.setState({bgColor11 : 'lime', test4 : false}) : this.setState({bgColor11 : '', test4 : true})}
         if (id === 12){this.state.test4 ? this.setState({bgColor12 : 'lime', test4 : false}) : this.setState({bgColor12 : '', test4 : true})}
-       
-
-   
+    
  }
      
         render(){

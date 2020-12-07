@@ -6,7 +6,6 @@ import CheckButton from "react-validation/build/button"
 
 import './../css/Login.css'
 
-import Input_login from './Input_login';
 import AuthService from "../services/auth_service"
 
 import PersonIcon from '@material-ui/icons/Person';
@@ -95,11 +94,11 @@ class Login extends React.Component {
     render(){
     return (
         <div className="Login__part">
-
+            
+            
             <div className="Login__input">
                 {/* <Avatar className="Login__avatar"/> */}
                 <h1 className="Login__header">Sign In</h1>
-
 
                 <Form 
                 className=""
@@ -108,26 +107,7 @@ class Login extends React.Component {
                      this.form = c;
                  }}  
                 >
-{/* 
-                    <Input_login 
-                    Icon={PersonIcon} 
-                    title={"username"}
-                    name="username"
-                    value={this.state.username}
-                    onChange={this.onChangeUsername}
-                    validations={[required]}
-                    type={"text"}
-                    />
 
-                    <Input_login 
-                        Icon={LockIcon}
-                        title={"password"}
-                        name='password'
-                        value={this.state.password}
-                        onChange={this.onChangePassword}
-                        validations={[required]}
-                        type={"password"}
-                    /> */}
                     <div className="Input__login">
                         <div className="Input__type">
                             <PersonIcon className="Input__icon"/>

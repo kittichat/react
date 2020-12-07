@@ -1,0 +1,22 @@
+.Dropdownlist {
+    background: yellow;
+    width: 200px;
+    position: absolute;
+    top: 80px;
+    list-style: none;
+    text-align: start;
+}
+.Dropdownlist li{
+    padding: 10px;
+    font: 20px solid;
+    
+}
+
+.Dropdownlist li:hover{
+    background: blue;
+
+}
+
+.list_detail{
+    text-decoration: none;
+}

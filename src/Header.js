@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from "react-router-dom"
+import Dropdown from './Dropdown'
 import './css/Header.css';
 
 import AuthService from './services/auth_service'
@@ -12,10 +13,12 @@ class Header extends React.Component {
         super(props)
         this.state = {
             currentUser :undefined,
+            open : false,  
            
         }
 
         this.logOut = this.logOut.bind(this)
+        this.handleClick = this.handleClick.bind(this)
     }
 
     componentDidMount(){
@@ -28,6 +31,16 @@ class Header extends React.Component {
 
             })
         }
+    }
+
+    handleClick(){
+        this.setState(prevState => {
+            return{
+            open : !prevState.open
+            }
+        })
+
+    
     }
 
     logOut(){
@@ -66,19 +79,32 @@ class Header extends React.Component {
                     </div>
                     <div>
                         {currentUser ? (
-                            <div className="Header__right">
-                                {/* <li className="nav-item"> */}
-                                    <Link to = {"/profile"} className="nav-link-login" >
-                                        {/* it should be profile page */}
-                                            {currentUser.username}
-                                            {/* <button className="Header__login">Login</button> */}
-                                    </Link>
-                                {/* </li> */}
-                                {/* <li className="nav-item"> */}
-                                    <a href="/login" className="nav-link" onClick={this.logOut} className="nav-link-signup">
-                                        LogOut
-                                    </a>
-                                {/* </li> */}
+                            <div className="Header__right">   
+                                
+                                    <ul className="Header__dropdown">
+                                        {/* <li>
+                                        <Link to = {"/profile"} className="nav-link-login" >                          
+                                                {currentUser.username}                                         
+                                        </Link>   
+                                        </li> */}
+                                            {/* At this part i try to create dropdown list by use class to implement */}
+                                        <li>
+                                            <a href='#' className="nav-link-login" onClick={this.handleClick} >
+                                                {currentUser.username}
+                                            </a>
+
+                                            {this.state.open && <Dropdown />}
+                                        </li>
+
+
+                                       
+                                    </ul>
+                                    
+                                        <a href="/login" className="nav-link" onClick={this.logOut} className="nav-link-signup">
+                                            LogOut
+                                        </a>
+                                    
+                                
                             </div>
                         ) : (
                             <div className="Header__right">

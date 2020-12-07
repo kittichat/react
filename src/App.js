@@ -12,6 +12,9 @@ import Beforebooking from './booking/Beforebooking';
 import Home from './component/Home';
 import Afterbooking from './booking/Afterbooking';
 import Profile from './component/Profile'
+import Paymenthistory from './component/Paymenthistory'
+import Bookinghistory from './component/Bookinghistory'
+
 
 function App() {
   return (
@@ -27,7 +30,13 @@ function App() {
           <Route exact path="/contact" component={Contact}/>
           <Route exact path="/register" component={Register}/> 
           <Route exact path="/profile" component={Profile}/>
+          <Route exact path="/bookinghistory" component={Bookinghistory} />         
+          <Route exact path="/paymenthistory" component={Paymenthistory} />
+
+          
           <Route exact path="/login">
+         
+          {/* <Route exact path="/" /> */}
             <div className="App__login">
               <Login />
             </div>
