@@ -2,6 +2,8 @@ import axios from 'axios'
 
 const API_URL = "http://localhost:8000/";
 
+// window.localStorage.setItem('user','test');
+
 class  AuthService {
     login(username,password){
         return axios
@@ -12,9 +14,10 @@ class  AuthService {
     .then(response => {
         if (response.data.accessToken){
             localStorage.setItem('user',JSON.stringify(response.data));
+            // document.cookie = `user = ${JSON.parse(localStorage.getItem('user')).accessToken}`;
         }
 
-        return response.data;
+         return response.data;
     });
     }
 

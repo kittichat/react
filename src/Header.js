@@ -82,25 +82,21 @@ class Header extends React.Component {
                             <div className="Header__right">   
                                 
                                     <ul className="Header__dropdown">
-                                        {/* <li>
-                                        <Link to = {"/profile"} className="nav-link-login" >                          
-                                                {currentUser.username}                                         
-                                        </Link>   
-                                        </li> */}
-                                            {/* At this part i try to create dropdown list by use class to implement */}
+                                        <li>
+                                            <Link to={"./groupplayer"} className="nav-link-signup">
+                                                Group
+                                            </Link>
+                                        </li>
                                         <li>
                                             <a href='#' className="nav-link-login" onClick={this.handleClick} >
                                                 {currentUser.username}
                                             </a>
-
                                             {this.state.open && <Dropdown />}
                                         </li>
-
-
-                                       
+                                     
                                     </ul>
                                     
-                                        <a href="/login" className="nav-link" onClick={this.logOut} className="nav-link-signup">
+                                        <a href="/login" onClick={this.logOut} className="nav-link-signup">
                                             LogOut
                                         </a>
                                     
@@ -108,16 +104,13 @@ class Header extends React.Component {
                             </div>
                         ) : (
                             <div className="Header__right">
-                                {/* <li className="nav-item"> */}
                                     <Link to={"/login"} className="nav-link-login">
                                         Login
                                     </Link>
-                                {/* </li> */}
-                                {/* <li className="nav-item"> */}
+                                                           
                                     <Link to={"/register"} className="nav-link-signup">
                                         Sign up
-                                    </Link>
-                                {/* </li> */}
+                                    </Link>                          
                             </div>
                         )
                         }

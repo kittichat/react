@@ -14,7 +14,7 @@ import Afterbooking from './booking/Afterbooking';
 import Profile from './component/Profile'
 import Paymenthistory from './component/Paymenthistory'
 import Bookinghistory from './component/Bookinghistory'
-
+import Group from './booking/Group'
 
 function App() {
   return (
@@ -32,7 +32,9 @@ function App() {
           <Route exact path="/profile" component={Profile}/>
           <Route exact path="/bookinghistory" component={Bookinghistory} />         
           <Route exact path="/paymenthistory" component={Paymenthistory} />
-
+          <Route exact path="/groupplayer" component={Group} />
+          
+          {/* <Route exact path="" component={} /> */}
           
           <Route exact path="/login">
          
