@@ -1,2 +1,6 @@
 ***Login 
 -Input cannot send data to backend but it can connect to backend
+-remove package : axios-hook, cookie-client , namor , styled-component
+
+Checkpoints:
+-session id >> when i use 'test member' then logout session is gone but others still alive ?

@@ -2,6 +2,8 @@ import React from 'react'
 import {Link} from "react-router-dom"
 import Dropdown from './Dropdown'
 import './css/Header.css';
+import { Cookies} from "react-cookie";
+import { typechecker } from "prop-types" 
 
 import AuthService from './services/auth_service'
 
@@ -14,7 +16,7 @@ class Header extends React.Component {
         this.state = {
             currentUser :undefined,
             open : false,  
-           
+       
         }
 
         this.logOut = this.logOut.bind(this)
@@ -43,8 +45,13 @@ class Header extends React.Component {
     
     }
 
-    logOut(){
+    logOut = () => {
         AuthService.logout();
+        AuthService.cookieremove();
+        window.location.reload();
+       
+        
+        
     }
     render(){
         const { currentUser } = this.state

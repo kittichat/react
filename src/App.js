@@ -15,6 +15,19 @@ import Profile from './component/Profile'
 import Paymenthistory from './component/Paymenthistory'
 import Bookinghistory from './component/Bookinghistory'
 import Group from './booking/Group'
+import Individualgroup from './booking/Individualgroup';
+
+import Group1 from './booking/showall/Group1'
+import Group2 from './booking/showall/Group2'
+import Group3 from './booking/showall/Group3'
+import Group4 from './booking/showall/Group4'
+import Group5 from './booking/showall/Group5'
+import Group6 from './booking/showall/Group6'
+import Group7 from './booking/showall/Group7'
+import Group8 from './booking/showall/Group8'
+import Group9 from './booking/showall/Group9'
+import Group10 from './booking/showall/Group10'
+import Groupdetail from './booking/Groupdetail';
 
 function App() {
   return (
@@ -33,7 +46,21 @@ function App() {
           <Route exact path="/bookinghistory" component={Bookinghistory} />         
           <Route exact path="/paymenthistory" component={Paymenthistory} />
           <Route exact path="/groupplayer" component={Group} />
-          
+          <Route exact path="/individualgroup" component={Individualgroup} />
+          <Route exact path="/group1" component={Group1} />
+          <Route exact path="/group2" component={Group2} />
+          <Route exact path="/group3" component={Group3} />
+          <Route exact path="/group4" component={Group4} />
+          <Route exact path="/group5" component={Group5} />
+          <Route exact path="/group6" component={Group6} />
+          <Route exact path="/group7" component={Group7} />
+          <Route exact path="/group8" component={Group8} />
+          <Route exact path="/group9" component={Group9} />
+          <Route exact path="/group10" component={Group10} />
+          <Route exact path="/detail" component={Groupdetail} />
+
+
+
           {/* <Route exact path="" component={} /> */}
           
           <Route exact path="/login">

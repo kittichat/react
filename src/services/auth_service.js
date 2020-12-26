@@ -1,4 +1,7 @@
 import axios from 'axios' 
+import { useCookies} from "react-cookie";
+
+axios.defaults.withCredentials = true;
 
 const API_URL = "http://localhost:8000/";
 
@@ -9,16 +12,19 @@ class  AuthService {
         return axios
         .post(API_URL + 'login/',{
             username,
-            password
+            password,
+            
+            
         })
     .then(response => {
-        if (response.data.accessToken){
-            localStorage.setItem('user',JSON.stringify(response.data));
-            // document.cookie = `user = ${JSON.parse(localStorage.getItem('user')).accessToken}`;
+         if (response.data.accessToken){
+              localStorage.setItem('user',JSON.stringify(response.data));
+            //   document.cookie = `user = ${JSON.parse(localStorage.getItem('user')).accessToken}`;
         }
-
-         return response.data;
+          return response.data;
     });
+    
+
     }
 
     logout(){
@@ -34,6 +40,7 @@ class  AuthService {
             email,
             password,
             confirmpass,
+            
         });
     }
 
@@ -41,6 +48,13 @@ class  AuthService {
         return JSON.parse(localStorage.getItem("user"));
         
     }
+
+   cookieremove(){
+       return axios
+       .get(API_URL + 'logout/',
+        {withCredentials:true}
+       )
+   }
 }
 
 

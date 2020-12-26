@@ -1,0 +1,14 @@
+.Group1{
+    margin-top: 10%;
+    /* display: flex; */
+}
+
+.group1_table{
+    display: flex;
+    margin-left: 30px;
+}
+
+.group1_table table{
+    margin-left: 20px;
+}
+

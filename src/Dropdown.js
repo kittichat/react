@@ -15,19 +15,16 @@ function Dropdown() {
                 className="Dropdownlist"
             >
                 <li>
-                    {/* Test 1 */}
                     <Link to={"./profile"} className="list_detail">
                         Profile
                     </Link>
                 </li>
                 <li>
-                    {/* Test 2 */}
                     <Link to={"./paymenthistory" } className="list_detail">
                         Payment History
                     </Link>
                 </li>
                 <li>
-                    {/* Test 3 */}
                     <Link to={"./bookinghistory"} className="list_detail">
                         Booking History
                     </Link>
