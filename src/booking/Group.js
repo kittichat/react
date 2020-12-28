@@ -98,6 +98,12 @@ function Group() {
    
     //  console.log(group)
     // console.log(group)
+
+    const triggerText = 'Create Group'
+    const onSubmit = (event) =>{
+        event.preventDefault(event)
+    }
+
     const Group_component =  value.map(response => <ShowGroup name={response.name} />)
 
     const [Listofgroup , setListofgroup] = useState([])
@@ -120,6 +126,10 @@ function Group() {
 
     return (
         <div className="list_row">
+            <h1>test</h1>
+            <h1>test</h1>
+            <h1>test</h1>
+            <h1>test</h1>
         <ul className="list-group" >
             {Listofgroup &&
                 Listofgroup.map((group, index) => (
@@ -135,6 +145,8 @@ function Group() {
                     </Link>
                 ))}
         </ul>
+
+                     <Container triggerText={triggerText} onSubmit={onSubmit} />
 
 
 

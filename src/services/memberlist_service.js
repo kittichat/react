@@ -18,7 +18,7 @@ import http from './http_common'
 // export default new MemberList();
 
 const getAll = () => {
-    return http.get("/allmembers")
+    return http.get("/creategroup/")
 }
 
 export default {

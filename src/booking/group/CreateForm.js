@@ -77,20 +77,20 @@
 
 
 import React , {useState, useEffect} from 'react'
+import { Link } from "react-router-dom"
 import Memberlist from '../../services/memberlist_service'
 
-import MemberList from "../services/memberlist_service"
 
 function CreateForm(props) {
 
-  const [memberlist, setMemberlist] = useState({})
+  // const [memberlist, setMemberlist] = useState({})
 
-  useEffect(() => {
-    const member_list = Memberlist.member();
-    member_list.then((response) => {
-      setMemberlist(response.map())
-    })
-  })
+  // useEffect(() => {
+  //   const member_list = Memberlist.member();
+  //   member_list.then((response) => {
+  //     setMemberlist(response.map())
+  //   })
+  // })
 
   const [Listofmember , setListofmember] = useState([])
 
@@ -100,7 +100,7 @@ function CreateForm(props) {
 
 
     const retrieveAllmember = () =>{
-        MemberList.getAll()
+        Memberlist.getAll()
             .then(response => {
                 setListofmember(response.data)   // data is list of name of group
                 console.log(response.data)
@@ -134,8 +134,8 @@ function CreateForm(props) {
        </div>
 
        <ul className="list-group" >
-            {Listofgroup &&
-                Listofgroup.map((group, index) => (
+            {Listofmember &&
+                Listofmember.map((group, index) => (
                     <Link to={"/detail/" + group.title} >
                         < li 
                             // className={

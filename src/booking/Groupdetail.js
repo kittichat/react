@@ -1,5 +1,4 @@
-import React, {useState , usegetGroup(props.match.params.id)
-} from 'react'
+import React, {useState , useEffect} from 'react'
 import GroupList from "../services/groupservices"
 function Groupdetail(props) {
 
@@ -19,7 +18,7 @@ function Groupdetail(props) {
     useEffect(() => {
         getGroup(props.match.params.id)
 
-    }, [porps.match.params.id])
+    }, [props.match.params.id])
 
 
 

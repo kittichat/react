@@ -13,10 +13,12 @@ function ShowGroup(props) {
     const grouprequest = () => {
         
     }
+
+
     return (
         <div>
             <Link to={'./detail'}>
-                <h1 onClick={handleClick}>{props.name}</h1>
+                <h1 >{props.name}</h1>
             </Link>
         </div>
     )
