@@ -1,88 +1,33 @@
-// import React from 'react'
-// import Form from "react-validation/build/form"
-// import Input from "react-validation/build/input"
-
-
-// import AddCircleIcon from '@material-ui/icons/AddCircle';
-
-// export function CreateForm() {
-//     return (
-//         <div>
-
-//             <h1 className="Create__header">Create Group</h1>
-//             <Form className="Create__form"
-//              onSubmit = {this.handleCreate}
-//              >
-//                <Input 
-//                  className="Create__groupname"
-//                  type="text"
-//                  placeholader="Group name"
-//                 //  value={}
-//                 //  onChange={}
-//                 //  validation={}
-//                  />
-
-//                 <AddCircleIcon
-//                  className="Create__add"
-//                 //  onClick={}
-//                  />
-
-//                  <button
-//                  >
-//                      Submit
-//                  </button>
-
-//             </Form>
-//         </div>
-//     )
-// }
-
-// export default CreateForm
-
-
-// import React from 'react';
-
-// export const Form = ({ onSubmit }) => {
-//   return (
-//     <form onSubmit={onSubmit}>
-//       <div className="form-group">
-//         <label htmlFor="name">Name</label>
-//         <input className="form-control" id="name" />
-//       </div>
-//       <div className="form-group">
-//         <label htmlFor="email">Email address</label>
-//         <input
-//           type="email"
-//           className="form-control"
-//           id="email"
-//           placeholder="name@example.com"
-//         />
-//       </div>
-//       <div className="form-group">
-//         <button className="form-control btn btn-primary" type="submit">
-//           Submit
-//         </button>
-//       </div>
-//       <h1>fetch data</h1>
-//       <h1>fetch data</h1>
-//       <h1>fetch data</h1>
-//       <h1>fetch data</h1>
-//       <h1>fetch data</h1>
-
-//     </form>
-//   );
-// };
-// export default Form;
-
-
 
 import React , {useState, useEffect} from 'react'
 import { Link } from "react-router-dom"
 import Memberlist from '../../services/memberlist_service'
 
+import "../../css/CreateForm.css"
+import { checkPropTypes } from 'prop-types'
 
-function CreateForm(props) {
+  const HandleChecked = (props) => {
 
+    const [Change,setChange] = useState(props)
+
+    setChange({})
+    return (
+
+      // Some problem here it is how to send props in hooks
+      <div>
+        <input 
+          type="checkbox"
+          // checked={test.username}
+           onchange={console.log(test.username)}
+        />
+      </div>
+    )
+  }
+
+
+
+ function CreateForm(props) {
+//  const CreateForm = (props) => {
   // const [memberlist, setMemberlist] = useState({})
 
   // useEffect(() => {
@@ -110,6 +55,10 @@ function CreateForm(props) {
             })
     }
 
+    // const handleChecked = () => {
+    //   console.log(group.username)
+    // }
+
 
   return (
     <div className="list_row">
@@ -127,33 +76,34 @@ function CreateForm(props) {
            placeholder="name@example.com"
          />
        </div>
-       <div className="form-group">
-         <button className="form-control btn btn-primary" type="submit">
-           Submit
-         </button>
-       </div>
+       
 
        <ul className="list-group" >
             {Listofmember &&
                 Listofmember.map((group, index) => (
-                    <Link to={"/detail/" + group.title} >
+                    //  <Link to={"/detail/" + group.username} >
+                        
                         < li 
                             // className={
                             //     "list-group-item " + (index === currentIndex ? "actice" : "")
                             // }
+
+                            
                             >
+                                <HandleChecked {...group} />
                                 
-                                {group.title}
+                                
+                                {group.username}
                         </li>
-                    </Link>
+                    //  </Link>
                 ))}
         </ul>
 
-       {/* <h1>fetch data</h1>
-       <h1>fetch data</h1>
-       <h1>fetch data</h1>
-       <h1>fetch data</h1>
-       <h1>fetch data</h1> */}
+        <div className="form-group">
+         <button className="form-control btn btn-primary" type="submit">
+           Submit
+         </button>
+       </div>
       </form>
     </div>
   )

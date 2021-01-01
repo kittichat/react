@@ -4,3 +4,7 @@
 
 Checkpoints:
 -session id >> when i use 'test member' then logout session is gone but others still alive ?
+
+Got some bug
+-Listofgroup in CreateForm >> when i use django_db ; error shows Listofgroup is not a function but 
+when i use django_project error was gone then i think this problem might be "map" function in ES6 it's null

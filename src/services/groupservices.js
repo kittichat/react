@@ -1,7 +1,7 @@
 import http from "./http_common"
 
 const getAll = () => {
-    return http.get("/groups")
+    return http.get("/listgroup/")
 }
 
 const get = (nameofgroup) => {
