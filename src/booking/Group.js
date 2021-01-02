@@ -17,6 +17,7 @@ function Group() {
         event.preventDefault(event)
     }
 
+    // I think this part is no needed any more also include showGroup too.
     const Group_component =  value.map(response => <ShowGroup name={response.name} />)
 
     const [Listofgroup , setListofgroup] = useState([])
@@ -52,7 +53,7 @@ function Group() {
                             //     "list-group-item " + (index === currentIndex ? "actice" : "")
                             // }
                             >
-                                
+                                {/* this part not already used cause it needs real group data */}
                                 {group.title}
                         </li>
                     </Link>

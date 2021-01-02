@@ -1,6 +1,9 @@
 
 import React , {useState, useEffect} from 'react'
 import { Link } from "react-router-dom"
+import CheckButton from "react-validation/build/input"
+import Form from "react-validation/build/form"
+
 import Memberlist from '../../services/memberlist_service'
 
 import "../../css/CreateForm.css"
@@ -10,15 +13,14 @@ import { checkPropTypes } from 'prop-types'
 
     const [Change,setChange] = useState(props)
 
-    setChange({})
     return (
 
       // Some problem here it is how to send props in hooks
       <div>
         <input 
           type="checkbox"
-          // checked={test.username}
-           onchange={console.log(test.username)}
+          checked={Change.isCheck}
+          onChange={() => setChange(!Change.isCheck)}
         />
       </div>
     )
@@ -38,7 +40,7 @@ import { checkPropTypes } from 'prop-types'
   // })
 
   const [Listofmember , setListofmember] = useState([])
-
+  const [Successful , setSuccessful] = useState(false)
     useEffect(() => {
        retrieveAllmember() 
     }, [])
@@ -55,14 +57,48 @@ import { checkPropTypes } from 'prop-types'
             })
     }
 
-    // const handleChecked = () => {
-    //   console.log(group.username)
-    // }
+    const handleCreate = (e) => {
+      e.preventDefault()
 
+      setSuccessful(false)
+
+      if(this.checkBtn.context._errors.length === 0){
+        createRequire(Listofmember)
+        .then(
+          response => {
+            setSuccessful({
+              message: response.data.message,
+              Successful: true
+            })
+          },
+          error => {
+            const resMessage = 
+            (error.response && 
+              error.response.data &&
+              error.response.data.message) ||
+              error.message ||
+              error.toString();
+
+              this.setState({
+                successful: false,
+                message: resMessage
+              })
+          }
+        )
+      }
+
+
+    }
 
   return (
     <div className="list_row">
-      <form onSubmit={props.onSubmit}>
+      <Form 
+        onSubmit={handleCreate}
+        ref = {c => {
+          this.form = c
+        }}
+      
+      >
        <div className="form-group">
          <label htmlFor="name">Name</label>
          <input className="form-control" id="name" />
@@ -87,12 +123,8 @@ import { checkPropTypes } from 'prop-types'
                             // className={
                             //     "list-group-item " + (index === currentIndex ? "actice" : "")
                             // }
-
-                            
                             >
                                 <HandleChecked {...group} />
-                                
-                                
                                 {group.username}
                         </li>
                     //  </Link>
@@ -104,7 +136,17 @@ import { checkPropTypes } from 'prop-types'
            Submit
          </button>
        </div>
-      </form>
+
+       <CheckButton
+        className=""
+        style={{display:"none"}}
+        ref={c => {
+          this.checkBtn = c
+        }}
+       >
+
+       </CheckButton>
+      </Form>
     </div>
   )
 }
