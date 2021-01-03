@@ -1,12 +1,16 @@
 import React from 'react'
 import {Link} from "react-router-dom"
-import Dropdown from './Dropdown'
-import './css/Header.css';
 import { Cookies} from "react-cookie";
 import { typechecker } from "prop-types" 
 
+import './css/Header.css';
+
+import Dropdown from './Dropdown'
+import Notificate from './Notificate'
+
 import AuthService from './services/auth_service'
 
+import NotificationsIcon from '@material-ui/icons/Notifications';
 import HomeIcon from '@material-ui/icons/Home';
 
 
@@ -16,6 +20,7 @@ class Header extends React.Component {
         this.state = {
             currentUser :undefined,
             open : false,  
+            notificate_open : false,
        
         }
 
@@ -41,9 +46,15 @@ class Header extends React.Component {
             open : !prevState.open
             }
         })
-
-    
     }
+    // I think handleClick and handleClick_noticate can sum to one function >> i will see it later
+    // handleClick_noticicate(){
+    //     this.setState(prevState => {
+    //         return {
+    //             notificate_open : !prevState.notificate_open
+    //         }
+    //     })
+    // }
 
     logOut = () => {
         AuthService.logout();
@@ -89,6 +100,14 @@ class Header extends React.Component {
                             <div className="Header__right">   
                                 
                                     <ul className="Header__dropdown">
+                                        <li>
+                                            <NotificationsIcon 
+                                                className="nav-link-notification"
+                                                // onClick={this.handleClick_noticicate}
+                                                />
+                                            {/* {this.state.notificate_open && <Notificate />} */}
+                                            {/* don't forget to build component of notificate */}
+                                        </li>
                                         <li>
                                             <Link to={"./groupplayer"} className="nav-link-signup">
                                                 Group

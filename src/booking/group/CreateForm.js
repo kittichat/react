@@ -63,7 +63,7 @@ import { checkPropTypes } from 'prop-types'
       setSuccessful(false)
 
       if(this.checkBtn.context._errors.length === 0){
-        createRequire(Listofmember)
+        Memberlist.createRequire(Listofmember)
         .then(
           response => {
             setSuccessful({
