@@ -26,6 +26,7 @@ class Header extends React.Component {
 
         this.logOut = this.logOut.bind(this)
         this.handleClick = this.handleClick.bind(this)
+        this.handleClick_noticicate = this.handleClick_noticicate.bind(this)
     }
 
     componentDidMount(){
@@ -48,13 +49,13 @@ class Header extends React.Component {
         })
     }
     // I think handleClick and handleClick_noticate can sum to one function >> i will see it later
-    // handleClick_noticicate(){
-    //     this.setState(prevState => {
-    //         return {
-    //             notificate_open : !prevState.notificate_open
-    //         }
-    //     })
-    // }
+     handleClick_noticicate(){
+         this.setState(prevState => {
+             return {
+                 notificate_open : !prevState.notificate_open
+             }
+         })
+     }
 
     logOut = () => {
         AuthService.logout();
@@ -103,9 +104,9 @@ class Header extends React.Component {
                                         <li>
                                             <NotificationsIcon 
                                                 className="nav-link-notification"
-                                                // onClick={this.handleClick_noticicate}
+                                                onClick={this.handleClick_noticicate}
                                                 />
-                                            {/* {this.state.notificate_open && <Notificate />} */}
+                                             {this.state.notificate_open && <Notificate />} 
                                             {/* don't forget to build component of notificate */}
                                         </li>
                                         <li>

@@ -1,7 +1,7 @@
 
 import React , {useState, useEffect} from 'react'
 import { Link } from "react-router-dom"
-import CheckButton from "react-validation/build/input"
+import CheckButton from "react-validation/build/button"
 import Form from "react-validation/build/form"
 
 import Memberlist from '../../services/memberlist_service'

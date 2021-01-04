@@ -1,6 +1,9 @@
 import React , {useState} from 'react'
 import { Link } from 'react-router-dom'
 
+import './css/Notificate.css'
+
+// this page is focus on show all notication for users
 
 function Notificate() {
     const [click, setClick] = useState(false)
@@ -9,7 +12,10 @@ function Notificate() {
 
     return (
         <div>
-            <ul>
+            <ul
+                onClick={handleClick}
+                className="Dropdownlist"
+            >
                 <li>
                     <h1>Test</h1>
                 </li>
