@@ -7,6 +7,7 @@ import ShowGroup from './ShowGroup'
 import value from "../api/allgroup"
 import GroupList from "../services/groupservices"
 
+
 import '../css/Group.css'
 
 function Group() {
@@ -67,6 +68,10 @@ function Group() {
         <div>
              {/* <ShowGroup name={group.name} /> */}
             {Group_component}
+
+            <Link to={'./group2'}>
+                <h1>group2</h1>
+            </Link>
         </div>
         </div>
     )

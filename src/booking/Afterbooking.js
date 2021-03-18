@@ -1,3 +1,4 @@
+
 import React from 'react'
 import '../css/Afterbooking.css'
 
@@ -82,7 +83,9 @@ class Afterbooking extends React.Component {
         
             <table className="booking__table">
                 <tbody>  
-                    {/* <tr>{this.renderTable()}</tr> */}
+                    {/* <tr>{this.renderTable()}</tr>  */}
+                    
+
                         {this.handleClick()}
                 
             
@@ -99,3 +102,162 @@ class Afterbooking extends React.Component {
 }
 }
 export default Afterbooking
+
+
+// import React from 'react'
+// import styled from 'styled-components'
+// import { useTable } from 'react-table'
+
+// import makeData from './showall/makeData'
+
+// import '../../css/Group1.css'
+
+// const Styles = styled.div`
+//   padding: 1rem;
+//   table {
+//     border-spacing: 0;
+//     border: 1px solid black;
+//     tr {
+//       :last-child {
+//         td {
+//           border-bottom: 0;
+//         }
+//       }
+//     }
+//     th,
+//     td {
+//       margin: 0;
+//       padding: 0.5rem;
+//       border-bottom: 1px solid black;
+//       border-right: 1px solid black;
+//       :last-child {
+//         border-right: 0;
+//       }
+//     }
+//   }
+// `
+
+// const onRowClick = (state, rowInfo, column, instance) => {
+//   return {
+//     onClick : (e, handleOriginal) => {
+//       console.log(`Row index: ${rowInfo.index}, column header: ${column.Header}`)
+//       if(handleOriginal){
+//         handleOriginal()
+//       }
+//     }
+//   }
+// }
+
+// function Table({ columns, data}) {
+//     // Use the state and functions returned from useTable to build your UI
+//     const {
+//         getTableProps,
+//         getTableBodyProps,
+//         headerGroups,
+//         rows,
+//         prepareRow,
+//     } = useTable({
+//         columns,
+//         data,
+//     })
+
+//     // Render the UI for your table
+//     return (
+//         <table {...getTableProps()}>
+//             <thead>
+//                 {headerGroups.map(headerGroup => (
+//                     <tr {...headerGroup.getHeaderGroupProps()}>
+//                         {headerGroup.headers.map(column => (
+//                             <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+//                         ))}
+//                     </tr>
+//                 ))}
+//             </thead>
+//             <tbody {...getTableBodyProps()}>
+//                 {rows.map((row, i) => {
+//                     prepareRow(row)
+//                     return (
+//                         <tr {...row.getRowProps()}>
+//                             {row.cells.map(cell => {
+//                                 return <td {...cell.getCellProps()}
+//                                     // use cell.value to identify each cell
+//                                 >
+//                                     {cell.render('Cell')}</td>
+//                             })}
+//                         </tr>
+//                     )
+//                 })}
+//             </tbody>
+//         </table>
+//     )
+// }
+
+
+// function Group1() {
+
+//     const columns = React.useMemo(
+//         () => [
+//             {
+//                 Header: 'Name',
+//                 columns: [
+//                     {
+//                         Header: 'Court1',
+//                         accessor: 'court1',
+//                     },
+//                     {
+//                         Header: 'Court2',
+//                         accessor: 'court2',
+//                     },
+//                     {
+//                         Header: 'Court3',
+//                         accessor: 'court3',
+//                     },
+//                     {
+//                         Header: 'Court4',
+//                         accessor: 'court4',
+//                     },
+//                     {
+//                         Header: 'Court5',
+//                         accessor: 'court5',
+//                     },
+//                     {
+//                         Header: 'Court6',
+//                         accessor: 'court6',
+//                     },
+//                     {
+//                         Header: 'Court7',
+//                         accessor: 'court7',
+//                     },
+//                     {
+//                         Header: 'Court8',
+//                         accessor: 'court8',
+//                     },
+//                     {
+//                         Header: 'Court9',
+//                         accessor: 'court9',
+//                     },
+
+//                 ],
+//             },
+//         ],
+//         []
+//     )
+
+    
+//     const data = React.useMemo(() => makeData(20), [])
+
+
+//     return (
+//         <div className="Group1">
+//             <Styles>
+//                 <div className="group1_table">
+//                     <Table className="group1_eachtable" columns={columns} data={data} />
+//                     <Table className="group1_eachtable" columns={columns} data={data} />
+//                 </div>
+//             </Styles>
+//         </div>
+//     )
+// }
+
+// export default Group1
+

@@ -40,7 +40,7 @@
 
   
 }
-
+/* both parts of this make cell has dimension */
 .booking__table td:hover{
     transform: translate(-3px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
@@ -50,7 +50,7 @@
     transform: translateY(-1px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
-
+/* *********************************************** */
 .booking__table th{
     padding: 20px;
     border: solid 2px;

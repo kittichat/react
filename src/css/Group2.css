@@ -1,0 +1,52 @@
+
+.Group2{
+    margin-top: 100px;
+}
+.test__ok {
+    background-color: greenyellow;
+}
+
+/* .test__ok :hover{
+    background-color: blue;
+} */
+
+.test2__ok{
+    background-color: white;
+}
+
+.bg__false{
+    background-color: red;
+}
+
+.Booking__table td:hover{
+    transform: translate(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    background : greenyellow;
+}
+
+.Booking__table td:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.Test :hover{
+    color : red;
+    background : blue;
+}
+
+.Test{
+    color : blue;
+    font-size: 30px;
+    /* //background-color: blue; */
+}
+
+.Booking__submit{
+    border: solid 2px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 20px;
+    font-size: 30px;
+    color: white;
+    background-color: green;
+}
