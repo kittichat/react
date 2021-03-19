@@ -7,12 +7,13 @@ const API_URL = "http://localhost:8000/";
 class BookingService{
     booking(){
         return axios
-        .get(API_URL + 'bookingtablepage/'
+        .get(API_URL + 'status/'
             // I think this place no need because server can know authorized by cookie and group is different location
         )
         .then(response => {
-            return response.something;
+            return response;
         })
+        
     }
 
     bookingCourts(arr){
@@ -23,5 +24,5 @@ class BookingService{
     }
 }
 
-export default BookingService;
+export default new BookingService();
 // is export needs parenthese

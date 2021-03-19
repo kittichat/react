@@ -147,7 +147,7 @@
 
 import React , {useState, useEffect} from 'react'
 import styled from 'styled-components'
-import { useTable } from 'react-table'
+import { useExpanded, useTable } from 'react-table'
 
 import makeData from './makeData'
 import Data from '../../api/booking_data'
@@ -207,168 +207,154 @@ const Styles = styled.div`
 //     }
 // }
 
-var arr = [0]
+// var arr = [0]
 
-const onRowClick = (cell,add,setAdd) => {
-    // const [selected, setSelected] = useState(-1)
+// const onRowClick = (cell,add,setAdd) => {
+//     // const [selected, setSelected] = useState(-1)
 
-    console.log(`${cell.row.index} and ${cell.value} and ${cell.column.Header}`)
+//     console.log(`${cell.row.index} and ${cell.value} and ${cell.column.Header}`)
     
-    // setAdd(!add)
-    // console.log(add)
+//     // setAdd(!add)
+//     // console.log(add)
 
-    let x  = {
-       row:cell.row.index,
-       column:cell.column.Header
-    }   
+//     let x  = {
+//        row:cell.row.index,
+//        column:cell.column.Header
+//     }   
 
-    // if(arr.includes(x)){
-    //    let pointer =  arr.indexOf(x)
-    //     arr.splice(pointer,1)
-    // }
-    // if(arr.length == 0){
-    //     arr.push(x)
-    // }else{
-    // for(let i=0;i<arr.length;i++){
-    //     if(arr[i] == x){
-    //         arr.splice(i,1)
-    //     }
-    // else{
-//   arr.push(x)
-    // }
+//     // if(arr.includes(x)){
+//     //    let pointer =  arr.indexOf(x)
+//     //     arr.splice(pointer,1)
+//     // }
+//     // if(arr.length == 0){
+//     //     arr.push(x)
+//     // }else{
+//     // for(let i=0;i<arr.length;i++){
+//     //     if(arr[i] == x){
+//     //         arr.splice(i,1)
+//     //     }
+//     // else{
+// //   arr.push(x)
+//     // }
 
-    //    let limit = arr.length
-    //    let i = 0
-    //    while(i < limit){
-    // if(x == arr[i]){
-    //     console.log("test")
-    //     let position = arr.indexOf(x)
-    //     console.log(position)
-    //     arr.splice(position,1)
-    // }else{
-    //     arr.push(x)
-    //     console.log('add')
-    //     // console.log(x)
+//     //    let limit = arr.length
+//     //    let i = 0
+//     //    while(i < limit){
+//     // if(x == arr[i]){
+//     //     console.log("test")
+//     //     let position = arr.indexOf(x)
+//     //     console.log(position)
+//     //     arr.splice(position,1)
+//     // }else{
+//     //     arr.push(x)
+//     //     console.log('add')
+//     //     // console.log(x)
     
-    // }
-    // i++
-// }
+//     // }
+//     // i++
+// // }
 
-// this is just for test
+// // this is just for test
 
-    // console.log(`this is x:${x}`)
-    // arr.push(x)
-    // console.log(`this is array container:${arr}`)
-    // for(let i in arr){
-    //     console.log(arr[i])
-    //     if(arr[i] == x){
-    //         console.log("wow this is what I want")
-    //     }
-    // }
+//     // console.log(`this is x:${x}`)
+//     // arr.push(x)
+//     // console.log(`this is array container:${arr}`)
+//     // for(let i in arr){
+//     //     console.log(arr[i])
+//     //     if(arr[i] == x){
+//     //         console.log("wow this is what I want")
+//     //     }
+//     // }
 
-// *********************
-// global y = false
-for(let i in arr){
-    var y = false;
-    // console.log(arr[i])
-    if(JSON.stringify(arr[i]) == JSON.stringify(x)){
-        let position = arr.indexOf(x) 
-        arr.splice(position,1)
-        console.log(`position:${position}`)
-        console.log("removed")
-         y=true
-         
-        //  return{
-        //      style : {
-        //          background: ""
-        //      }
-        //  }
-        
-    }
-    
-}
-if(y == false && cell.value == true){
-    arr.push(x)
-    // return {
-    //     style : {
-    //         background : "greenyellow"
-    //     }
-    // }
-}
-
-// setSelected(cell.index)
-
-// return {
-//     style : {
-//         background : cell.index === selected ? "greenyellow" : ""
+// // *********************
+// // global y = false
+// for(let i in arr){
+//     var y = false;
+//     // console.log(arr[i])
+//     if(JSON.stringify(arr[i]) == JSON.stringify(x)){
+//         let position = arr.indexOf(x) 
+//         arr.splice(position,1)
+//         console.log(`position:${position}`)
+//         console.log("removed")
+//          y=true
+      
 //     }
+    
+// }
+// if(y == false && cell.value == true){
+//     arr.push(x)
+  
 // }
 
-// this is the last part of onRowClick
-console.log(arr)
-}
+// // this is the last part of onRowClick
+// console.log(arr)
+// }
 
 // console.log(arr)
 
-const bgforTime = {
-    background : ""
-}
-const bgforTrue =(cell) => {
+// this part is for return style to table
 
-    // var bgCheck = false
-    var arr_pointer = undefined
-    let  x = {
-        row:cell.row.index,
-        column:cell.column.Header
-    }
-    for(let j in arr){
-        var bgCheck = false
-    if(JSON.stringify(x) == JSON.stringify(arr[j]) ){
-        bgCheck = true
-        arr_pointer = arr[j]
-        break
-    }
-    }
-    if(bgCheck){
-    // return console.log(`this is bgCheck:${bgCheck} ${x}`)z
-        // return bgGreen
-        // return console.log(arr)
-        return(
-            "test__ok"
-        )
-    }
-    // console.log("fucking shitttt")
-    // console.log(arr)
-    // console.log(x)
-}
+// const bgforTime = {
+//     background : ""
+// }
+// const bgforTrue =(cell) => {
+
+//     // var bgCheck = false
+//     var arr_pointer = undefined
+//     let  x = {
+//         row:cell.row.index,
+//         column:cell.column.Header
+//     }
+//     for(let j in arr){
+//         var bgCheck = false
+//     if(JSON.stringify(x) == JSON.stringify(arr[j]) ){
+//         bgCheck = true
+//         arr_pointer = arr[j]
+//         break
+//     }
+//     }
+//     if(bgCheck){
+//     // return console.log(`this is bgCheck:${bgCheck} ${x}`)z
+//         // return bgGreen
+//         // return console.log(arr)
+//         return(
+//             "test__ok"
+//         )
+//     }
+//     // console.log("fucking shitttt")
+//     // console.log(arr)
+//     // console.log(x)
+// }
 
 
-const bgforFalse = {
-    background : "red"
+// const bgforFalse = {
+//     background : "red"
     
-}
+// }
 
-const bgCell = (cell) => {
-    if(cell.column.Header == "time"){
-        return bgforTime
-    }
-    else if(cell.value == true){
-        return bgforTrue(cell)
+// const bgCell = (cell) => {
+//     if(cell.column.Header == "time"){
+//         return bgforTime
+//     }
+//     else if(cell.value == true){
+//         return bgforTrue(cell)
         
-    }
-    else{
-        return bgforFalse
-    }
+//     }
+//     else{
+//         return bgforFalse
+//     }
 
     
-}
+// }
 
-var arrState = []
+// var arrState = []
 
-function Table({ columns, data }) {
+function Table({ columns, data , arrRoot , setArr }) {
+    
+
     // Use the state and functions returned from useTable to build your UI
     const [add,setAdd] = useState(false)
-    // const [arrState,setArrState] = useState([])
+    const [arr,setArrState] = useState([0])
     const [bgColor, setBgColor] = useState("")
     const [bgCheck, setBgCheck] = useState(false)
     // console.log(add)
@@ -406,6 +392,58 @@ function Table({ columns, data }) {
     //     //     // console.log(bgColor)
     // //     )
     // }
+// let arr = [0]
+
+const bgforTime = {
+    background : "white"
+}
+const bgforTrue =(cell) => {
+
+    let  x = {
+        row:cell.row.index,
+        column:cell.column.Header
+    }
+    for(let j in arr){
+        var bgCheck = false
+    if(JSON.stringify(x) == JSON.stringify(arr[j]) ){
+        // position = arr.indexOf(x)
+        bgCheck = true
+        break
+    }
+    }
+    if(bgCheck){
+        return(
+            {
+                background : "green"
+            }
+        )
+    }else{
+        return {background : 'white'}
+    }
+
+}
+
+
+const bgforFalse = {
+    background : "red"
+    
+}
+
+const bgCell = (cell) => {
+    if(cell.column.Header == "time"){
+        return bgforTime
+    }
+    else if(cell.value == true){
+        return bgforTrue(cell)
+        
+    }
+    else{
+        return bgforFalse
+    }
+
+    
+}
+
 
     const testClick = (cell) => { 
         // let arr = []
@@ -419,39 +457,47 @@ function Table({ columns, data }) {
     //         arrState.splice(position,x)
     //         console.log("remove")
        var sign = false
-        for(let i in arrState){
-            if(JSON.stringify(x) == JSON.stringify(arrState[i])){
-                let position = arrState.indexOf(x)
-                arrState.splice(position,1)
+        for(let i in arr){
+            if(JSON.stringify(x) == JSON.stringify(arr[i])){
+                let position = i
+                arr.splice(position,1)
                 sign = true
                 console.log("remove")
-                // setBgColor("test2__ok")
+                console.log("position " + position)
+                {setArr({arr})}
                 break
 
             }
         }
     //    }
        if(cell.value == true && sign == false){
-           arrState.push(x)
+           arr.push(x)
            console.log("add")
-        //    setBgColor("test__ok")
+           
+        {setArr({arr})}
 
     }
-       
-       console.log(arrState)
+    // setArr([99,999,9999,99999])
+    
+       console.log("this is arr")
+       console.log(arr)
+       console.log("this is arrRoot")
+       console.log(arrRoot)
     //    console.log("includes : " + arrState.includes(x))
        console.log(x)
        console.log("value " + cell.value)
        // at this point click should work for add and remove value
     //    setArrState(arr)   // add arr to state this will cause page rerender
     //    checkBgColor
-       setBgCheck(cell.value)
-       setAdd(sign)
-
-       
+    //    setBgCheck(cell.value)
+    //    setAdd(sign)
+        // {setArr(arr)}
+        // setArr([99,999,9999,99999])
        }
     
-      let bgClass = bgCheck ? add ? "test__ok" : "test2__ok" : "test2__ok"
+       
+    
+    //   let bgClass = bgCheck ? add ? "test__ok" : "test2__ok" : "test2__ok"
 
     const {
         getTableProps,
@@ -504,31 +550,59 @@ function Table({ columns, data }) {
 }
     
 function Group2() {
-
+    const [arrRoot, setArr] = useState([0])
     // const [add, setAdd] = useState(false)
     // console.log(add)
-    const [dataTemp, setDataTemp] = useState()
+    const [dataTemp, setDataTemp] = useState([])
     // const [arrState, setArrState] = useState([])
     // console.log(Data)
+    const [apidata,setApidata] = useState(undefined)
+    // const [data , setData] = useState()
     
-//    useEffect(
-       
-//         setDataTemp(
-//             BookingService.booking()
-//         )
-//    ) 
+   useEffect(() => {
+       BookingService.booking().then(response => 
+        {
+             setDataTemp(response.data.status)
+            // setDataTemp(response.data.status);
+            // window.location.reload();
+            
+        }
+        )
+        
+   }, []) 
+    // useEffect(() => {
+    //     fetch("http://localhost:8000/status/")
+    //     .then(res => res.json())
+    //     .then(
+    //         (result) => {
+    //             setDataTemp(
+    //                 result.status
+    //             )
+    //         }
+    //     )
+        
+        
+    // }, [])
    // check by console.log(data)  >> make sure data really contain information from an api
     // don't forget to change variable at data memo  (datatemp)
-    const bookingCourts = () => {
-        BookingService.bookingCourts(
-            arrState,
-        )
-    }
+    // const bookingCourts = () => {
+    //     BookingService.bookingCourts(
+    //         arrState,
+    //     )
+    // }
 
     const columns = React.useMemo(
         () => [
             {
                         Header: "All courts",
+                        // columns: [
+                        //     {Header:"time",accessor:"time"},
+                        //     {Header:"Court1",accessor:"Court1"},
+                        //     {Header:"Court2",accessor:"Court2"},                                            
+                        //     {Header:"Court3",accessor:"Court3"},                                            
+                                                                   
+                        // ]
+                        // use this when you want to use data api 
                         columns: [
                             {Header:"time",accessor:"time"},
                             {Header:"Court1",accessor:"court1"},
@@ -545,22 +619,29 @@ function Group2() {
         ],
         []
     )
+    // let test = dataTemp
 
+    // the problem that I cannot use data because when useEffect has set to dataTemp, data is not set too
     const data = React.useMemo(() => Data, [])
+    console.log(data)
+    console.log(dataTemp)
+    // console.log(Data[1])
+    console.log("this is arrRoot")
+    console.log(arrRoot)
 
 
     return (
         <div className="Group2">
             <Styles>
                 <div className="group1_table">
-                    <Table className="group1_eachtable" columns={columns} data={data} />
+                    <Table className="group1_eachtable" columns={columns} data={data} arr={arrRoot} setArr={setArr} />
                     {/* <Table className="group1_eachtable" columns={columns} data={data} /> */}
                 </div>
             </Styles>
 
             <button
                 className="Booking__submit"
-                onSubmit = {bookingCourts}
+                // onSubmit = {bookingCourts}
             >
                 Submit
             </button>
