@@ -34,7 +34,7 @@ const Styles = styled.div`
   }
   `
 
-function Table({ columns, data , arrRoot , setArr }) {
+function Table({ columns, data , arrRoot , setArr  }) {
     // Use the state and functions returned from useTable to build your UI
     // becareful if array has some problem, just set arr value default to [0]
     const [arr,setArrState] = useState([])
@@ -126,6 +126,13 @@ const bgCell = (cell) => {
    
     }
 
+    const Clear = () => {
+        // setArrState([])
+        console.log("work")
+    }
+
+    // {ClearState({Clear})}
+
     const {
         getTableProps,
         getTableBodyProps,
@@ -178,7 +185,7 @@ function Afterbooking() {
     const [apidata,setApidata] = useState(undefined)
     
    useEffect(() => {
-       BookingService.booking().then(response => 
+       BookingService.AllBookingInformation().then(response => 
         {
              setDataTemp(response.data.status)
         }
@@ -225,16 +232,24 @@ function Afterbooking() {
     const onSubmit = (event) => {
         event.preventDefault(event)
     }
+ // this part I try to create clear booking by callback from function table
+    const ClearState = () => {
+            console.log("not this one")
+    }    
 
-    const arrTest = [{row:1},{row:2},{row:3}]
     return (
         <div className="Afterbooking">
             <Styles>
                 <div className="group1_table">
-                    <Table className="group1_eachtable" columns={columns} data={data} arr={arrRoot} setArr={setArr} />
+                    <Table className="group1_eachtable" columns={columns} data={data} arr={arrRoot} setArr={setArr}  />
                 </div>
             </Styles>
-
+            <button
+                className="Booking__clear"
+                // onClick={() => {ClearState()}}
+            >
+                Clear
+            </button>
             <button
                 className="Booking__submit"
         >
