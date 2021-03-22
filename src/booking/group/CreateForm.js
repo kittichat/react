@@ -15,7 +15,7 @@ import { checkPropTypes } from 'prop-types'
 
     return (
 
-      // Some problem here it is how to send props in hooks
+      // Some problem here, it is how to send props in hooks
       <div>
         <input 
           type="checkbox"
@@ -62,30 +62,30 @@ import { checkPropTypes } from 'prop-types'
 
       setSuccessful(false)
 
-      if(this.checkBtn.context._errors.length === 0){
-        Memberlist.createRequire(Listofmember)
-        .then(
-          response => {
-            setSuccessful({
-              message: response.data.message,
-              Successful: true
-            })
-          },
-          error => {
-            const resMessage = 
-            (error.response && 
-              error.response.data &&
-              error.response.data.message) ||
-              error.message ||
-              error.toString();
+      // if(this.checkBtn.context._errors.length === 0){
+      //   Memberlist.createRequire(Listofmember)
+      //   .then(
+      //     response => {
+      //       setSuccessful({
+      //         message: response.data.message,
+      //         Successful: true
+      //       })
+      //     },
+      //     error => {
+      //       const resMessage = 
+      //       (error.response && 
+      //         error.response.data &&
+      //         error.response.data.message) ||
+      //         error.message ||
+      //         error.toString();
 
-              this.setState({
-                successful: false,
-                message: resMessage
-              })
-          }
-        )
-      }
+      //         this.setState({
+      //           successful: false,
+      //           message: resMessage
+      //         })
+      //     }
+      //   )
+      // }
 
 
     }
@@ -94,9 +94,9 @@ import { checkPropTypes } from 'prop-types'
     <div className="list_row">
       <Form 
         onSubmit={handleCreate}
-        ref = {c => {
-          this.form = c
-        }}
+        // ref = {c => {
+        //   this.form = c
+        // }}
       
       >
        <div className="form-group">
@@ -140,9 +140,9 @@ import { checkPropTypes } from 'prop-types'
        <CheckButton
         className=""
         style={{display:"none"}}
-        ref={c => {
-          this.checkBtn = c
-        }}
+        // ref={c => {
+        //   this.checkBtn = c
+        // }}
        >
 
        </CheckButton>

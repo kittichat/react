@@ -13,12 +13,14 @@ function ShowGroup(props) {
     const grouprequest = () => {
         
     }
-
+    console.log(groupName)
 
     return (
         <div>
             <Link to={'./detail'}>
-                <h1 >{props.name}</h1>
+                {/* both of these are same */}
+                {/* <h1 >{props.name}</h1> */}
+                <h1>{groupName}</h1>
             </Link>
         </div>
     )

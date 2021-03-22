@@ -49,7 +49,7 @@ export class Container extends Component {
                         />
                 ) : null }
 
-            </React.Fragment>
+             </React.Fragment>
         )
     }
 

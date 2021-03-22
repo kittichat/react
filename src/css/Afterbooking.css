@@ -1,95 +1,47 @@
-.after__booking{
+
+.Afterbooking{
     margin-top: 100px;
-   
+}
+.test__ok {
+    background-color: greenyellow;
 }
 
-
-/* .Court__header {
-    border: solid 2px;
-    padding:20px;
-    border-collapse: collapse;
-    width: 100%;
-} 
-
-.Court__header th{
-    padding: 20px;
-    border-collapse: collapse;
-    border: 2px solid;
-   
-}
-.Court__header1 {
-    padding: 90px;
-    width: 150px;
+/* .test__ok :hover{
+    background-color: blue;
 } */
 
-.booking__table{
-    margin-top: 69px;
-    border: solid 2px;
-    border-collapse: collapse;
-    width: 100%;
-    height: 100%; 
-
+.test2__ok{
+    background-color: white;
 }
 
-
-.booking__table td{
-    padding: 20px;
-    border: solid 2px;
-    border-collapse: collapse;
-    cursor: pointer;
-
-  
+.bg__false{
+    background-color: red;
 }
-/* both parts of this make cell has dimension */
-.booking__table td:hover{
+
+.Booking__table td:hover{
     transform: translate(-3px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    background : greenyellow;
 }
 
-.booking__table td:active {
+.Booking__table td:active {
     transform: translateY(-1px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
-/* *********************************************** */
-.booking__table th{
-    padding: 20px;
-    border: solid 2px;
-    border-collapse: collapse;
-   
+
+
+.Test :hover{
+    color : red;
+    background : blue;
 }
 
-
-.booking__table td:hover{
-    background-color: red;
-} 
- 
-
-
-.booking__table td:hover::after{
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
-}
-
-
-.court__header{
-    position: fixed;
-    padding: 20px;
-    border: solid 2px;
-    border-collapse: collapse;
-    width: 100%;
+.Test{
+    color : blue;
+    font-size: 30px;
+    /* //background-color: blue; */
 }
 
 .Booking__submit{
-    padding: 20px;
-    display: flex;
-    position: relative;
-    margin-top: 20px;
-    margin-left: 80%;
-    
-    
-}
-
-.Submit__button{
     border: solid 2px;
     border-radius: 10px;
     padding: 10px;
@@ -98,17 +50,3 @@
     color: white;
     background-color: green;
 }
-
-.Cancle__button{
-    border: solid 2px;
-    border-radius: 10px;
-    padding: 10px;
-    margin-right: 20px;
-    font-size: 30px;
-    color: white;
-    background-color: orangered;
-}
-/* .Date__header{
-    width: 175px;
-} */
-

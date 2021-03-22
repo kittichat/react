@@ -1,5 +1,8 @@
 import React, {useState , useEffect} from 'react'
 import GroupList from "../services/groupservices"
+
+import '../css/Groupdetail.css'
+
 function Groupdetail(props) {
 
    const [CurrentGroup, setCurrentGroup] = useState()  // match with table
@@ -23,9 +26,13 @@ function Groupdetail(props) {
 
 
     return (
-        <div>
+        <div className="group__detail">
             {/* fetch all group data >> member , payment  */}
             {/* follow makedata in showgroup by use reat-table */}
+            <h1><p>This page intended to show the detail of each group about 
+                user and groups information
+                </p>
+            </h1>
         </div>
     )
 }
