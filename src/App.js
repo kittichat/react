@@ -37,7 +37,7 @@ function App() {
       <Router>
         <Header />
         <Switch>
-          <Route exact path="/afterbooking"  component={Afterbooking} />
+          <Route exact path="/userbooking"  component={Afterbooking} />
           <Route exact path="/beforebooking" component={Beforebooking} />
           <Route exact path="/rule" component={Rule}/>
           <Route exact path="/contact" component={Contact}/>

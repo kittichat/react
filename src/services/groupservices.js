@@ -8,7 +8,15 @@ const get = (nameofgroup) => {
     return http.get(`/group/${nameofgroup}`)
 }
 
+const createGroupToServer = (arr,name) => {
+    return http.post("/createpage/" + {
+        arr,
+        name
+    })
+}
+
 export default {
     getAll,
     get,
+    createGroupToServer,
 }

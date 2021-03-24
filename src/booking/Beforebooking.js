@@ -18,10 +18,15 @@ function Beforebooking() {
             <div className="booking__verticalline"></div>
 
             <div className="booking__redirect">
-                <Link to={'./afterbooking'}>
-                    <button className="booking__button"  >Start</button>
+                <Link to={'./userbooking'}>
+                    <button className="user__button"  >Start</button>
                 </Link>            
+
+                <Link to={'./userbooking'}>
+                    <button className="group__button"  >Group</button>
+                </Link>     
             </div>
+            
 
 
         </div>

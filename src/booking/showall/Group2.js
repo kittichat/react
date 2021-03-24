@@ -559,17 +559,17 @@ function Group2() {
     const [apidata,setApidata] = useState(undefined)
     // const [data , setData] = useState()
     
-   useEffect(() => {
-       BookingService.booking().then(response => 
-        {
-             setDataTemp(response.data.status)
-            // setDataTemp(response.data.status);
-            // window.location.reload();
+//    useEffect(() => {
+//        BookingService.booking().then(response => 
+//         {
+//              setDataTemp(response.data.status)
+//             // setDataTemp(response.data.status);
+//             // window.location.reload();
             
-        }
-        )
+//         }
+//         )
         
-   }, []) 
+//    }, []) 
     // useEffect(() => {
     //     fetch("http://localhost:8000/status/")
     //     .then(res => res.json())

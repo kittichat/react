@@ -18,7 +18,7 @@ class BookingService{
 
     CourtBooking(arr,name,email,phone){
         return axios
-        .post(API_URL + 'choosethecourt/',{
+        .post(API_URL + 'booking/',{
             arr,
             name,
             email,

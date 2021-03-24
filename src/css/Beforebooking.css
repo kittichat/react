@@ -24,13 +24,24 @@
 .booking__redirect{
     margin-top: 316px;
     margin-left: 300px;
+    /* flex-direction: column; */
+    display: flex;
     
 
 }
 
-.booking__button{
+.user__button{
     padding: 20px;
     border: solid;
     border-radius: 5px;
     font-size: 20px;
+}
+
+.group__button{
+    /* margin-top: 5%; */
+    padding: 20px;
+    border: solid;
+    border-radius: 5px;
+    font-size: 20px;
+    margin-left: 20px;
 }

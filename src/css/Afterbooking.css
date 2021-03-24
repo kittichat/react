@@ -50,3 +50,13 @@
     color: white;
     background-color: green;
 }
+
+.Booking__clear{
+    border: solid 2px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 20px;
+    font-size: 30px;
+    color: white;
+    background-color: orange;
+}

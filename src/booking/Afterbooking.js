@@ -34,10 +34,20 @@ const Styles = styled.div`
   }
   `
 
-function Table({ columns, data , arrRoot , setArr  }) {
+function Table({ columns, data , arrRoot , setArr, ClearState  }) {
     // Use the state and functions returned from useTable to build your UI
     // becareful if array has some problem, just set arr value default to [0]
     const [arr,setArrState] = useState([])
+
+    // const Clear = () => {
+    //     // setArrState([0])
+    //     console.log("work")
+    // }
+
+    // {ClearState(Clear())}
+    // {ClearState = Clear()}
+
+
 const bgforTime = {
     background : "white"
 }
@@ -126,13 +136,7 @@ const bgCell = (cell) => {
    
     }
 
-    const Clear = () => {
-        // setArrState([])
-        console.log("work")
-    }
-
-    // {ClearState({Clear})}
-
+  
     const {
         getTableProps,
         getTableBodyProps,
@@ -179,7 +183,7 @@ const bgCell = (cell) => {
 
 }
 // }
-function Afterbooking() {
+function Afterbooking(props) {
     const [arrRoot, setArr] = useState([0])
     const [dataTemp, setDataTemp] = useState([])
     const [apidata,setApidata] = useState(undefined)
@@ -197,33 +201,33 @@ function Afterbooking() {
         () => [
             {
                         Header: "All courts",
-                        // columns: [
-                        //     {Header:"time",accessor:"time"},
-                        //     {Header:"Court1",accessor:"Court1"},
-                        //     {Header:"Court2",accessor:"Court2"},                                            
-                        //     {Header:"Court3",accessor:"Court3"},                                            
-                                                                   
-                        // ]
-                        // use this when you want to use data api 
                         columns: [
                             {Header:"time",accessor:"time"},
-                            {Header:"Court1",accessor:"court1"},
-                            {Header:"Court2",accessor:"court2"},                                            
-                            {Header:"Court3",accessor:"court3"},                                            
-                            {Header:"Court4",accessor:"court4"},                                            
-                            {Header:"Court5",accessor:"court5"},                                            
-                            {Header:"Court6",accessor:"court6"},                                            
-                            {Header:"Court7",accessor:"court7"},                                            
-                            {Header:"Court8",accessor:"court8"},                                            
-                            {Header:"Court9",accessor:"court9"},                                            
+                            {Header:"Court1",accessor:"Court1"},
+                            {Header:"Court2",accessor:"Court2"},                                            
+                            {Header:"Court3",accessor:"Court3"},                                            
+                                                                   
                         ]
+                        // use this when you want to use data api 
+                        // columns: [
+                        //     {Header:"time",accessor:"time"},
+                        //     {Header:"Court1",accessor:"court1"},
+                        //     {Header:"Court2",accessor:"court2"},                                            
+                        //     {Header:"Court3",accessor:"court3"},                                            
+                        //     {Header:"Court4",accessor:"court4"},                                            
+                        //     {Header:"Court5",accessor:"court5"},                                            
+                        //     {Header:"Court6",accessor:"court6"},                                            
+                        //     {Header:"Court7",accessor:"court7"},                                            
+                        //     {Header:"Court8",accessor:"court8"},                                            
+                        //     {Header:"Court9",accessor:"court9"},                                            
+                        // ]
                     }
         ],
         []
     )
     // the problem that I cannot use data because when useEffect has set to dataTemp, data is not set too
-    const data = React.useMemo(() => Data, [])
-    console.log(data)
+    // const data = React.useMemo(() => Data, [])
+    // console.log(data)
     console.log(dataTemp)
     console.log("this is arrRoot")
     console.log(arrRoot)
@@ -234,29 +238,41 @@ function Afterbooking() {
     }
  // this part I try to create clear booking by callback from function table
     const ClearState = () => {
-            console.log("not this one")
+            // console.log("not this one")
+            // {props.Clear}
     }    
 
     return (
         <div className="Afterbooking">
             <Styles>
                 <div className="group1_table">
-                    <Table className="group1_eachtable" columns={columns} data={data} arr={arrRoot} setArr={setArr}  />
+                    <Table 
+                        className="group1_eachtable" 
+                        columns={columns} 
+                        data={dataTemp} 
+                        arr={arrRoot} 
+                        setArr={setArr} 
+                        ClearState={ClearState}
+                    />
                 </div>
             </Styles>
             <button
                 className="Booking__clear"
-                // onClick={() => {ClearState()}}
+                onClick={() => {ClearState()}}
             >
                 Clear
             </button>
-            <button
+            {/* <button
                 className="Booking__submit"
         >
                 Submit
-            </button>
+            </button> */}
 
-            <Container triggerText={triggerText} onSubmit={onSubmit} bookingDetail={arrRoot.arr}/>
+            <Container 
+                // className="Booking__submit"
+                triggerText={triggerText}
+                onSubmit={onSubmit} 
+                bookingDetail={arrRoot.arr}/>
 
 
         </div>

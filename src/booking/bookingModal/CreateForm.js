@@ -228,6 +228,7 @@ class CreateForm extends React.Component {
       member:false,
       isSubmit:false,
       uuid:undefined,
+      isSuccess:false,
       
     }
 
@@ -289,10 +290,7 @@ class CreateForm extends React.Component {
     handleCreate(e){
       e.preventDefault()
       this.form.validateAll();
-     
-      // this.setState({
-      //   Successful:false
-      // })
+
 
       if(this.checkBtn.context._errors.length === 0){
         BookingService.CourtBooking(
@@ -307,7 +305,6 @@ class CreateForm extends React.Component {
               message: response.data.message,
               uuid:response.data.something, // change this line 
               isSubmit : true,
-              // Successful: true
             })
           },
           error => {
@@ -319,7 +316,6 @@ class CreateForm extends React.Component {
               error.toString();
 
               this.setState({
-                // successful: false,
                 message: resMessage
               })
           }
@@ -346,8 +342,11 @@ class CreateForm extends React.Component {
           response => {
             this.setState({
               message: response.data.message,
+              // isSuccess:true,
               // Successful: true
             })
+            window.location.reload()
+            window.alert("Your booking is Success")
           },
           error => {
             const resMessage = 
@@ -384,11 +383,13 @@ class CreateForm extends React.Component {
       }}
 
       >
-        <h1>test something</h1>
+        {/* I think we should should some qr code for tranfers the money */}
+        <h1>Please sends your receipt to the admin through line</h1>
+        <h2>Thank you</h2>
 
         <div className="form-group">
          <button className="form-control btn btn-primary" type="submit">
-           Submit
+           Verify
          </button>
        </div>
 
@@ -451,7 +452,7 @@ class CreateForm extends React.Component {
           />
        </div>
        </div>
-       : null
+       : <h1>Something</h1>
       }
            <ul>
                {this.state.bookingDetail2 && 
