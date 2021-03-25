@@ -41,26 +41,24 @@ function Group() {
 
     return (
         <div className="list_row">
-            {/* <h1>test</h1>
             <h1>test</h1>
             <h1>test</h1>
-            <h1>test</h1> */}
-        <ul className="list-group" >
+            <h1>test</h1>
+            <h1>test</h1>
+        {/* <ul className="list-group" >
             {Listofgroup &&
                 Listofgroup.map((group, index) => (
                     <Link to={"/detail/"} >
                         < li 
-                            // className={
-                            //     "list-group-item " + (index === currentIndex ? "actice" : "")
-                            // }
                             
-                            >
+                            
+                            > */}
                                 {/* this part not already used cause it needs real group data */}
-                                {group.title}
+                                {/* {group.title}
                         </li>
                     </Link>
                 ))}
-        </ul>
+        </ul> */}
 
                      <Container triggerText={triggerText} onSubmit={onSubmit} />
 

@@ -42,7 +42,7 @@ function ShowGroup(props) {
         </div>
 
         <div>
-            <Groupdetail groupName2={"testsomething"} />
+            {/* <Groupdetail groupName2={"testsomething"} /> */}
         </div>
         </div>
     )

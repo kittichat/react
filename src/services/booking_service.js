@@ -24,13 +24,16 @@ class BookingService{
             email,
             phone
         })
+        .then(response => {
+            return response;
+        })
     
    }
 
-   BookingVerify(uuid){
+   BookingVerify(receipt){
        return axios
-       .post(API_URL + 'pathforverify',{
-           uuid
+       .post(API_URL + 'confirm',{
+           receipt
        })
    }
 }

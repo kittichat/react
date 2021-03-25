@@ -229,6 +229,8 @@ class CreateForm extends React.Component {
       isSubmit:false,
       uuid:undefined,
       isSuccess:false,
+      price:{},
+
       
     }
 
@@ -303,7 +305,8 @@ class CreateForm extends React.Component {
           response => {
             this.setState({
               message: response.data.message,
-              uuid:response.data.something, // change this line 
+              uuid:response.data.receipt, // change this line 
+              price:response.data.price,
               isSubmit : true,
             })
           },
@@ -369,6 +372,7 @@ class CreateForm extends React.Component {
     }
 
     render(){
+      console.log(this.state.uuid)
       const { member, isSubmit } = this.state
   return (
    <div>
@@ -386,6 +390,11 @@ class CreateForm extends React.Component {
         {/* I think we should should some qr code for tranfers the money */}
         <h1>Please sends your receipt to the admin through line</h1>
         <h2>Thank you</h2>
+
+        <h1>Total price</h1>
+        <h1>{this.state.price.normal_price}</h1>
+        <h1>{this.state.price.discount_time}</h1>
+        <h1>{this.state.price.discouht_member}</h1>
 
         <div className="form-group">
          <button className="form-control btn btn-primary" type="submit">
