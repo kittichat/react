@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 
 import { Container} from './group/Container'
 import ShowGroup from './ShowGroup'
+import Groupdetail from './Groupdetail'
 
 import value from "../api/allgroup"
 import GroupList from "../services/groupservices"
@@ -22,6 +23,7 @@ function Group() {
     const Group_component =  value.map(response => <ShowGroup name={response.name} />)
 
     const [Listofgroup , setListofgroup] = useState([])
+    const [nameOfGroup, setNameOfGroup] = useState(undefined)
 
     useEffect(() => {
        retrieveAllgroup() 
@@ -31,46 +33,57 @@ function Group() {
     const retrieveAllgroup = () =>{
         GroupList.getAll()
             .then(response => {
-                setListofgroup(response.data)   // data is list of name of group
-                console.log(response.data)
+                setListofgroup(response.data.data)   // data is list of name of group
+                console.log(response.data.data)
+                const x = response.data.data
+                console.log(x[0])
             })
             .catch(e => {
                 console.log(e)
             })
     }
 
+
+    const handleClick = (group) => {
+        GroupList.setGroup(group)
+    }
+    // console.log(nameOfGroup)
+    // const test = Listofgroup
+    // console.log(test.data[0])
+
+
     return (
         <div className="list_row">
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-        {/* <ul className="list-group" >
+            
+        <ul className="list_group" >
             {Listofgroup &&
                 Listofgroup.map((group, index) => (
                     <Link to={"/detail/"} >
+                    
                         < li 
-                            
-                            
-                            > */}
-                                {/* this part not already used cause it needs real group data */}
-                                {/* {group.title}
+                            className="list_groupname"
+                            onClick = {() => handleClick(group)} 
+
+                            >
+                             
+                                {group.group_name}
                         </li>
                     </Link>
                 ))}
-        </ul> */}
+        </ul>
 
                      <Container triggerText={triggerText} onSubmit={onSubmit} />
 
 
 
         <div>
+           
              {/* <ShowGroup name={group.name} /> */}
-            {Group_component}
+            {/* {Group_component}
 
             <Link to={'./group2'}>
                 <h1>group2</h1>
-            </Link>
+            </Link> */}
         </div>
         </div>
     )

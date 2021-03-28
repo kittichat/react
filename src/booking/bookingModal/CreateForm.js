@@ -161,6 +161,7 @@ import { Link } from "react-router-dom"
 import CheckButton from "react-validation/build/button"
 import Form from "react-validation/build/form"
 import {isEmail} from 'validator'
+import Input from 'react-validation/build/input'
 
 import BookingService from '../../services/booking_service'
 import AuthService from '../../services/auth_service'
@@ -199,7 +200,7 @@ import { checkPropTypes } from 'prop-types'
     if  (!isEmail(value)){
       return(
         <div className="alert alert-danger" role="alert">
-          This is not a valid emai;
+          This is not a valid email;
         </div>
       )
     }
@@ -209,12 +210,22 @@ import { checkPropTypes } from 'prop-types'
     if (value.length === 0 || value.length > 40){
       return (
         <div className="alert alert-danger" role="alert">
-          please fill in the firstname and don't let it more than 40
+          please fill in your name 
         </div>
       )
     }
   }
 
+    const phone = phoneno =>{
+      // const check = /^\d{10}$/;
+    if (phoneno.length === 0 || phoneno.length > 10){
+      return (
+        <div className="alert alert-danger" role="alert">
+          please fill in your phone number
+        </div>
+      )
+  }
+}
 class CreateForm extends React.Component {
   constructor(props){
     super(props)
@@ -349,7 +360,7 @@ class CreateForm extends React.Component {
               // Successful: true
             })
             window.location.reload()
-            window.alert("Your booking is Success")
+            window.alert("Your booking is Successful")
           },
           error => {
             const resMessage = 
@@ -428,36 +439,38 @@ class CreateForm extends React.Component {
       { !member ? <div>
        <div className="form-group">
          <label htmlFor="name">Name</label>
-         <input 
+         <Input 
           className="form-control"
           id="name" 
           value={this.state.name}
           onChange={this.onChangename}
+          // validations={[name]}
           />
 
        </div>
 
        <div className="form-group">
          <label htmlFor="email">Email address</label>
-         <input
+         <Input
            type="text"
            className="form-control"
            id="email"
            placeholder="name@example.com"
            value={this.state.email}
            onChange={this.onChangeemail}
-           validations= {[required,vemail]}
+          //  validations= {[vemail]}
          />
        </div>
 
        <div className="form-group">
           <label>Phone number</label>
-          <input
+          <Input
             className="form-control"
             id="phone"
             placeholder="012-345-6789"
             value={this.state.phone}
             onChange={this.onChangephone}
+            // validations={[phone]}
           />
        </div>
        </div>

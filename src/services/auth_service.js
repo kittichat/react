@@ -17,7 +17,8 @@ class  AuthService {
             
         })
     .then(response => {
-         if (response.data.accessToken){
+        // if(response.data.accessToken)
+         if (response.data){
               localStorage.setItem('user',JSON.stringify(response.data));
             //   document.cookie = `user = ${JSON.parse(localStorage.getItem('user')).accessToken}`;
         }

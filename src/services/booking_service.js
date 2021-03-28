@@ -32,7 +32,7 @@ class BookingService{
 
    BookingVerify(receipt){
        return axios
-       .post(API_URL + 'confirm',{
+       .post(API_URL + 'confirm/',{
            receipt
        })
    }

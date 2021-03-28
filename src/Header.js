@@ -66,6 +66,7 @@ class Header extends React.Component {
         
     }
     render(){
+        console.log(this.state.currentUser)
         const { currentUser } = this.state
     
     return (
@@ -110,12 +111,12 @@ class Header extends React.Component {
                                             {/* don't forget to build component of notificate */}
                                         </li>
                                         <li>
-                                            <Link to={"./groupplayer"} className="nav-link-signup">
+                                            <Link to={"/groupplayer"} className="nav-link-signup">
                                                 Group
                                             </Link>
                                         </li>
                                         <li>
-                                            <a href='#' className="nav-link-login" onClick={this.handleClick} >
+                                            <a className="nav-link-login" onClick={this.handleClick} >
                                                 {currentUser.username}
                                             </a>
                                             {this.state.open && <Dropdown />}

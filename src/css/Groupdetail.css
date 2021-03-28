@@ -3,3 +3,31 @@
     margin-top: 100px;
     top:20px;
 }
+
+.Join__group{
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    border: solid;
+    background-color: greenyellow;
+    color: white;
+    font-size: 20px;
+}
+
+.Join__group:active {
+    background-color: white;
+}
+
+.Leave__group{
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    border: solid;
+    background-color: red;
+    color: white;
+    font-size: 20px;
+}
+
+.Leave__group:active {
+    background-color: white;
+}

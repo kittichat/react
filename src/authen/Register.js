@@ -164,7 +164,11 @@ class Register extends React.Component {
             message: response.data.message,
             successful: true
           });
-        },
+            window.alert("Register successfully")
+            this.props.history.push('/login')
+            window.location.reload()
+          }
+        ,
         error => {
           const resMessage = 
             (error.response && 

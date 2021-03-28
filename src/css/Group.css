@@ -11,7 +11,18 @@
 
 }
 
-.list-group{
+.list_row{
     margin-top: 10%;
-    margin-left: 20%;
+    /* margin-left: 10%; */
+}
+
+.list_groupname{
+    margin: 20px;
+    font-size: 20px;
+    text-decoration: none;
+
+}
+
+.list_group{
+    text-decoration: none;
 }
