@@ -1,0 +1,31 @@
+.Group__label{
+    font-size: 30px ;
+    padding: 10px;
+    
+}
+
+.Groupname{
+    padding: 8px;
+    width: 200px;
+    margin: 10px;
+    border: black solid;
+}
+
+.list-group{
+    padding: 10px;
+    margin: 10px;
+}
+
+.Group__submit{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 4px;
+    border: black solid;
+    background-color: greenyellow;
+    font-size: 30px;
+    color: white;
+}
+
+.Group__submit:active{
+    background-color: white;
+}

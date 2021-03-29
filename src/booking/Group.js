@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
 
 import { Container} from './group/Container'
+import {GroupContainer} from './GroupCreated/Container'
 import ShowGroup from './ShowGroup'
 import Groupdetail from './Groupdetail'
 
@@ -20,33 +21,33 @@ function Group() {
     }
 
     // I think this part is no needed any more also include showGroup too.
-    const Group_component =  value.map(response => <ShowGroup name={response.name} />)
+    // const Group_component =  value.map(response => <ShowGroup name={response.name} />)
 
-    const [Listofgroup , setListofgroup] = useState([])
-    const [nameOfGroup, setNameOfGroup] = useState(undefined)
+    // const [Listofgroup , setListofgroup] = useState([])
+    // const [nameOfGroup, setNameOfGroup] = useState(undefined)
 
-    useEffect(() => {
-       retrieveAllgroup() 
-    }, [])
-
-
-    const retrieveAllgroup = () =>{
-        GroupList.getAll()
-            .then(response => {
-                setListofgroup(response.data.data)   // data is list of name of group
-                console.log(response.data.data)
-                const x = response.data.data
-                console.log(x[0])
-            })
-            .catch(e => {
-                console.log(e)
-            })
-    }
+    // useEffect(() => {
+    //    retrieveAllgroup() 
+    // }, [])
 
 
-    const handleClick = (group) => {
-        GroupList.setGroup(group)
-    }
+    // const retrieveAllgroup = () =>{
+    //     GroupList.getAll()
+    //         .then(response => {
+    //             setListofgroup(response.data.data)   // data is list of name of group
+    //             console.log(response.data.data)
+    //             const x = response.data.data
+    //             console.log(x[0])
+    //         })
+    //         .catch(e => {
+    //             console.log(e)
+    //         })
+    // }
+
+
+    // const handleClick = (group) => {
+    //     GroupList.setGroup(group)
+    // }
     // console.log(nameOfGroup)
     // const test = Listofgroup
     // console.log(test.data[0])
@@ -55,7 +56,7 @@ function Group() {
     return (
         <div className="list_row">
             
-        <ul className="list_group" >
+        {/* <ul className="list_group" >
             {Listofgroup &&
                 Listofgroup.map((group, index) => (
                     <Link to={"/detail/"} >
@@ -70,10 +71,10 @@ function Group() {
                         </li>
                     </Link>
                 ))}
-        </ul>
+        </ul> */}
 
-                     <Container triggerText={triggerText} onSubmit={onSubmit} />
-
+        <Container triggerText={triggerText} onSubmit={onSubmit} />
+        {/* <GroupContainer triggerText={triggerText} onSubmit={onSubmit} /> */}
 
 
         <div>

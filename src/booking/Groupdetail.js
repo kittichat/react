@@ -25,7 +25,8 @@ function Groupdetail(props) {
        setPresentGroup(
         GroupList.getCurrentGroup()
     )
-       
+        
+
         // GroupList.getMembers().then(response =>{
         //   setMembers(response.data.members)
         //   setAuthority(response.data.authorized)

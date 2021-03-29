@@ -1,161 +1,4 @@
-
-// import React , {useState, useEffect} from 'react'
-// import { Link } from "react-router-dom"
-// import CheckButton from "react-validation/build/button"
-// import Form from "react-validation/build/form"
-
-// import Memberlist from '../../services/memberlist_service'
-
-// import "../../css/CreateForm.css"
-// import { checkPropTypes } from 'prop-types'
-
-//   const HandleChecked = (props) => {
-
-//     const [Change,setChange] = useState(props)
-
-//     return (
-
-//       // Some problem here, it is how to send props in hooks
-//       <div>
-//         <input 
-//           type="checkbox"
-//           checked={Change.isCheck}
-//           onChange={() => setChange(!Change.isCheck)}
-//         />
-//       </div>
-//     )
-//   }
-
-
-
-//  function CreateForm(props) {
-// //  const CreateForm = (props) => {
-//   // const [memberlist, setMemberlist] = useState({})
-
-//   // useEffect(() => {
-//   //   const member_list = Memberlist.member();
-//   //   member_list.then((response) => {
-//   //     setMemberlist(response.map())
-//   //   })
-//   // })
-
-//   const [Listofmember , setListofmember] = useState([])
-//   const [Successful , setSuccessful] = useState(false)
-//   const [bookingDetail2, setBookingDetail] = useState([])
-//     useEffect(() => {
-//        retrieveAllmember();
-//        bookingInformation();
-//     }, [])
-
-
-//     const retrieveAllmember = () =>{
-//         Memberlist.getAll()
-//             .then(response => {
-//                 setListofmember(response.data)   // data is list of name of group
-//                 console.log(response.data)
-//             })
-//             .catch(e => {
-//                 console.log(e)
-//             })
-//     }
-
-//     const bookingInformation = () => {
-//         const test = props.bookingDetail
-//     setBookingDetail(props.bookingDetail)
-//     }
-
-//     const handleCreate = (e) => {
-//       e.preventDefault()
-
-//       setSuccessful(false)
-
-//       // if(this.checkBtn.context._errors.length === 0){
-//       //   Memberlist.createRequire(Listofmember)
-//       //   .then(
-//       //     response => {
-//       //       setSuccessful({
-//       //         message: response.data.message,
-//       //         Successful: true
-//       //       })
-//       //     },
-//       //     error => {
-//       //       const resMessage = 
-//       //       (error.response && 
-//       //         error.response.data &&
-//       //         error.response.data.message) ||
-//       //         error.message ||
-//       //         error.toString();
-
-//       //         this.setState({
-//       //           successful: false,
-//       //           message: resMessage
-//       //         })
-//       //     }
-//       //   )
-//       // }
-
-
-//     }
-
-//   return (
-//     <div className="list_row">
-//       <Form 
-//         // onSubmit={handleCreate}
-//         // ref = {c => {
-//         //   this.form = c
-//         // }}
-      
-//       >
-//        <div className="form-group">
-//          <label htmlFor="name">Name</label>
-//          <input className="form-control" id="name" />
-//        </div>
-//        <div className="form-group">
-//          <label htmlFor="email">Email address</label>
-//          <input
-//            type="email"
-//            className="form-control"
-//            id="email"
-//            placeholder="name@example.com"
-//          />
-//        </div>
-
-//            <ul>
-//                {bookingDetail2 && 
-//                     bookingDetail2.map(detail => (
-//                         <li>
-//                             {/* {detail.time}
-//                             {detail.column} */}
-//                           {detail.time}  {detail.column}
-//                         </li>
-//                     ))
-//                }
-//            </ul>
-       
-//         <div className="form-group">
-//          <button className="form-control btn btn-primary" type="submit">
-//            Submit
-//          </button>
-//        </div>
-
-//        <CheckButton
-//         // className=""
-//         // style={{display:"none"}}
-//         // ref={c => {
-//         //   this.checkBtn = c
-//         // }}
-//        >
-
-//        </CheckButton>
-//       </Form>
-//     </div>
-//   )
-// }
-
-// export default CreateForm
-
-
-import React , {useState, useEffect}from 'react'
+import React from 'react'
 import ReactDom from 'react-dom'
 import { Link } from "react-router-dom"
 import CheckButton from "react-validation/build/button"
@@ -167,24 +10,6 @@ import BookingService from '../../services/booking_service'
 import AuthService from '../../services/auth_service'
 
 import "../../css/CreateForm.css"
-import { checkPropTypes } from 'prop-types'
-
-  const HandleChecked = (props) => {
-
-    const [Change,setChange] = useState(props)
-
-    return (
-
-      // Some problem here, it is how to send props in hooks
-      <div>
-        <input 
-          type="checkbox"
-          checked={Change.isCheck}
-          onChange={() => setChange(!Change.isCheck)}
-        />
-      </div>
-    )
-  }
 
   const required = value => {
     if (!value){
@@ -438,7 +263,7 @@ class CreateForm extends React.Component {
       >
       { !member ? <div>
        <div className="form-group">
-         <label htmlFor="name">Name</label>
+         <label className="Header__label">Name</label>
          <Input 
           className="form-control"
           id="name" 
@@ -450,7 +275,7 @@ class CreateForm extends React.Component {
        </div>
 
        <div className="form-group">
-         <label htmlFor="email">Email address</label>
+         <label className="Header__label">Email address</label>
          <Input
            type="text"
            className="form-control"
@@ -463,7 +288,7 @@ class CreateForm extends React.Component {
        </div>
 
        <div className="form-group">
-          <label>Phone number</label>
+          <label className="Header__label">Phone number</label>
           <Input
             className="form-control"
             id="phone"
@@ -474,12 +299,16 @@ class CreateForm extends React.Component {
           />
        </div>
        </div>
-       : <h1>Something</h1>
+       : <h1>Booking Details</h1>
       }
-           <ul>
+           <ul
+            className ="ul__booking"
+           >
                {this.state.bookingDetail2 && 
                     this.state.bookingDetail2.map(detail => (
-                        <li>
+                        <li
+                          className = "li__booking"
+                        >
                             {/* {detail.time}
                             {detail.column} */}
                           {detail.time}  {detail.column}
@@ -489,7 +318,7 @@ class CreateForm extends React.Component {
            </ul>
        
         <div className="form-group">
-         <button className="form-control btn btn-primary" type="submit">
+         <button className="Booking__submit" type="submit">
            Submit
          </button>
        </div>

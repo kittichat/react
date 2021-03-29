@@ -5,9 +5,10 @@ const getAll = () => {
     return http.get("/creategroup/")
 }
 
-const createRequire = (members) => {
-    return http.post("/complete/", {
-        members
+const createRequire = (arr,name) => {
+    return http.post("/creategroup/", {
+        arr,
+        name
     }) //may be edit later
 }
 

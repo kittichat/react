@@ -1,6 +1,6 @@
 import React from "react"
 import ReactDom from 'react-dom'
-import  Form  from './CreateForm'
+import  Form  from './CreateFormGroup'
 import FocusTrap from 'focus-trap-react'
 
 import '../../css/Modal.css'

@@ -7,7 +7,7 @@ const API_URL = "http://localhost:8000/";
 class BookingService{
     AllBookingInformation(){
         return axios
-        .get(API_URL + 'status/'
+        .get(API_URL + 'booking/'
             // I think this place no need because server can know authorized by cookie and group is different location
         )
         .then(response => {
