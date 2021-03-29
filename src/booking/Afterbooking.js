@@ -201,34 +201,34 @@ function Afterbooking(props) {
         () => [
             {
                         Header: "All courts",
-                        columns: [
-                            {Header:"time",accessor:"time"},
-                            {Header:"Court1",accessor:"Court1"},
-                            {Header:"Court2",accessor:"Court2"},                                            
-                            {Header:"Court3",accessor:"Court3"},                                            
-                                                                   
-                        ]
-                        // use this when you want to use data api 
                         // columns: [
                         //     {Header:"time",accessor:"time"},
-                        //     {Header:"Court1",accessor:"court1"},
-                        //     {Header:"Court2",accessor:"court2"},                                            
-                        //     {Header:"Court3",accessor:"court3"},                                            
-                        //     {Header:"Court4",accessor:"court4"},                                            
-                        //     {Header:"Court5",accessor:"court5"},                                            
-                        //     {Header:"Court6",accessor:"court6"},                                            
-                        //     {Header:"Court7",accessor:"court7"},                                            
-                        //     {Header:"Court8",accessor:"court8"},                                            
-                        //     {Header:"Court9",accessor:"court9"},                                            
+                        //     {Header:"Court1",accessor:"Court1"},
+                        //     {Header:"Court2",accessor:"Court2"},                                            
+                        //     {Header:"Court3",accessor:"Court3"},                                            
+                                                                   
                         // ]
+                        // use this when you want to use data api 
+                        columns: [
+                            {Header:"time",accessor:"time"},
+                            {Header:"Court1",accessor:"court1"},
+                            {Header:"Court2",accessor:"court2"},                                            
+                            {Header:"Court3",accessor:"court3"},                                            
+                            {Header:"Court4",accessor:"court4"},                                            
+                            {Header:"Court5",accessor:"court5"},                                            
+                            {Header:"Court6",accessor:"court6"},                                            
+                            {Header:"Court7",accessor:"court7"},                                            
+                            {Header:"Court8",accessor:"court8"},                                            
+                            {Header:"Court9",accessor:"court9"},                                            
+                        ]
                     }
         ],
         []
     )
     // the problem that I cannot use data because when useEffect has set to dataTemp, data is not set too
-    // const data = React.useMemo(() => Data, [])
-    // console.log(data)
-    console.log(dataTemp)
+    const data = React.useMemo(() => Data, [])
+    console.log(data)
+    // console.log(dataTemp)
     console.log("this is arrRoot")
     console.log(arrRoot)
 
@@ -249,7 +249,7 @@ function Afterbooking(props) {
                     <Table 
                         className="group1_eachtable" 
                         columns={columns} 
-                        data={dataTemp} 
+                        data={data} 
                         arr={arrRoot} 
                         setArr={setArr} 
                         ClearState={ClearState}

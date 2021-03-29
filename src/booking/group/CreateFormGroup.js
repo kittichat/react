@@ -108,6 +108,7 @@ import { checkPropTypes } from 'prop-types'
               message: response.data.message,
               Successful: true
             })
+            window.location.reload()
           },
           error => {
             const resMessage = 
@@ -190,6 +191,7 @@ import { checkPropTypes } from 'prop-types'
                                   onChange={() => this.handleChange(group.id)}
                                 />
                                 {group.username}
+                                
                         </li>
                    
                 ))}

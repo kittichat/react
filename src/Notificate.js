@@ -1,5 +1,7 @@
-import React , {useState} from 'react'
+import React , {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
+
+import Notification from './services/notification'
 
 import './css/Notificate.css'
 
@@ -7,8 +9,23 @@ import './css/Notificate.css'
 
 function Notificate() {
     const [click, setClick] = useState(false)
-    const handleClick = () => setClick(!click)
+    const [notice, setNotice] = useState([])
 
+    const handleClick = () => setClick(!click)
+    
+    const handleAccept = (id) => {
+        Notification.accept(id)
+    }
+
+    const handleDecline = () => {
+
+    }
+
+    useEffect(() => {
+        setNotice(
+        Notification.get()
+        )
+    }, [])
 
     return (
         <div>
@@ -16,15 +33,34 @@ function Notificate() {
                 onClick={handleClick}
                 className="Dropdownlist"
             >
-                <li>
-                    <h1>Test</h1>
-                </li>
-                <li>
-                    <h1>Test</h1>
-                </li>
-                <li>
-                    <h1>Test</h1>
-                </li>    
+                
+                    {notice && notice.map(detail => (
+                    
+                    <li>
+                        <h1>{detail.msg}</h1>
+                        <button>test</button>
+                        
+                   
+                    <div className="Notification__button">
+                         <button 
+                            className="Accept__button" 
+                            onClick={() => {handleAccept(detail.id)}}
+                            >
+                                Accept
+                        </button>
+                        <button 
+                            className="Decline__button" 
+                            onClick={() => {handleDecline()}}
+                            >
+                                Decline
+                        </button>
+                    </div>
+                    
+
+                    </li>
+    ))}
+                  
+                
             </ul>        
 
 

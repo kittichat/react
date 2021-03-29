@@ -3,9 +3,9 @@
 }
 
 .li__booking{
-    margin: 10px;
-    padding: 10px;
-    font-size: 12px;
+    margin: 8px;
+    padding: 8px;
+    font-size: 20px;
 
 }
 
@@ -32,3 +32,4 @@
 .Header__label{
     font-size: 20px;
 }
+
