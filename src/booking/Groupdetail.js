@@ -22,12 +22,14 @@ function Groupdetail(props) {
             })
     }
     useEffect(() => {
+      const group = GroupList.getCurrentGroup()
        setPresentGroup(
         GroupList.getCurrentGroup()
     )
         
 
-        // GroupList.getMembers().then(response =>{
+        GroupList.getMembers(group)
+        // .then(response =>{
         //   setMembers(response.data.members)
         //   setAuthority(response.data.authorized)
         // })

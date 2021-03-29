@@ -47,6 +47,7 @@ function Group() {
 
     const handleClick = (group) => {
         GroupList.setGroup(group)
+        
     }
     // console.log(nameOfGroup)
     // const test = Listofgroup

@@ -1,7 +1,7 @@
 import http from "./http_common"
 
 const getAll = () => {
-    return http.get("/listgroup/")
+    return http.get("/group/")
 }
 
 const get = (nameofgroup) => {
@@ -31,7 +31,7 @@ const getMembers = (presentGroup) => {
 //  return http.post("/membersdetail/" + {
 //      presentGroup
 //  })
-return http.get(`/memberdetail/${presentGroup}`)
+return http.get(`/group/${presentGroup}`)
 //  .then(response => {
 //      return response.data
 //  })
