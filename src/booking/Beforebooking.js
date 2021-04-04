@@ -24,7 +24,14 @@ function Beforebooking() {
 
                 <Link to={'./userbooking'}>
                     <button className="group__button"  >Group</button>
-                </Link>     
+                </Link>    
+                <Link to={'./group3'}>
+                    <button>Group3</button>
+                </Link> 
+
+                <Link to={'./dateselection'}>
+                    <button className="user__button">Start2</button>
+                </Link>
             </div>
             
 

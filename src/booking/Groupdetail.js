@@ -5,12 +5,17 @@ import {useTable}  from 'react-table'
 
 import '../css/Groupdetail.css'
 
+import Data from '../api/group__members'
+
 function Groupdetail(props) {
 
    const [CurrentGroup, setCurrentGroup] = useState(undefined)  // match with table
    const [presentGroup, setPresentGroup] = useState(undefined)
    const [members, setMembers] = useState([])
-   const [authrority, setAuthority] = useState(0)
+   const [authrority, setAuthority] = useState(false)
+   const [role, setRole] = useState(undefined)
+   const [dataTerm, setData] = useState([])
+
     const getGroup = name => {
         GroupList.get(name)
             .then(response => {
@@ -22,21 +27,55 @@ function Groupdetail(props) {
             })
     }
     useEffect(() => {
+     
       const group = GroupList.getCurrentGroup()
        setPresentGroup(
         GroupList.getCurrentGroup()
     )
         
-
         GroupList.getMembers(group)
-        // .then(response =>{
-        //   setMembers(response.data.members)
-        //   setAuthority(response.data.authorized)
-        // })
+        .then(response =>{
+          console.log(response.data.member)
+          handleMembers(response.data.member)
+          authorityCheck(response.data.role)
+        })
         // set members to data variable
     
+        // handleMembers()
+
+        // authorityCheck(role)
 
     }, [])
+    // console.log("this is members")
+    // console.log(members)
+    console.log("this is dataTerm")
+    console.log(dataTerm)
+    console.log(Data)
+
+    const handleMembers = (members) => {
+      let count = 0
+      const dataTemp = []
+      for(let i in members){
+        console.log("i information")
+        console.log(members[i])
+        dataTemp.push({
+          sequence:count,
+          member:members[i]
+        })
+      count++
+      }
+      return setData(
+        dataTemp
+      )
+    }
+
+    const authorityCheck = (role) => {
+      if (role == "header"){
+        setAuthority(true)
+      }else if( role == "member"){
+        setAuthority(false)
+      }
+    }
 
     const handleJoin = () => {
       
@@ -54,30 +93,30 @@ function Groupdetail(props) {
 
     }
 
-    // const columns = React.useMemo(
-    //     () => [
-    //         {
-    //             Header: "",
-    //             accessor:"ordernumber"
-    //         },
-    //         {
-    //             Header:"Members",
-    //             accessor:"member"
-    //         }
-    //     ],
-    //     []
-    // )
+    const columns = React.useMemo(
+        () => [
+            {
+                Header: "Numbers",
+                accessor:"sequence"
+            },
+            {
+                Header:"Members",
+                accessor:"member"
+            }
+        ],
+        []
+    )
     
-    // const data  = React.useMemo( () => Someofarray,[])
+    const data  = React.useMemo( () => Data,[])
 
     
-//    const {
-//      getTableProps,
-//      getTableBodyProps,
-//      headerGroups,
-//      rows,
-//      prepareRow,
-//    } = useTable({ columns, data })
+   const {
+     getTableProps,
+     getTableBodyProps,
+     headerGroups,
+     rows,
+     prepareRow,
+   } = useTable({ columns, data })
 
     return (
         <div className="group__detail">
@@ -91,19 +130,19 @@ function Groupdetail(props) {
             <h1>{presentGroup}</h1>
             <h1>ok</h1>
 
-                 {/* <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
+                 <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
        <thead>
          {headerGroups.map(headerGroup => (
            <tr {...headerGroup.getHeaderGroupProps()}>
              {headerGroup.headers.map(column => (
                <th
                  {...column.getHeaderProps()}
-                //  style={{
-                //    borderBottom: 'solid 3px red',
-                //    background: 'aliceblue',
-                //    color: 'black',
-                //    fontWeight: 'bold',
-                //  }}
+                 style={{
+                   borderBottom: 'solid 3px red',
+                   background: 'aliceblue',
+                   color: 'black',
+                   fontWeight: 'bold',
+                 }}
                >
                  {column.render('Header')}
                </th>
@@ -120,11 +159,11 @@ function Groupdetail(props) {
                  return (
                    <td
                      {...cell.getCellProps()}
-                    //  style={{
-                    //    padding: '10px',
-                    //    border: 'solid 1px gray',
-                    //    background: 'papayawhip',
-                    //  }}
+                     style={{
+                       padding: '10px',
+                       border: 'solid 1px gray',
+                       background: 'papayawhip',
+                     }}
                    >
                      {cell.render('Cell')}
                    </td>
@@ -134,11 +173,11 @@ function Groupdetail(props) {
            )
          })}
        </tbody>
-     </table> */}
-    {/* { authrority ? */}
+     </table>
+    { authrority ?
       
-     {/* CHeck Is this Header or not */}
-     {/* <div>
+    //  CHeck Is this Header or not
+     <div>
      <button 
                 type="submit"
                 className="Accept__member"
@@ -151,9 +190,9 @@ function Groupdetail(props) {
             >
                 Delete   
             </button>
-     </div> */}
-     {/* this is for member */}
-     {/* : */}
+     </div>
+    //  this is for member
+     :
         <div>
             <button 
                 type="submit"
@@ -170,7 +209,7 @@ function Groupdetail(props) {
                 Leave
             </button>
         </div>
-{/* } */}
+} 
         </div>
     )
 }

@@ -34,19 +34,44 @@ const Styles = styled.div`
   }
   `
 
-function Table({ columns, data , arrRoot , setArr, ClearState  }) {
+function Table({ columns, data , arrRoot , setArr, ClearState , isClear  }) {
     // Use the state and functions returned from useTable to build your UI
     // becareful if array has some problem, just set arr value default to [0]
     const [arr,setArrState] = useState([])
+
+
+    const CLear = () => {
+        setArrState([])
+    }
+    let test = false
+    {isClear ? test = true : test = false}
+    if(test){
+        arr.splice(0)
+        test = false
+    }
+
+    // {isClear &&  
+    // //    console.log("fuckingSheit happening on this")
+    //     // setArrState([0])
+    //     // CLear()
+    //     // arr.pop(0)
+    //     // arr.push(0)
+      
+    //         arr.splice(0)
+       
+       
+        
+        
+    // }
 
     // const Clear = () => {
     //     // setArrState([0])
     //     console.log("work")
     // }
 
-    // {ClearState(Clear())}
-    // {ClearState = Clear()}
-
+  
+    // {ClearState({Clear})}
+//*************************************** */ 
 
 const bgforTime = {
     background : "white"
@@ -126,6 +151,8 @@ const bgCell = (cell) => {
         {setArr({arr})}
 
     }
+
+
        console.log("this is arr")
        console.log(arr)
        console.log("this is arrRoot")
@@ -187,6 +214,7 @@ function Afterbooking(props) {
     const [arrRoot, setArr] = useState([0])
     const [dataTemp, setDataTemp] = useState([])
     const [apidata,setApidata] = useState(undefined)
+    const [isClear , setClear]  = useState(false)
     
    useEffect(() => {
        BookingService.AllBookingInformation().then(response => 
@@ -194,7 +222,7 @@ function Afterbooking(props) {
              setDataTemp(response.data.status)
         }
         )
-        
+     
    }, []) 
    
    const columns = React.useMemo(
@@ -237,10 +265,15 @@ function Afterbooking(props) {
         event.preventDefault(event)
     }
  // this part I try to create clear booking by callback from function table
+    let test = false
+
     const ClearState = () => {
-            // console.log("not this one")
-            // {props.Clear}
-    }    
+            setClear(!isClear)
+    }
+    
+     
+    console.log("this is isClear")
+    console.log(isClear)
 
     return (
         <div className="Afterbooking">
@@ -252,7 +285,8 @@ function Afterbooking(props) {
                         data={data} 
                         arr={arrRoot} 
                         setArr={setArr} 
-                        ClearState={ClearState}
+                        isClear={isClear}
+                        // ClearState={ClearState}
                     />
                 </div>
             </Styles>

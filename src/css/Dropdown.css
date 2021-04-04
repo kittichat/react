@@ -8,7 +8,7 @@
 .Dropdownlist li{
     list-style: none;
     padding: 15px;
-    font: 20px solid;
+    /* font: 30px solid; */
     background-color: whitesmoke;
     
 }
@@ -25,6 +25,7 @@
     height: 100%;
     color: green;
     display: block;
+    font-size: 15px;
   
   
 }

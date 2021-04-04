@@ -16,6 +16,7 @@ import Paymenthistory from './component/Paymenthistory'
 import Bookinghistory from './component/Bookinghistory'
 import Group from './booking/Group'
 import Individualgroup from './booking/Individualgroup';
+import DateSelection from './booking/calendar/DateSelection'
 
 import Group1 from './booking/showall/Group1'
 import Group2 from './booking/showall/Group2'
@@ -28,6 +29,7 @@ import Group8 from './booking/showall/Group8'
 import Group9 from './booking/showall/Group9'
 import Group10 from './booking/showall/Group10'
 import Groupdetail from './booking/Groupdetail';
+import Calendar_background from './booking/calendar/Calendar_background';
 
 function App() {
   return (
@@ -47,6 +49,8 @@ function App() {
           <Route exact path="/paymenthistory" component={Paymenthistory} />
           <Route exact path="/groupplayer" component={Group} />
           <Route exact path="/individualgroup" component={Individualgroup} />
+          {/* <Route exact path="/dateselection" component={DateSelection} /> */}
+          <Route exact path="/dateselection" component={Calendar_background} />
           <Route exact path="/group1" component={Group1} />
           <Route exact path="/group2" component={Group2} />
           <Route exact path="/group3" component={Group3} />
@@ -58,6 +62,7 @@ function App() {
           <Route exact path="/group9" component={Group9} />
           <Route exact path="/group10" component={Group10} />
           <Route exact path="/detail" component={Groupdetail} />
+          {/* <Route exact path="./dateselection" component={DateSelection} /> */}
 
 
 

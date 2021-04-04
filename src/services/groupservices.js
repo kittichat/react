@@ -32,9 +32,9 @@ const getMembers = (presentGroup) => {
 //      presentGroup
 //  })
 return http.get(`/group/${presentGroup}`)
-//  .then(response => {
-//      return response.data
-//  })
+ .then(response => {
+     return response
+ })
 }
 
 const joinGroup = () => {

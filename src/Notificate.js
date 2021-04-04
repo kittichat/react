@@ -22,25 +22,28 @@ function Notificate() {
     }
 
     useEffect(() => {
-        setNotice(
-        Notification.get()
+        
+        Notification.get().then(response => {
+            setNotice(response.data)
+        }
         )
+        
     }, [])
 
+    console.log(notice)
     return (
         <div>
             <ul
-                onClick={handleClick}
+                // onClick={() => handleClick()}
                 className="Dropdownlist"
             >
                 
-                    {notice && notice.map(detail => (
+                    {notice && 
+                        notice.map((detail) => (
                     
                     <li>
                         <h1>{detail.msg}</h1>
-                        <button>test</button>
-                        
-                   
+
                     <div className="Notification__button">
                          <button 
                             className="Accept__button" 

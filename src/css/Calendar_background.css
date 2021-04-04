@@ -1,0 +1,19 @@
+.background{
+    /* margin: 0;
+    padding: 0;
+    font-family: sans-serif; */
+}
+
+.Date__submit{
+    padding: 10px;
+    margin: 20px;
+    font-size: 20px;
+    background-color: greenyellow;
+    border: solid 2px;
+    border-radius: 2px;
+    color: white;
+}
+
+.Date__submit:active{
+    background-color: white;
+}
