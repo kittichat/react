@@ -20,3 +20,5 @@ Header authentication
 
 Get members fucntion in Group services
 -should gives authority to browser
+
+dynamic court and time >> set variable to flexible

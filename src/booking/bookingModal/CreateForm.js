@@ -136,14 +136,19 @@ class CreateForm extends React.Component {
           this.state.name,
           this.state.email,
           this.state.phone,
+          localStorage.getItem("date2"),
         )
         .then(
           response => {
+            if(response.data.success == false){
+              window.alert("Sorry, please check stage again")
+              window.location.reload()}
             this.setState({
               message: response.data.message,
-              uuid:response.data.receipt, // change this line 
+              uuid:response.data.bookingid, // change this line 
               price:response.data.price,
               isSubmit : true,
+
             })
           },
           error => {

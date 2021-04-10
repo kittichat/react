@@ -16,9 +16,18 @@ class BookingService{
         
     }
 
-    CourtBooking(arr,name,email,phone){
+    GetBookingInformation(date){
+        return axios
+        .get(`${API_URL}booking/?d=${date}`)
+        .then (response => {
+            return response
+        })
+    }
+
+    CourtBooking(arr,name,email,phone,date){
         return axios
         .post(API_URL + 'booking/',{
+            date,
             arr,
             name,
             email,
@@ -29,11 +38,23 @@ class BookingService{
         })
     
    }
-
-   BookingVerify(receipt){
+// edit from confirm
+   BookingVerify(bookingid){
        return axios
-       .post(API_URL + 'confirm/',{
-           receipt
+       .post(API_URL + 'payment/',{
+           bookingid
+       })
+   }
+
+   DateBooking(day,month,year){
+       return axios
+       .post(API_URL + 'checkrange/',{
+           day,
+           month,
+           year
+       })
+       .then(response => {
+           return response.data;
        })
    }
 }

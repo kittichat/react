@@ -1,11 +1,15 @@
 import React from "react";
 import dateFns from "date-fns";
 
+import BookingService from '../../../services/booking_service'
+
 class Calendar extends React.Component {
   state = {
     currentMonth: new Date(),
     selectedDate: new Date()
   };
+
+  // handleClick = this.handleClick.bind(this);
 
   renderHeader() {
     const dateFormat = "MMMM YYYY";
@@ -106,17 +110,62 @@ class Calendar extends React.Component {
     });
   };
 
+  handleClick = (e) => {
+    // e.preventDefault()
+    // this.setState({
+    //   message:"",
+    //   successful:false
+    // })
+    BookingService.DateBooking(
+      this.state.selectedDate.getDate(),
+      this.state.selectedDate.getMonth(),
+      this.state.selectedDate.getFullYear()
+
+    ).then(response => {
+      // this.props.history.push("/userbooking")
+      console.log(response)
+      localStorage.setItem("date",response.date)
+      window.location.replace("http://localhost:3000/userbooking")
+      // window.location.reload()
+    }
+    ,
+    error => {
+      const resMessage = 
+        (error.response && 
+          error.response.data &&
+          error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+          this.setState({
+            successful: false,
+            message: resMessage
+          })
+          window.alert("Date selection is failed")
+          window.location.reload()
+    }
+    )
+  }
+
   render() {
 
     let { selectedDate } = this.state;
     console.log(selectedDate.getDate())
 
     return (
+    <div>
       <div className="calendar">
         {this.renderHeader()}
         {this.renderDays()}
         {this.renderCells()}
+        
       </div>
+
+      <button 
+        className="Date__submit"
+        onClick={() => {this.handleClick()}}
+        >Submit</button>
+    </div>
     );
   }
 }
