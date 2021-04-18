@@ -90,7 +90,8 @@ class CreateForm extends React.Component {
     }
 
     memberCheck(){
-      let user = AuthService.getCurrentUser()
+      // let user = AuthService.getCurrentUser()
+      let user = document.cookie
       if(user){
         this.setState({
           member : true

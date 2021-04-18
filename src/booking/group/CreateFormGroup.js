@@ -32,7 +32,16 @@ import { checkPropTypes } from 'prop-types'
   //   // )
   // }
 
-
+  const required = value => {
+    if (!value){
+      return (
+        <div className="alert alert-danger" role="alert">
+          This field is required!
+        </div>
+      );
+    }
+  };
+  
 
  class CreateFormGroup extends React.Component {
    constructor(props){
@@ -80,17 +89,40 @@ import { checkPropTypes } from 'prop-types'
 
 
     retrieveAllmember(){
-        Memberlist.getAll()
+      Memberlist.getAll()
             .then(response => {
                 // setListofmember(response.data)   // data is list of name of group
                 this.setState({
                   Listofmember : response.data
                 })
-                console.log(response.data)
-            })
+
+                console.log("data from an api")
+                console.log(response.data.message)
+            },
+            )
             .catch(e => {
                 console.log(e)
             })
+        // Memberlist.getAll()
+        //     .then(response => {
+        //         // setListofmember(response.data)   // data is list of name of group
+        //         if (!("Error" in response.data.message)){
+        //         this.setState({
+        //           Listofmember : response.data
+        //         })
+        //       }else{
+        //         this.setState({
+        //           Listofmember : []
+        //         })
+        //       }
+              
+        //         console.log("data from an api")
+        //         console.log(response.data.message)
+        //     },
+        //     )
+        //     .catch(e => {
+        //         console.log(e)
+        //     })
     }
 
     handleCreate(e){
@@ -175,6 +207,7 @@ import { checkPropTypes } from 'prop-types'
            id="name" 
            onChange = {this.onChangeName}
            value={this.state.name}
+           validations={[required]}
            />
        </div>
       

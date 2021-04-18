@@ -1,11 +1,14 @@
 const Data = [
     {
         sequence:0,
-        member:"test1"
+        member:"test1",
+        manage:false
+
     },
     {
         sequence:1,
-        member:"test2"
+        member:"test2",
+        manage:false
     }
 ]
 

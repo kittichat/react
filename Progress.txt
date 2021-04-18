@@ -22,3 +22,33 @@ Get members fucntion in Group services
 -should gives authority to browser
 
 dynamic court and time >> set variable to flexible
+
+fixed user by identify from session not just header >> check both of these >> acttualy, this part it needs to check from both sides server and front-end (session and username)
+
+15-04-2021
+
+function 
+-notification Accept,Decline
+-group "Role" ; if header then .. if member ..
+-When retrieving a list of members checks privacy first is that the app allows it or not.  
+1.name of key is public
+2.don't forget to add feature of [add or delete] member if role is header. If role is member and group is public then member should have feature to join the group and if member is already one of group then they have privilege to leave from the group.
+
+problem found
+-I got some problem that Httpolny make me cannot get sessionID from storage
+-At the part of react-table in groupdetail. I have some problem with data that use in react-table, First I try to handle data by myself and stuck. Now, I think the second way is get data from the server
+
+function Create group
+-create group >> without name of group, web app should not let user create group **
+-notification message show >> correct grammar
+
+
+Booking by Group 
+flow of booking:
+1.Check first are they header or not
+2.if they are header then they have privilege to booking in group
+***let's talk ***
+3.Calendar
+.
+.
+.

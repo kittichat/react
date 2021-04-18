@@ -13,12 +13,23 @@ function Notificate() {
 
     const handleClick = () => setClick(!click)
     
-    const handleAccept = (id) => {
-        Notification.accept(id)
+    const handleAccept = (detail) => {
+        Notification.accept(
+            detail.id,
+        )
+        .then(
+            window.location.reload()
+        )
     }
 
-    const handleDecline = () => {
-
+    const handleDecline = (detail) => {
+        Notification.decline(
+            detail.id,
+            
+        )
+        .then(
+            window.location.reload()
+        )
     }
 
     useEffect(() => {
@@ -42,18 +53,18 @@ function Notificate() {
                         notice.map((detail) => (
                     
                     <li>
-                        <h1>{detail.msg}</h1>
+                        <h1>{`${detail.msg} ${detail.group}`}</h1>
 
                     <div className="Notification__button">
                          <button 
                             className="Accept__button" 
-                            onClick={() => {handleAccept(detail.id)}}
+                            onClick={() => {handleAccept(detail)}}
                             >
                                 Accept
                         </button>
                         <button 
                             className="Decline__button" 
-                            onClick={() => {handleDecline()}}
+                            onClick={() => {handleDecline(detail)}}
                             >
                                 Decline
                         </button>

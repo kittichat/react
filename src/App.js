@@ -30,6 +30,7 @@ import Group9 from './booking/showall/Group9'
 import Group10 from './booking/showall/Group10'
 import Groupdetail from './booking/Groupdetail';
 import Calendar_background from './booking/calendar/Calendar_background';
+import deleteme from './authen/deleteme';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
       <Router>
         <Header />
         <Switch>
+          <Route exact path="/test" component={deleteme} />
           <Route exact path="/userbooking"  component={Afterbooking} />
           <Route exact path="/beforebooking" component={Beforebooking} />
           <Route exact path="/rule" component={Rule}/>

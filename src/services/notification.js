@@ -17,7 +17,16 @@ class Notification{
     accept(id){
         return axios
         .post(API_URL + 'request/',{
-            id
+            id,
+            accept:true
+        })
+    }
+
+    decline(id){
+        return axios
+        .post(API_URL + "request/",{
+            id,
+            accept:false
         })
     }
 }
