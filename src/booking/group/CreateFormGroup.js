@@ -162,12 +162,12 @@ import { checkPropTypes } from 'prop-types'
     }
 
     
-  handleChange(id){
+  handleChange(virtualid){
       this.state.Listofmember.map(member => {
-        if(member.id === id){
-          if(this.state.createGroup.includes(member.username) === false){
+        if(member.virtualid === virtualid){
+          if(this.state.createGroup.includes(member.virtualid) === false){
             this.state.createGroup.push(
-              member.username,
+              member.virtualid,
             )
         }else{
           let position = this.state.createGroup.indexOf(member.username)
@@ -221,9 +221,9 @@ import { checkPropTypes } from 'prop-types'
                                 <input 
                                   type= "checkbox"
                                   // checked = {item.completed}
-                                  onChange={() => this.handleChange(group.id)}
+                                  onChange={() => this.handleChange(group.virtualid)}
                                 />
-                                {group.username}
+                                {group.first_name}
                                 
                         </li>
                    

@@ -32,6 +32,8 @@ import Groupdetail from './booking/Groupdetail';
 import Calendar_background from './booking/calendar/Calendar_background';
 import deleteme from './authen/deleteme';
 
+import Week from './booking/GroupBooking/Week'
+
 function App() {
   return (
 
@@ -41,6 +43,7 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/test" component={deleteme} />
+          <Route exact path="/groupbooking" component={Week} />
           <Route exact path="/userbooking"  component={Afterbooking} />
           <Route exact path="/beforebooking" component={Beforebooking} />
           <Route exact path="/rule" component={Rule}/>

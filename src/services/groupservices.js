@@ -39,7 +39,7 @@ return http.get(`/group/${presentGroup}`)
 
 const joinGroup = (group) => {
     return http.post(`/group/${group}` ,{
-    group        
+            
 
     })
 }
@@ -50,29 +50,22 @@ const leaveGroup = (group) => {
     })
 }
 
-const cancel = () => {
-    return http.post("/cancelpage/" ,{
+const cancel = (group) => {
+    return http.post(`/group/${group}` ,{
+            
 
     })
 }
 
-const privacy = (status) => {
-    return http.post("/privacypage/" ,{
+const privacy = (group,status) => {
+    return http.put(`/group/${group}` ,{
         public:status
     })
 }
 
-// const acceptMember = (username) => {
-//     return http.post("/acceptgrouppage/" + {
-//         username,
-//     })
-// }
-
-// const deleteMember = (username) => {
-//     return http.post("/deletememberpage/" + {
-//         username,
-//     })
-// }
+const deleteMember = (group,id) => {
+    return http.delete(`group/${group}?id=${id}`)
+}
 
 export default {
     getAll,
@@ -84,7 +77,7 @@ export default {
     joinGroup,
     leaveGroup,
     // acceptMember,
-    // deleteMember,
+    deleteMember,
     cancel,
     privacy,
 

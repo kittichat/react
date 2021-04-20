@@ -20,6 +20,7 @@ function Notificate() {
         .then(
             window.location.reload()
         )
+
     }
 
     const handleDecline = (detail) => {

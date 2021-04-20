@@ -6,37 +6,48 @@ import GroupList from "../services/groupservices"
 import { useTable } from 'react-table'
 
 
-function Grouptable() {
+function Grouptable({members}) {
+const [dataApi , setApi]  = useState([])
 
-useEffect(() => {
-    // fetch list of members here
-}, [])
+// useEffect(() => {
+//   const group = GroupList.getCurrentGroup()
+//   console.log("this is group ",group)
+//     GroupList.getMembers(group)
+//       .then(response => {
+
+//         setApi(response.data.detail.member)
+
+
+//       })
+// }, [])
 
     const columns = React.useMemo(
         () =>
             [
                 {
                     Header: "Numbers",
-                    accessor:"sequence"
+                    accessor:"number"
                 },
                 {
                     Header:"Members",
-                    accessor:"member"
+                    accessor:"firstname"
                 },
             ]
         ,
         []
       )
-    
-      const data = React.useMemo(() => Data, [])
-    
+
+      const data = React.useMemo(() => test, [])
+    //  const data = dataApi
+     console.log("this is not Header")
+            console.log(data)
     const {
         getTableProps,
         getTableBodyProps,
         headerGroups,
         rows,
         prepareRow,
-      } = useTable({ columns, data })
+      } = useTable({ columns , data })
     
 
     return (
@@ -87,6 +98,7 @@ useEffect(() => {
           })}
         </tbody>
       </table>
+      {/* <h1>test</h1> */}
         </div>
     )
 }

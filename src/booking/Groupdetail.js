@@ -11,6 +11,7 @@ import Data from '../api/group__members'
 
 import button from 'react-validation/build/button'
 import { ContactSupportOutlined } from '@material-ui/icons'
+import Headertable from './Headertable'
 
 function Groupdetail(props) {
 
@@ -22,7 +23,9 @@ function Groupdetail(props) {
   const [dataTerm, setData] = useState([])
   const [isPrivacy, setPrivacy] = useState(false)
   const [joingroup, setJoin] = useState(undefined)
-  const [yes, setYes] = useState([])
+  const [dataApi,setApi] = useState([])
+
+  const group = GroupList.getCurrentGroup()
 
   const getGroup = name => {
     GroupList.get(name)
@@ -38,50 +41,56 @@ function Groupdetail(props) {
   
   useEffect(() => {
 
-    const group = GroupList.getCurrentGroup()
+    // const group = GroupList.getCurrentGroup()
     setPresentGroup(
       GroupList.getCurrentGroup()
     )
 
     GroupList.getMembers(group)
       .then(response => {
-        console.log(response.data.member)
-        handleMembers(response.data.member)
+        console.log(response.data.detail.member)
+        setApi(response.data.detail.member)
+        // handleMembers(response.data.member)
         authorityCheck(response.data.role)
         setJoin(response.data.group_name)
-
+        setPrivacy(response.data.public)
       })
+
+    // GroupList.privacy(group)
+    // .then(response => {
+    //   setPrivacy(response.data.public)
+    // })
 
   }, [])
   // console.log("this is members")
   // console.log(members)
-  console.log("this is dataTerm")
-  console.log(dataTerm)
-  console.log(Data)
+  // console.log("this is dataTerm")
+  // console.log(dataTerm)
+  // console.log(Data)
 
-  const handleMembers = (members) => {
-    let count = 0
-    const dataTemp = []
-    for (let i in members) {
-      console.log("i information")
-      console.log(members[i])
-      dataTemp.push({
-        sequence: count,
-        member: members[i]
-      })
-      count++
-    }
-    return setData(
-      dataTemp
-    )
-  }
+  // const handleMembers = (members) => {
+  //   let count = 0
+  //   const dataTemp = []
+  //   for (let i in members) {
+  //     console.log("i information")
+  //     console.log(members[i])
+  //     dataTemp.push({
+  //       sequence: count,
+  //       member: members[i]
+  //     })
+  //     count++
+  //   }
+  //   return setData(
+  //     dataTemp
+  //   )
+  // }
 
   const authorityCheck = (role) => {
     if (role == "header") {
       setAuthority(0)
     } else if (role == "member") {
       setAuthority(1)
-    } else if (role == "wating") {
+    } else if (role == "waiting") {
       setAuthority(2)
     } else {
       setAuthority(3) //this case status is free
@@ -96,12 +105,12 @@ function Groupdetail(props) {
 
   const handleJoin = () => {
 
-    GroupList.joinGroup(joingroup)
+    GroupList.joinGroup(group)
       .then(
         window.alert("Your request is successful"),
         window.location.reload()
       )
-    console.log(joingroup)
+    console.log(group)
   }
 
   const handleLeave = () => {
@@ -112,23 +121,30 @@ function Groupdetail(props) {
   }
 
   const handleDelete = (cell) => {
-
+    
   }
 
   const handleCancel = () => {
-    GroupList.cancel()
+    GroupList.cancel(group)
       .then(
         window.location.reload()
       )
   }
 
   const handlePrivacy = (status) => {
+    // const group = GroupList.getCurrentGroup()
     if (status) {
-      //send request to server that want to set group to public
+      GroupList.privacy(group,status)
+      .then(
+        window.location.reload()
+      )
     } else {
-      //send request to server that want to set group to private
+      GroupList.privacy(group,status)
+      .then(
+        window.location.reload()
+      )
     }
-    setPrivacy(!status)
+    // setPrivacy(!status)
   }
 
   // services
@@ -140,14 +156,14 @@ function Groupdetail(props) {
           className="privacy__on"
           onClick={() => { handlePrivacy(false) }}
         >
-          ON
+          OFF
           </button>
         :
         <button
           className="privacy__off"
           onClick={() => handlePrivacy(true)}
         >
-          OFF
+          ON
           </button>
     )
 
@@ -198,39 +214,42 @@ function Groupdetail(props) {
     }
   }
 
-  const columns = React.useMemo(
-    () =>
-      //  (role == "header")
-      //   ?
-      [
-        {
-          Header: "Numbers",
-          accessor: "sequence"
-        },
-        {
-          Header: "Members",
-          accessor: "member"
-        },
-        {
-          Header: "Delete",
-          accessor: "manage"
-        }
-      ]
-    ,
-    []
-  )
+  // const columns = React.useMemo(
+  //   () =>
+  //     [
+  //       // {
+  //       //   Header: "Numbers",
+  //       //   accessor: "id"
+  //       // },
+  //       {
+  //         Header: "Members",
+  //         accessor: "firstname"
+  //       },
+  //       {
+  //         Header: "Delete",
+  //         accessor: "delete"
+  //       }
+  //     ]
+  //   ,
+  //   []
+  // )
 
-  const data = React.useMemo(() => Data, [])
+  // const data = React.useMemo(() => dataApi, [])
+
+  // const data = dataApi
+  
+  // console.log(data)
+// console.log("this is data")
 
 
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow,
-  } = useTable({ columns, data })
-
+  // const {
+  //   getTableProps,
+  //   getTableBodyProps,
+  //   headerGroups,
+  //   rows,
+  //   prepareRow,
+  // } = useTable({ columns, data })
+  console.log("this is privacy value ", isPrivacy)
   return (
     <div className="group__detail">
       {/* fetch all group data >> member , payment  */}
@@ -244,60 +263,76 @@ function Groupdetail(props) {
       <h1>ok</h1>
       {authority == 0
         ?
-        <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
-          <thead>
-            {headerGroups.map(headerGroup => (
-              <tr {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map(column => (
-                  <th
-                    {...column.getHeaderProps()}
-                    style={{
-                      borderBottom: 'solid 3px red',
-                      background: 'aliceblue',
-                      color: 'black',
-                      fontWeight: 'bold',
-                    }}
-                  >
-                    {column.render('Header')}
-                  </th>
-                ))}
-              </tr>
-            ))}
-          </thead>
-          <tbody {...getTableBodyProps()}>
-            {rows.map(row => {
-              prepareRow(row)
-              return (
-                <tr {...row.getRowProps()}>
-                  {row.cells.map(cell => {
-                    return (
-                      <td
-                        {...cell.getCellProps()}
-                        style={{
-                          padding: '10px',
-                          border: 'solid 1px gray',
-                          background: 'papayawhip',
-                        }}
-                      >
-                        { typeof (cell.value) == "boolean" && authority == 0
-                          ?
-                          <div>
-                            <button onClick={() => alert(cell.value)}>test</button>
-                            {/* {setColumn(authority)} */}
-                          </div>
-                          :
-                          cell.render('Cell')
-                        }
-                      </td>
-                    )
-                  })}
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
+        // <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
+        //   <thead>
+        //     {headerGroups.map(headerGroup => (
+        //       <tr {...headerGroup.getHeaderGroupProps()}>
+        //         {headerGroup.headers.map(column => (
+        //           <th
+        //             {...column.getHeaderProps()}
+        //             style={{
+        //               borderBottom: 'solid 3px red',
+        //               background: 'aliceblue',
+        //               color: 'black',
+        //               fontWeight: 'bold',
+        //             }}
+        //           >
+        //             {column.render('Header')}
+        //           </th>
+        //         ))}
+        //       </tr>
+        //     ))}
+        //   </thead>
+        //   <tbody {...getTableBodyProps()}>
+        //     {rows.map(row => {
+        //       prepareRow(row)
+        //       return (
+        //         <tr {...row.getRowProps()}>
+        //           {row.cells.map(cell => {
+        //             return (
+        //               <td
+        //                 {...cell.getCellProps()}
+        //                 style={{
+        //                   padding: '10px',
+        //                   border: 'solid 1px gray',
+        //                   background: 'papayawhip',
+        //                 }}
+        //               >
+        //                 { typeof (cell.value) == "boolean" && authority == 0
+        //                   ?
+        //                   <div>
+        //                     <button onClick={() => alert(cell.value)}>test</button>
+        //                     {/* {setColumn(authority)} */}
+        //                   </div>
+        //                   :
+        //                   cell.render('Cell')
+        //                 }
+        //               </td>
+        //             )
+        //           })}
+        //         </tr>
+        //       )
+        //     })}
+        //   </tbody>
+        // </table>
+        <Headertable 
+          dataHeader={dataApi}
+          authority2={authority}
+        />
+        // <h1>Header</h1>
         :
-        <Grouptable />
+          isPrivacy
+           ?
+        //  <h1>Please contact your admin this group is privacy</h1>
+           <Grouptable 
+             members={dataApi}
+         />
+       : 
+        // <Grouptable 
+        //     members={dataApi}
+        // />
+        <h1>Please contact your admin this group is privacy</h1>
+        
       }
       <div className="role_checks">
         {handleRole(authority)}
