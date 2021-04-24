@@ -12,8 +12,8 @@ import Beforebooking from './booking/Beforebooking';
 import Home from './component/Home';
 import Afterbooking from './booking/Afterbooking';
 import Profile from './component/Profile'
-import Paymenthistory from './component/Paymenthistory'
-import Bookinghistory from './component/Bookinghistory'
+import Paymenthistory from './history/Paymenthistory'
+import Bookinghistory from './history/Bookinghistory'
 import Group from './booking/Group'
 import Individualgroup from './booking/Individualgroup';
 import DateSelection from './booking/calendar/DateSelection'
