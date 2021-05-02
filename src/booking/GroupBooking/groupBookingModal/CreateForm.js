@@ -4,10 +4,11 @@ import Form from "react-validation/build/form"
 import {isEmail} from 'validator'
 import Input from 'react-validation/build/input'
 
-import BookingService from '../../services/booking_service'
+// import BookingService from '../../services/booking_service'
+import GroupBooking from '../../../services/groupBooking_service'
 
 
-import "../../css/CreateForm.css"
+// import "../../css/CreateForm.css"
 
   const required = value => {
     if (!value){
@@ -56,6 +57,7 @@ class CreateForm extends React.Component {
       // Listofmember:[],
   // successful:false,
       bookingDetail2:[],
+      bookingDetail3:[],
       name:"",
       email:"",
       phone:"",
@@ -71,9 +73,9 @@ class CreateForm extends React.Component {
     // this.retrieveAllmember = this.retrieveAllmember.bind(this)
     this.bookingInformation = this.bookingInformation.bind(this)
     this.handleCreate = this.handleCreate.bind(this)
-    this.onChangename = this.onChangename.bind(this)
-    this.onChangeemail = this.onChangeemail.bind(this)
-    this.onChangephone = this.onChangephone.bind(this)
+    // this.onChangename = this.onChangename.bind(this)
+    // this.onChangeemail = this.onChangeemail.bind(this)
+    // this.onChangephone = this.onChangephone.bind(this)
     this.memberCheck  = this.memberCheck.bind(this)
     this.bookingVerfify = this.bookingVerfify.bind(this)
   }
@@ -99,27 +101,28 @@ class CreateForm extends React.Component {
 
     bookingInformation(){
     this.setState({
-      bookingDetail2: this.props.bookingDetail
+      bookingDetail2: this.props.bookingDetail,
+      bookingDetail3:this.props.bookingDetail3  
     })
     }
 
-    onChangename(e){
-      this.setState({
-        name:e.target.value
-      })
-    }
+    // onChangename(e){
+    //   this.setState({
+    //     name:e.target.value
+    //   })
+    // }
 
-    onChangeemail(e){
-      this.setState({
-        email:e.target.value
-      })
-    }
+    // onChangeemail(e){
+    //   this.setState({
+    //     email:e.target.value
+    //   })
+    // }
 
-    onChangephone(e){
-      this.setState({
-        phone:e.target.value
-      })
-    }
+    // onChangephone(e){
+    //   this.setState({
+    //     phone:e.target.value
+    //   })
+    // }
 
     
 
@@ -130,12 +133,9 @@ class CreateForm extends React.Component {
 
 
       if(this.checkBtn.context._errors.length === 0){
-        BookingService.CourtBooking(
+        GroupBooking.CourtBooking(
           this.state.bookingDetail2,
-          this.state.name,
-          this.state.email,
-          this.state.phone,
-          localStorage.getItem("date2"),
+          // localStorage.getItem("date2"),
         )
         .then(
           response => {
@@ -173,12 +173,12 @@ class CreateForm extends React.Component {
       e.preventDefault()
       this.form.validateAll();
      
-      // this.setState({
-      //   Successful:false
-      // })
+      this.setState({
+        Successful:false
+      })
 
       if(this.checkBtn.context._errors.length === 0){
-        BookingService.BookingVerify(
+        GroupBooking.BookingVerify(
           this.state.uuid,
         )
         .then(
@@ -214,7 +214,12 @@ class CreateForm extends React.Component {
     render(){
       console.log(this.state.uuid)
       const { member, isSubmit } = this.state
-  return (
+      let test = this.state.bookingDetail2
+      test.map(test1 => {
+        console.log(test1.day)
+      })
+      // console.log("booknigDetail2",test[0].day)
+      return (
    <div>
      { isSubmit ? 
      // something
@@ -265,58 +270,24 @@ class CreateForm extends React.Component {
         }}
       
       >
-      { !member ? <div>
-       <div className="form-group">
-         <label className="Header__label">Name</label>
-         <Input 
-          className="form-control"
-          id="name" 
-          value={this.state.name}
-          onChange={this.onChangename}
-          // validations={[name]}
-          />
 
-       </div>
-
-       <div className="form-group">
-         <label className="Header__label">Email address</label>
-         <Input
-           type="text"
-           className="form-control"
-           id="email"
-           placeholder="name@example.com"
-           value={this.state.email}
-           onChange={this.onChangeemail}
-          //  validations= {[vemail]}
-         />
-       </div>
-
-       <div className="form-group">
-          <label className="Header__label">Phone number</label>
-          <Input
-            className="form-control"
-            id="phone"
-            placeholder="012-345-6789"
-            value={this.state.phone}
-            onChange={this.onChangephone}
-            // validations={[phone]}
-          />
-       </div>
-       </div>
-       : <h1>Booking Details</h1>
-      }
+       <h1>Booking Details</h1>
+      
            <ul
             className ="ul__booking"
            >
                {this.state.bookingDetail2 && 
                     this.state.bookingDetail2.map(detail => (
+                        <div>
+                          {detail.dayTemp}
                         <li
                           className = "li__booking"
                         >
-                            {/* {detail.time}
-                            {detail.column} */}
-                          {detail.time}  {detail.column}
+                        {/* {detail.courtandTime}   */}
+                          {detail.day} {detail.time}  {detail.court}
+                           {/* {detail.dayTemp} */}
                         </li>
+                        </div>
                     ))
                }
            </ul>

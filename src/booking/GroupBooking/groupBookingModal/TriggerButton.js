@@ -1,6 +1,6 @@
 import React from 'react'
 
-import '../../css/BookingTriggerButton.css'
+// import '../../css/BookingTriggerButton.css'
 
 const TriggerButton = ({ triggerText, buttonRef, showModal}) => {
 
