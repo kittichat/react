@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import GroupList from "../services/groupservices"
+import HistoryServices from '../services/history_servies'
 
 import Grouptable from './Grouptable'
 import { useTable } from 'react-table'
@@ -12,6 +13,7 @@ import Data from '../api/group__members'
 import button from 'react-validation/build/button'
 import { ContactSupportOutlined } from '@material-ui/icons'
 import Headertable from './Headertable'
+import GroupBookingNew from './GroupBookingNew'
 
 function Groupdetail(props) {
 
@@ -24,6 +26,8 @@ function Groupdetail(props) {
   const [isPrivacy, setPrivacy] = useState(false)
   const [joingroup, setJoin] = useState(undefined)
   const [dataApi,setApi] = useState([])
+  const [groupOldBK, setGroupOldBK] = useState()
+  const [groupNewBK, setGroupNewBK] = useState()
 
   const group = GroupList.getCurrentGroup()
 
@@ -41,7 +45,7 @@ function Groupdetail(props) {
   
   useEffect(() => {
 
-    // const group = GroupList.getCurrentGroup()
+
     setPresentGroup(
       GroupList.getCurrentGroup()
     )
@@ -56,10 +60,10 @@ function Groupdetail(props) {
         setPrivacy(response.data.public)
       })
 
-    // GroupList.privacy(group)
-    // .then(response => {
-    //   setPrivacy(response.data.public)
-    // })
+      HistoryServices.GroupBookingHistory(group).then(response => {
+        setGroupOldBK(response.data.this_month)
+        setGroupNewBK(response.data.next_month)
+      })
 
   }, [])
   // console.log("this is members")
@@ -337,6 +341,13 @@ function Groupdetail(props) {
       <div className="role_checks">
         {handleRole(authority)}
         <h1>{authority}</h1>
+        {/* <GroupBookingOld 
+          groupOldBK={groupOldBK}
+        />
+
+        <GroupBookingNew
+          groupNewBK={groupNewBK}
+        /> */}
 
       </div>
     </div>

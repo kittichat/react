@@ -134,7 +134,7 @@ class CreateForm extends React.Component {
 
       if(this.checkBtn.context._errors.length === 0){
         GroupBooking.CourtBooking(
-          this.state.bookingDetail2,
+          this.state.bookingDetail3,
           // localStorage.getItem("date2"),
         )
         .then(
@@ -214,10 +214,11 @@ class CreateForm extends React.Component {
     render(){
       console.log(this.state.uuid)
       const { member, isSubmit } = this.state
-      let test = this.state.bookingDetail2
-      test.map(test1 => {
-        console.log(test1.day)
-      })
+      console.log("detail3 ",this.state.bookingDetail3)
+      // let test = this.state.bookingDetail2
+      // test.map(test1 => {
+      //   console.log(test1.time)
+      // })
       // console.log("booknigDetail2",test[0].day)
       return (
    <div>

@@ -42,6 +42,7 @@ class BookingService{
    BookingVerify(bookingid){
        return axios
        .post(API_URL + 'payment/',{
+           group:false,
            bookingid
        })
    }

@@ -18,10 +18,6 @@ class groupBooking {
     CourtBooking(arr,date) {
         return axios
             .post(API_URL + 'groupbooking/', {
-                // date,
-                // weekday:arr.day,
-                // column:arr.court,
-                // time:arr.time
                 arr
             })
             .then(response => {

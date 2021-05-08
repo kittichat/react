@@ -49,6 +49,8 @@ export class Container extends Component {
                         onKeyDown={this.onKeyDown}
                         onClickOutside={this.onClickOutside}
                         bookingDetail={this.props.bookingDetail}
+                        bookingDetail3={this.props.bookingDetail3}
+
                         />
                 ) : null }
 

@@ -332,24 +332,24 @@ function Week() {
 
     useEffect(() => {
 
-        // groupBooking.getDays().then(response => {
+        groupBooking.getDays().then(response => {
 
-        //     setMonday(response.data.status[0])
-        //     setTuesday(response.data.status[1])
-        //     setWednesday(response.data.status[2])
-        //     setThursday(response.data.status[3])
-        //     setFriday(response.data.status[4])
-        //     setSaturday(response.data.status[5])
-        //     setSunday(response.data.status[6])
-        // })
+            setMonday(response.data.status[0])
+            setTuesday(response.data.status[1])
+            setWednesday(response.data.status[2])
+            setThursday(response.data.status[3])
+            setFriday(response.data.status[4])
+            setSaturday(response.data.status[5])
+            setSunday(response.data.status[6])
+        })
 
-        setMonday(datagroupbk.status[0])
-        setTuesday(datagroupbk.status[1])
-        setWednesday(datagroupbk.status[2])
-        setThursday(datagroupbk.status[3])
-        setFriday(datagroupbk.status[4])
-        setSaturday(datagroupbk.status[5])
-        setSunday(datagroupbk.status[6])
+        // setMonday(datagroupbk.status[0])
+        // setTuesday(datagroupbk.status[1])
+        // setWednesday(datagroupbk.status[2])
+        // setThursday(datagroupbk.status[3])
+        // setFriday(datagroupbk.status[4])
+        // setSaturday(datagroupbk.status[5])
+        // setSunday(datagroupbk.status[6])
     }, [])
 
     const options = [

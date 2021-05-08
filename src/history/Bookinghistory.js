@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from 'react'
 
+import Form from "react-validation/build/form"
+import Input from "react-validation/build/input"
+import CreatableSelect from 'react-select/creatable';
+
+import BKhistorytable from './BKhistorytable'
+import PayOrCancel from './ActionSwitcher/PayOrCancel'
+import Refund from './ActionSwitcher/Refund'
+
 import HistoryServices from '../services/history_servies'
 
 import '../css/Bookinghistory.css'
@@ -7,6 +15,7 @@ import '../css/Bookinghistory.css'
 function Bookinghistory() {
 
     const [dataTable, setDataTable] = useState([])
+    const [actions, setActions] = useState([])
 
 //     useEffect(() => {
 //         HistoryServices.booking().then(
@@ -14,62 +23,40 @@ function Bookinghistory() {
 //         )
 //     }, [])
 
+const handleOption = newValue => {
+    if (newValue == null) { return setActions("") }
+    setActions(newValue.value)
+}
 
-//    const columns = React.useMemo(
-//         () =>
-//           [
-//             {
-//               Header: "Numbers",
-//               accessor: "no"
-//             },
-//             {
-//               Header: "Date",
-//               accessor: "date"
-//             },
-//             {
-//               Header: "Court",
-//               accessor: "court"
-//             },
-//             {
-//               Header: "Time",
-//               accessor: "time"
-//             },
-//             {
-//               Header: "Timeout",
-//               accessor: "timeout"
-//             },
-//             {
-//               Header: "Status",
-//               accessor: "status"
-//             },
-//             {
-//               Header: "Action",
-//               accessor: "action"
-//             }
-//           ]
-//         ,
-//         []
-//       )
-    
-//       // const data = React.useMemo(() => dataHeader, [])
-//       // const data = dataApi
-//       const data = historyOfbooking
-//       console.log("this is data from Header", authority2)
-//           console.log(historyOfbooking)
-//     const {
-//         getTableProps,
-//         getTableBodyProps,
-//         headerGroups,
-//         rows,
-//         prepareRow,
-//       } = useTable({ columns, data })    
+const options = [
+    { value: 'Pay/Cancel', label: 'Pay/Cancel' },
+    { value: 'Refund', label: 'Refund' },
+
+];
+
 
     return (
         <div className="History__booking">
             <h1>Booknig History</h1>
-
-        {/* Bring table from HeaderTable */}
-
+            <Form>
+                <CreatableSelect
+                    className="History__dropdown"
+                    isClearable
+                    onChange={handleOption}
+                    options={options}
+                />
+            </Form>
+        {actions?.length
+        ?             
+        actions == "Refund" 
+        ?
+         <Refund />  
+        
+         :
+          <PayOrCancel />
+        :
+        <BKhistorytable />
+        }            
         </div>
     )
 }

@@ -1,3 +1,10 @@
 .History__booking{
-    margin-top: 25%;
+    margin-top: 10%;
+}
+
+.History__dropdown{
+    padding: 20px;
+    margin-top: 5%;
+    width: 30%;
+    left: 30%;
 }
