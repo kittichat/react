@@ -66,7 +66,7 @@ class CreateForm extends React.Component {
       uuid:undefined,
       isSuccess:false,
       price:{},
-
+      date:undefined,
       
     }
 
@@ -102,7 +102,8 @@ class CreateForm extends React.Component {
     bookingInformation(){
     this.setState({
       bookingDetail2: this.props.bookingDetail,
-      bookingDetail3:this.props.bookingDetail3  
+      bookingDetail3:this.props.bookingDetail3,  
+      date:this.props.date,
     })
     }
 
@@ -135,6 +136,7 @@ class CreateForm extends React.Component {
       if(this.checkBtn.context._errors.length === 0){
         GroupBooking.CourtBooking(
           this.state.bookingDetail3,
+          this.state.date.year_month
           // localStorage.getItem("date2"),
         )
         .then(

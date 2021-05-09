@@ -15,6 +15,7 @@ export const Modal =({
     onSubmit,
     bookingDetail,
     bookingDetail3,
+    date,
 }) => {
     return ReactDom.createPortal(
         <FocusTrap>
@@ -47,6 +48,7 @@ export const Modal =({
                                     onSubmit={onSubmit} 
                                     bookingDetail={bookingDetail} 
                                     bookingDetail3={bookingDetail3}
+                                    date={date}
                                     test1={"it's work"}
                                      />
                             </div>

@@ -4,6 +4,7 @@ import HistoryServices from '../../services/history_servies'
 
 import { useTable } from 'react-table'
 
+import {Container} from '../PayOrCancelModal/Container'
 
 function PayOrCancel() {
 const [dataHT , setDataHT]  = useState([])
@@ -15,6 +16,11 @@ const [dataHT , setDataHT]  = useState([])
             })
           
     }, [])
+
+    const triggerText = 'Pay/Cancel'
+    const onSubmit = (event) => {
+        event.preventDefault(event)
+    }
 
    const columns = React.useMemo(
         () =>
@@ -104,7 +110,13 @@ const [dataHT , setDataHT]  = useState([])
           })}
         </tbody>
       </table>
-      <h1>test</h1>
+      
+      <Container 
+                // className="Booking__submit"
+                triggerText={triggerText}
+                onSubmit={onSubmit} 
+                pocDetail={dataHT}
+                />
 
 
         </div>

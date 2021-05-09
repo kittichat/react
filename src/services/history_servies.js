@@ -7,7 +7,7 @@ const API_URL = 'http://localhost:8000/'
 class HistoryServices {
     payment() {
         return axios
-            .get(API_URL + 'payment/',)
+            .get(API_URL + 'history/payment/',)
             .then(response => {
 
                 return response.data
@@ -25,7 +25,7 @@ class HistoryServices {
 
     GroupBookingHistory(groupName){
         return axios
-        .get(API_URL + 'group/'+ groupName)
+        .get(API_URL + 'group/'+ groupName + "/")
         .then(response => {
             return response.data;
         })

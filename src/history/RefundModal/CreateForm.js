@@ -177,33 +177,38 @@ class CreateForm extends React.Component {
         this.state.accountName
         
       )
-        .then(
-          response => {
-            if (response.data.success == false) {
-              window.alert("Sorry, please check stage again")
-              window.location.reload()
-            }
-            this.setState({
-              message: response.data.message,
-              uuid: response.data.bookingid, // change this line 
-              price: response.data.price,
-              isSubmit: true,
+      .then(
+        window.alert("Your refunding is successfuly"),
+        window.location.reload()
+      )
+        // .then(
+        //   response => {
+        //     if (response.data.success == false) {
+        //       window.alert("Sorry, please check stage again")
+        //       window.location.reload()
+        //     }
+        //     this.setState({
+        //       message: response.data.message,
+        //       uuid: response.data.bookingid, // change this line 
+        //       price: response.data.price,
+        //       isSubmit: true,
 
-            })
-          },
-          error => {
-            const resMessage =
-              (error.response &&
-                error.response.data &&
-                error.response.data.message) ||
-              error.message ||
-              error.toString();
+        //     })
+        //   },
+        //   error => {
+        //     const resMessage =
+        //       (error.response &&
+        //         error.response.data &&
+        //         error.response.data.message) ||
+        //       error.message ||
+        //       error.toString();
 
-            this.setState({
-              message: resMessage
-            })
-          }
-        )
+        //     this.setState({
+        //       message: resMessage
+        //     })
+        //   }
+        // )
+
     }
   }
 

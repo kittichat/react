@@ -15,9 +15,6 @@ const [dataHT , setDataHT]  = useState([])
         )
     }, [])
 
-    const handleClick = () => {
-
-    }
 
     const triggerText = 'Refund'
     const onSubmit = (event) => {

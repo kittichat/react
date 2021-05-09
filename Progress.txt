@@ -57,3 +57,5 @@ groupdetail
 -problem found, cannot use two table but when use local api everything works fine.
 -How to send props in react-hook
 -maybe useMemo is the point >< try to test by local api without useMemo
+
+remove history services for group in historyservice files

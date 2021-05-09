@@ -50,7 +50,7 @@ export class Container extends Component {
                         onClickOutside={this.onClickOutside}
                         bookingDetail={this.props.bookingDetail}
                         bookingDetail3={this.props.bookingDetail3}
-
+                        date={this.props.date}
                         />
                 ) : null }
 

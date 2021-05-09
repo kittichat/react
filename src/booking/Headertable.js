@@ -116,7 +116,7 @@ const handleDelete = (id) => {
                         { typeof (cell.value) == "boolean" && authority2 == 0
                           ?
                           <div>
-                            <button onClick={() => handleDelete(cell.row.original.id)}>test</button>
+                            <button onClick={() => handleDelete(cell.row.original.id)}>Delete</button>
                             {/* {setColumn(authority)} */}
                           </div>
                           :

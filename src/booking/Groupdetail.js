@@ -13,7 +13,9 @@ import Data from '../api/group__members'
 import button from 'react-validation/build/button'
 import { ContactSupportOutlined } from '@material-ui/icons'
 import Headertable from './Headertable'
-import GroupBookingNew from './GroupBookingNew'
+import GroupBKhistoryNextMonth from './GroupBKhistoryNextMonth'
+import GroupBKhistoryThisMonth from './GroupBKhistoryThisMonth'
+import GroupPMhistory from './GroupPMhistory'
 
 function Groupdetail(props) {
 
@@ -25,9 +27,10 @@ function Groupdetail(props) {
   const [dataTerm, setData] = useState([])
   const [isPrivacy, setPrivacy] = useState(false)
   const [joingroup, setJoin] = useState(undefined)
-  const [dataApi,setApi] = useState([])
-  const [groupOldBK, setGroupOldBK] = useState()
-  const [groupNewBK, setGroupNewBK] = useState()
+  const [dataApi, setApi] = useState([])
+  const [groupOldBK, setGroupOldBK] = useState([])
+  const [groupNewBK, setGroupNewBK] = useState([])
+  const [groupPM, setGroupPM] = useState([])
 
   const group = GroupList.getCurrentGroup()
 
@@ -42,7 +45,7 @@ function Groupdetail(props) {
       })
   }
 
-  
+
   useEffect(() => {
 
 
@@ -58,12 +61,17 @@ function Groupdetail(props) {
         authorityCheck(response.data.role)
         setJoin(response.data.group_name)
         setPrivacy(response.data.public)
+
+        setGroupOldBK(response.data.detail.groupbooking.this_month)
+        setGroupNewBK(response.data.detail.groupbooking.next_month)
+        setGroupPM(response.data.detail.payment)
       })
 
-      HistoryServices.GroupBookingHistory(group).then(response => {
-        setGroupOldBK(response.data.this_month)
-        setGroupNewBK(response.data.next_month)
-      })
+    // HistoryServices.GroupBookingHistory(group).then(response => {
+    //   setGroupOldBK(response.data.this_month)
+    //   setGroupNewBK(response.data.next_month)
+    //   setGroupPM(respomse.data.payment)
+    // })
 
   }, [])
   // console.log("this is members")
@@ -72,22 +80,22 @@ function Groupdetail(props) {
   // console.log(dataTerm)
   // console.log(Data)
 
-  // const handleMembers = (members) => {
-  //   let count = 0
-  //   const dataTemp = []
-  //   for (let i in members) {
-  //     console.log("i information")
-  //     console.log(members[i])
-  //     dataTemp.push({
-  //       sequence: count,
-  //       member: members[i]
-  //     })
-  //     count++
-  //   }
-  //   return setData(
-  //     dataTemp
-  //   )
-  // }
+  const handleMembers = (members) => {
+    let count = 0
+    const dataTemp = []
+    for (let i in members) {
+      console.log("i information")
+      console.log(members[i])
+      dataTemp.push({
+        sequence: count,
+        member: members[i]
+      })
+      count++
+    }
+    return setData(
+      dataTemp
+    )
+  }
 
   const authorityCheck = (role) => {
     if (role == "header") {
@@ -124,9 +132,6 @@ function Groupdetail(props) {
       )
   }
 
-  const handleDelete = (cell) => {
-    
-  }
 
   const handleCancel = () => {
     GroupList.cancel(group)
@@ -138,15 +143,15 @@ function Groupdetail(props) {
   const handlePrivacy = (status) => {
     // const group = GroupList.getCurrentGroup()
     if (status) {
-      GroupList.privacy(group,status)
-      .then(
-        window.location.reload()
-      )
+      GroupList.privacy(group, status)
+        .then(
+          window.location.reload()
+        )
     } else {
-      GroupList.privacy(group,status)
-      .then(
-        window.location.reload()
-      )
+      GroupList.privacy(group, status)
+        .then(
+          window.location.reload()
+        )
     }
     // setPrivacy(!status)
   }
@@ -218,41 +223,41 @@ function Groupdetail(props) {
     }
   }
 
-  // const columns = React.useMemo(
-  //   () =>
-  //     [
-  //       // {
-  //       //   Header: "Numbers",
-  //       //   accessor: "id"
-  //       // },
-  //       {
-  //         Header: "Members",
-  //         accessor: "firstname"
-  //       },
-  //       {
-  //         Header: "Delete",
-  //         accessor: "delete"
-  //       }
-  //     ]
-  //   ,
-  //   []
-  // )
-
-  // const data = React.useMemo(() => dataApi, [])
-
-  // const data = dataApi
-  
-  // console.log(data)
-// console.log("this is data")
+  const columns = React.useMemo(
+    () =>
+      [
+        // {
+        //   Header: "Numbers",
+        //   accessor: "id"
+        // },
+        {
+          Header: "Members",
+          accessor: "firstname"
+        },
+        {
+          Header: "Delete",
+          accessor: "delete"
+        }
+      ]
+    ,
+    []
+  )
 
 
-  // const {
-  //   getTableProps,
-  //   getTableBodyProps,
-  //   headerGroups,
-  //   rows,
-  //   prepareRow,
-  // } = useTable({ columns, data })
+
+  const data = dataApi
+
+  console.log(data)
+  console.log("this is data")
+
+
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    rows,
+    prepareRow,
+  } = useTable({ columns, data })
   console.log("this is privacy value ", isPrivacy)
   return (
     <div className="group__detail">
@@ -267,6 +272,7 @@ function Groupdetail(props) {
       <h1>ok</h1>
       {authority == 0
         ?
+        // <div>
         // <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
         //   <thead>
         //     {headerGroups.map(headerGroup => (
@@ -319,24 +325,49 @@ function Groupdetail(props) {
         //     })}
         //   </tbody>
         // </table>
-        <Headertable 
-          dataHeader={dataApi}
-          authority2={authority}
-        />
+        // </div>
+        <div>
+          <Headertable
+            dataHeader={dataApi}
+            authority2={authority}
+          />
+          <GroupBKhistoryThisMonth
+            this_month={groupOldBK}
+          />
+          <GroupBKhistoryNextMonth
+            next_month={groupNewBK}
+          />
+          <GroupPMhistory
+            payment={groupPM}
+          />
+
+        </div>
         // <h1>Header</h1>
         :
-          isPrivacy
-           ?
-        //  <h1>Please contact your admin this group is privacy</h1>
-           <Grouptable 
-             members={dataApi}
-         />
-       : 
-        // <Grouptable 
-        //     members={dataApi}
-        // />
-        <h1>Please contact your admin this group is privacy</h1>
-        
+        isPrivacy || authority == 1
+          ?
+          //  <h1>Please contact your admin this group is privacy</h1>
+          <div>
+            <Grouptable
+              members={dataApi}
+            />
+            <GroupBKhistoryThisMonth
+              this_month={groupOldBK}
+            />
+            <GroupBKhistoryNextMonth
+              next_month={groupNewBK}
+            />
+            <GroupPMhistory
+              payment={groupPM}
+            />
+
+          </div>
+          :
+          // <Grouptable 
+          //     members={dataApi}
+          // />
+          <h1>Please contact your admin this group is privacy</h1>
+
       }
       <div className="role_checks">
         {handleRole(authority)}

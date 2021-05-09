@@ -5,7 +5,7 @@ const getAll = () => {
 }
 
 const get = (nameofgroup) => {
-    return http.get(`/group/${nameofgroup}`)
+    return http.get(`/group/${nameofgroup}/`)
 }
 
 const createGroupToServer = (member,group_name) => {
@@ -31,40 +31,40 @@ const getMembers = (presentGroup) => {
 //  return http.post("/membersdetail/" + {
 //      presentGroup
 //  })
-return http.get(`/group/${presentGroup}`)
+return http.get(`/group/${presentGroup}/`)
  .then(response => {
      return response
  })
 }
 
 const joinGroup = (group) => {
-    return http.post(`/group/${group}` ,{
+    return http.post(`/group/${group}/` ,{
             
 
     })
 }
 
 const leaveGroup = (group) => {
-    return http.get(`/group/${group}` + {
+    return http.get(`/group/${group}/` + {
         group
     })
 }
 
 const cancel = (group) => {
-    return http.post(`/group/${group}` ,{
+    return http.post(`/group/${group}/` ,{
             
 
     })
 }
 
 const privacy = (group,status) => {
-    return http.put(`/group/${group}` ,{
+    return http.put(`/group/${group}/` ,{
         public:status
     })
 }
 
 const deleteMember = (group,id) => {
-    return http.delete(`group/${group}?id=${id}`)
+    return http.delete(`/group/${group}/?id=${id}`)
 }
 
 export default {

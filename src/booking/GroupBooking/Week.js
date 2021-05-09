@@ -306,6 +306,8 @@ function Week() {
     const [saturday, setSaturday] = useState([])
     const [sunday, setSunday] = useState([])
 
+    const [date, setDate] = useState(undefined)
+
     const [dataTable, setDataTable] = useState([])
 
     const [arrRoot, setArr] = useState([0])
@@ -341,6 +343,8 @@ function Week() {
             setFriday(response.data.status[4])
             setSaturday(response.data.status[5])
             setSunday(response.data.status[6])
+
+            setDate(response.data.date)
         })
 
         // setMonday(datagroupbk.status[0])
@@ -480,6 +484,7 @@ function Week() {
                     // bookingDetail={arrRoot.arr}
                     bookingDetail={arrTotal}
                     bookingDetail3={forTotalTemp}
+                    date={date}
                 />
 
 

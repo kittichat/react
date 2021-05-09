@@ -6,40 +6,39 @@ import { useTable } from 'react-table'
 
 
 function GroupBookingOld({groupOldBK}) {
-const [dataApi , setApi]  = useState([])
+  const [dataHT , setDataHT]  = useState([])
 
-// useEffect(() => {
-  
-//     HistoryServices.GroupBookingHistory(groupName).then(response => {
+useEffect(() => {
+  HistoryServices.payment().then(response =>
+      setDataHT(response.data)
+  )
+}, [])
 
-//     })
+const columns = React.useMemo(
+  () =>
+    [
+      {
+        Header: "Numbers",
+        accessor: "number"
+      },
+      {
+        Header: "Date",
+        accessor: "timestamp"
+      },
+      {
+        Header: "Paid",
+        accessor: "pay"
+      } 
+    ]
+  ,
+  []
+)
 
-// }, [])
 
-    const columns = React.useMemo(
-        () =>
-            [
-                {
-                    Header: "Day",
-                    accessor:"weekday"
-                },
-                {
-                    Header: "Court",
-                    accessor:"court"
-                },
-                {
-                    Header:"Times",
-                    accessor:"time"
-                },
-            ]
-        ,
-        []
-      )
+const data = dataHT
+    console.log(dataHT)
 
-      // const data = React.useMemo(() => test, [])
-     const data = groupOldBK
-     console.log("this is not Header")
-            console.log(data)
+
     const {
         getTableProps,
         getTableBodyProps,

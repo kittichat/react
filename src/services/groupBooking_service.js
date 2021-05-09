@@ -15,10 +15,11 @@ class groupBooking {
 
     }
 
-    CourtBooking(arr,date) {
+    CourtBooking(arr,year_month) {
         return axios
             .post(API_URL + 'groupbooking/', {
-                arr
+                arr,
+                year_month
             })
             .then(response => {
                 return response;
@@ -28,6 +29,7 @@ class groupBooking {
     BookingVerify(bookingid) {
         return axios
             .post(API_URL + 'payment/', {
+                group:true,
                 bookingid
             })
     }
