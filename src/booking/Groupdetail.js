@@ -57,7 +57,6 @@ function Groupdetail(props) {
       .then(response => {
         console.log(response.data.detail.member)
         setApi(response.data.detail.member)
-        // handleMembers(response.data.member)
         authorityCheck(response.data.role)
         setJoin(response.data.group_name)
         setPrivacy(response.data.public)
@@ -74,11 +73,6 @@ function Groupdetail(props) {
     // })
 
   }, [])
-  // console.log("this is members")
-  // console.log(members)
-  // console.log("this is dataTerm")
-  // console.log(dataTerm)
-  // console.log(Data)
 
   const handleMembers = (members) => {
     let count = 0
@@ -261,124 +255,62 @@ function Groupdetail(props) {
   console.log("this is privacy value ", isPrivacy)
   return (
     <div className="group__detail">
-      {/* fetch all group data >> member , payment  */}
-      {/* follow makedata in showgroup by use reat-table */}
-      <h1><p>This page intended to show the detail of each group about
-      user and groups information
-                </p>
-      </h1>
-      {/* <h1>{props.nameOfGroup}</h1> */}
-      <h1>{presentGroup}</h1>
-      <h1>ok</h1>
+      
+      <h1>Group: {presentGroup}</h1>
+      
       {authority == 0
         ?
-        // <div>
-        // <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
-        //   <thead>
-        //     {headerGroups.map(headerGroup => (
-        //       <tr {...headerGroup.getHeaderGroupProps()}>
-        //         {headerGroup.headers.map(column => (
-        //           <th
-        //             {...column.getHeaderProps()}
-        //             style={{
-        //               borderBottom: 'solid 3px red',
-        //               background: 'aliceblue',
-        //               color: 'black',
-        //               fontWeight: 'bold',
-        //             }}
-        //           >
-        //             {column.render('Header')}
-        //           </th>
-        //         ))}
-        //       </tr>
-        //     ))}
-        //   </thead>
-        //   <tbody {...getTableBodyProps()}>
-        //     {rows.map(row => {
-        //       prepareRow(row)
-        //       return (
-        //         <tr {...row.getRowProps()}>
-        //           {row.cells.map(cell => {
-        //             return (
-        //               <td
-        //                 {...cell.getCellProps()}
-        //                 style={{
-        //                   padding: '10px',
-        //                   border: 'solid 1px gray',
-        //                   background: 'papayawhip',
-        //                 }}
-        //               >
-        //                 { typeof (cell.value) == "boolean" && authority == 0
-        //                   ?
-        //                   <div>
-        //                     <button onClick={() => alert(cell.value)}>test</button>
-        //                     {/* {setColumn(authority)} */}
-        //                   </div>
-        //                   :
-        //                   cell.render('Cell')
-        //                 }
-        //               </td>
-        //             )
-        //           })}
-        //         </tr>
-        //       )
-        //     })}
-        //   </tbody>
-        // </table>
-        // </div>
-        <div>
+        <div className="Header__group">
           <Headertable
             dataHeader={dataApi}
             authority2={authority}
+            className="Header__table"
           />
           <GroupBKhistoryThisMonth
             this_month={groupOldBK}
+            className="Header__table"
           />
           <GroupBKhistoryNextMonth
             next_month={groupNewBK}
+            className="Header__table"
           />
           <GroupPMhistory
             payment={groupPM}
+            className="Header__table"
           />
 
         </div>
-        // <h1>Header</h1>
         :
         isPrivacy || authority == 1
           ?
-          //  <h1>Please contact your admin this group is privacy</h1>
-          <div>
+          <div className="Member__group">
             <Grouptable
               members={dataApi}
+              className="Member__table"
             />
             <GroupBKhistoryThisMonth
               this_month={groupOldBK}
+              className="Member__table"
             />
             <GroupBKhistoryNextMonth
               next_month={groupNewBK}
+              className="Member__table"
             />
             <GroupPMhistory
               payment={groupPM}
+              className="Member__table"
             />
 
           </div>
           :
-          // <Grouptable 
-          //     members={dataApi}
-          // />
+
           <h1>Please contact your admin this group is privacy</h1>
 
       }
       <div className="role_checks">
         {handleRole(authority)}
         <h1>{authority}</h1>
-        {/* <GroupBookingOld 
-          groupOldBK={groupOldBK}
-        />
 
-        <GroupBookingNew
-          groupNewBK={groupNewBK}
-        /> */}
 
       </div>
     </div>

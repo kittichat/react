@@ -1,11 +1,8 @@
 import React from 'react'
 import '../css/Profile.css'
 
-import value from '../api/profile_data'
-
-import AuthService from '../services/auth_service'
 import UserService from '../services/user_service'
-import { Link } from 'react-router-dom'
+
 
 
 class Profile extends React.Component {
@@ -27,20 +24,14 @@ class Profile extends React.Component {
             
         }
 
-        this.gotogroup = this.gotogroup.bind(this)
-    }
-
-    gotogroup(){
-        // <Link to={'/individualgroup'} />
+        
     }
 
 
     componentDidMount(){
-         //const test = AuthService.getCurrentUser()
-        // this.setState({accessToken : test.accessToken})
 
          const profile_detail = UserService.profile();
-         //console.log(profile_detail)
+
          profile_detail.then((response) => {
             this.setState({
                 firstname : response.first_name,
@@ -65,21 +56,21 @@ class Profile extends React.Component {
 
         <div className="profile__background">
             <div className="profile__body">
-                {/* <h1 >{this.state.accessToken}</h1>
-                <hr/> */}
-                {/* {this.state.accessToken} */}
-
-                <h1>{this.state.firstname}</h1>
-                <h1>{this.state.lastname}</h1>
-                <h1>{this.state.username}</h1>
-                <h1>{this.state.password}</h1>
-                <h1>{this.state.email}</h1>
-                <h1>{this.state.gender}</h1>
-                <h1>{this.state.birthday}</h1>
-                <h1>{this.state.tel}</h1>
-                <h1 >{this.state.groupname}</h1>  
-               <Link to={'/individualgroup'}> <h1 style={{textDecorationLine:'none'}}>crew</h1></Link>                
-                            
+                <h1 className="profile_username">{this.state.username}</h1>
+                <hr/>
+                <h1 className="profile_topic">Name</h1>
+                <h1 className="profile_firstname"><pre>First Name:       {this.state.lastname}</pre></h1>
+                <h1 className="profile_firstname"><pre>Last Name:        {this.state.firstname}</pre></h1>
+                <hr/>
+                <h1 className="profile_topic">Contact Information</h1>
+                <h1 className="profile_email"><pre>Email:        {this.state.email}</pre></h1>
+                <h1 className="profile_tel"><pre>Tel:          {this.state.tel}</pre></h1>
+                <hr/>
+                <h1 className="profile_topic">Basic Information</h1>
+                <h1 className="profile_gender"><pre>Gender:      {this.state.gender}</pre></h1>
+                <h1 className="profile_birthday"><pre>birthday:    {this.state.birthday}</pre></h1>
+                
+                <h1 >{this.state.groupname}</h1>                              
             </div>
         </div>
     )

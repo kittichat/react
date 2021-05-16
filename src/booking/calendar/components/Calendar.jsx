@@ -9,7 +9,6 @@ class Calendar extends React.Component {
     selectedDate: new Date()
   };
 
-  // handleClick = this.handleClick.bind(this);
 
   renderHeader() {
     const dateFormat = "MMMM YYYY";
@@ -68,11 +67,10 @@ class Calendar extends React.Component {
         const cloneDay = day;
         days.push(
           <div
-            className={`col cell ${
-              !dateFns.isSameMonth(day, monthStart)
+            className={`col cell ${!dateFns.isSameMonth(day, monthStart)
                 ? "disabled"
                 : dateFns.isSameDay(day, selectedDate) ? "selected" : ""
-            }`}
+              }`}
             key={day}
             onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
           >
@@ -111,39 +109,32 @@ class Calendar extends React.Component {
   };
 
   handleClick = (e) => {
-    // e.preventDefault()
-    // this.setState({
-    //   message:"",
-    //   successful:false
-    // })
     BookingService.DateBooking(
       this.state.selectedDate.getDate(),
       this.state.selectedDate.getMonth(),
       this.state.selectedDate.getFullYear()
 
     ).then(response => {
-      // this.props.history.push("/userbooking")
       console.log(response)
-      localStorage.setItem("date",response.date)
+      localStorage.setItem("date", response.date)
       window.location.replace("http://localhost:3000/userbooking")
-      // window.location.reload()
     }
-    ,
-    error => {
-      const resMessage = 
-        (error.response && 
-          error.response.data &&
-          error.response.data.message) ||
+      ,
+      error => {
+        const resMessage =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
           error.message ||
           error.toString();
 
-          this.setState({
-            successful: false,
-            message: resMessage
-          })
-          window.alert("Date selection is failed")
-          window.location.reload()
-    }
+        this.setState({
+          successful: false,
+          message: resMessage
+        })
+        window.alert("Date selection is failed")
+        window.location.reload()
+      }
     )
   }
 
@@ -153,19 +144,21 @@ class Calendar extends React.Component {
     console.log(selectedDate.getDate())
 
     return (
-    <div>
-      <div className="calendar">
-        {this.renderHeader()}
-        {this.renderDays()}
-        {this.renderCells()}
-        
-      </div>
+      <div className="calendar__background">
+        <div className="calendar">
+          {this.renderHeader()}
+          {this.renderDays()}
+          {this.renderCells()}
 
-      <button 
-        className="Date__submit"
-        onClick={() => {this.handleClick()}}
-        >Submit</button>
-    </div>
+        </div>
+
+        <button
+          className="Date__submit"
+          onClick={() => { this.handleClick() }}
+        >
+          Submit
+          </button>
+      </div>
     );
   }
 }

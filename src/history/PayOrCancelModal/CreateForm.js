@@ -60,21 +60,13 @@ class CreateForm extends React.Component {
       refundDetail: [],
       refunding: [],
       arr: [],
-      // accountID:undefined,
-      // accountName:undefined,
       pocDetail: [],
       POC:[],
 
     }
 
-    // this.retrieveAllmember = this.retrieveAllmember.bind(this)
-    // this.bookingInformation = this.bookingInformation.bind(this)
     this.handleCreate = this.handleCreate.bind(this)
-    // this.onChangename = this.onChangename.bind(this)
-    // this.onChangeemail = this.onChangeemail.bind(this)
-    // this.onChangephone = this.onChangephone.bind(this)
     this.memberCheck = this.memberCheck.bind(this)
-    // this.bookingVerfify = this.bookingVerfify.bind(this)
     this.RefundInformation = this.RefundInformation.bind(this)
     this.onChangeID = this.onChangeID.bind(this)
     this.onChangeName = this.onChangeName.bind(this)
@@ -86,17 +78,12 @@ class CreateForm extends React.Component {
 
 
   componentDidMount() {
-
-    //  this.bookingInformation();
-    //  this.memberCheck()
-
-    // this.RefundInformation()
     this.POCInformation()
 
   }
 
   memberCheck() {
-    // let user = AuthService.getCurrentUser()
+
     let user = document.cookie
     if (user) {
       this.setState({
@@ -104,13 +91,6 @@ class CreateForm extends React.Component {
       })
     }
   }
-
-  // bookingInformation(){
-  // this.setState({
-  //   bookingDetail2: this.props.bookingDetail,
-  //   bookingDetail3:this.props.bookingDetail3  
-  // })
-  // }
 
   onChangeName(e) {
     this.setState({
@@ -176,27 +156,6 @@ class CreateForm extends React.Component {
       arr: this.state.POC
     })
   }
-
-  // onChangename(e){
-  //   this.setState({
-  //     name:e.target.value
-  //   })
-  // }
-
-  // onChangeemail(e){
-  //   this.setState({
-  //     email:e.target.value
-  //   })
-  // }
-
-  // onChangephone(e){
-  //   this.setState({
-  //     phone:e.target.value
-  //   })
-  // }
-
-
-
   // **********************************************************************
   handleCreate(e) {
     e.preventDefault()
@@ -239,44 +198,6 @@ class CreateForm extends React.Component {
     }
   }
 
-  // bookingVerfify(e){
-  //   e.preventDefault()
-  //   this.form.validateAll();
-
-  //   this.setState({
-  //     Successful:false
-  //   })
-
-  //   if(this.checkBtn.context._errors.length === 0){
-  //     GroupBooking.BookingVerify(
-  //       this.state.uuid,
-  //     )
-  //     .then(
-  //       response => {
-  //         this.setState({
-  //           message: response.data.message,
-  //           // isSuccess:true,
-  //           // Successful: true
-  //         })
-  //         window.location.reload()
-  //         window.alert("Your booking is Successful")
-  //       },
-  //       error => {
-  //         const resMessage = 
-  //         (error.response && 
-  //           error.response.data &&
-  //           error.response.data.message) ||
-  //           error.message ||
-  //           error.toString();
-
-  //           this.setState({
-  //             // successful: false,
-  //             message: resMessage
-  //           })
-  //       }
-  //     )
-  //   }
-  // }
 
   render() {
 
@@ -326,33 +247,10 @@ class CreateForm extends React.Component {
 
           :
           <div className="list_row">
-            {/* <Form
-              onSubmit={this.handleCreate}
-              ref={c => {
-                this.form = c
-              }}
-
-            > */}
 
               <h1>Refunding Details</h1>
               <div className="form-refund">
 
-                {/* <label className="Group__label">Group Name</label> */}
-{/* 
-                <Input
-                  className="accountID"
-                  id="id"
-                  onChange={this.onChangeID}
-                  value={this.state.accountID}
-                  validations={[required]}
-                />
-                <Input
-                  className="accountName"
-                  id="name"
-                  onChange={this.onChangeName}
-                  value={this.state.accountName}
-                  validations={[required]}
-                /> */}
               </div>
               <ul
                 className="ul__booking"
@@ -394,16 +292,6 @@ class CreateForm extends React.Component {
                 </button>
               </div>
 
-              {/* <CheckButton
-                className=""
-                style={{ display: "none" }}
-                ref={c => {
-                  this.checkBtn = c
-                }}
-              >
-
-              </CheckButton> */}
-            {/* </Form> */}
           </div>
         }
 

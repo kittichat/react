@@ -1,10 +1,8 @@
 import React , {useState, useEffect}from 'react'
 
-import Data from '../api/group__members'
-import GroupList from "../services/groupservices"
-
 import { useTable } from 'react-table'
 
+import '../css/GroupBKhistoryThisMonth.css'
 
 function GroupBKhistoryThisMonth({this_month}) {
 

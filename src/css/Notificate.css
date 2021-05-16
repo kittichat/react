@@ -4,6 +4,10 @@
     top: 80px;
     list-style: none;
     text-align: start;
+    /* margin-right: 6px  ; */
+    right: 150px;
+    /* background-color: whitesmoke; */
+    
 }
 .Dropdownlist li{
     list-style: none;
@@ -11,4 +15,38 @@
     font: 12px solid;
     background-color: whitesmoke;
     
+}
+
+.Notification__detail{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    color: black;
+}
+
+.Accept__button{
+color: white;
+background-color: blue;
+padding: 10px;
+font-size: 10px;
+border: solid 2px;
+border-radius: 5px;
+}
+
+
+
+.Decline__button{
+   color: white;
+   background-color: rgb(214, 52, 52);
+   padding: 10px;
+   font-size: 10px;
+   border: solid 2px;
+   border-radius: 5px; 
+}
+
+.Accept__button > :active{
+    background-color: white;
+}
+
+.Decline__button >:active{
+    background-color: white;
 }

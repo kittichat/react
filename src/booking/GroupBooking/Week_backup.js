@@ -45,17 +45,6 @@ function Table({ columns, data, setArr, arrt}) {
     // becareful if array has some problem, just set arr value default to [0]
     const [arr, setArrState] = useState([]) 
 
-
-    // const CLear = () => {
-    //     setArrState([])
-    // }
-    // let test = false
-    // { isClear ? test = true : test = false }
-    // if (test) {
-    //     arr.splice(0)
-    //     test = false
-    // }
-
     const bgforTime = {
         background: "white"
     }
@@ -193,8 +182,6 @@ function Table({ columns, data, setArr, arrt}) {
 
 }
 
-
-
 function Week() {
 
     const [day, setDay] = useState("Monday")
@@ -299,11 +286,6 @@ function Week() {
                 break;
         }
 
-        //  groupBooking.getDay(newValue.value).then(response => {
-        //      setDataTable(response.data.something)
-        //      // edited data in table right here
-        //  })
-        //  console.log(newValue.value)
     }
 
 
@@ -334,9 +316,6 @@ function Week() {
         return  setArrTemp
     }
 
-    // console.log(dataTable.weekday, dataTable)
-    // console.log("dataTable",dataTable)
-    
     return (
         <div className="Week">
             <Form>
@@ -348,7 +327,6 @@ function Week() {
                 />
             </Form>
 
-            {/* <h1>{temp}</h1> */}
             <h1>this is for Group booking page</h1>
             <h1>{day.value}</h1>
 
@@ -363,10 +341,9 @@ function Week() {
                                 columns={columns}
                                 data={dataTable}
                                 // arr={arrRoot}
-                                // setArr={setArr}
                                 arrt={arrTemp}
                                 setArr={() => handleset()} 
-                                // setArr ={setArrTemp}
+
                             />
                         </div>
                     </Styles>

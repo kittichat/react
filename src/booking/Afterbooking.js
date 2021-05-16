@@ -50,27 +50,6 @@ function Table({ columns, data , arrRoot , setArr, ClearState , isClear  }) {
         test = false
     }
 
-    // {isClear &&  
-    // //    console.log("fuckingSheit happening on this")
-    //     // setArrState([0])
-    //     // CLear()
-    //     // arr.pop(0)
-    //     // arr.push(0)
-      
-    //         arr.splice(0)
-       
-       
-        
-        
-    // }
-
-    // const Clear = () => {
-    //     // setArrState([0])
-    //     console.log("work")
-    // }
-
-  
-    // {ClearState({Clear})}
 //*************************************** */ 
 
 const bgforTime = {
@@ -309,11 +288,6 @@ function Afterbooking(props) {
             >
                 Clear
             </button>
-            {/* <button
-                className="Booking__submit"
-        >
-                Submit
-            </button> */}
 
             <Container 
                 // className="Booking__submit"

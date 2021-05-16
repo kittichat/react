@@ -209,11 +209,11 @@ function Table({
                     break;
             }
             i.forEach(CandT => {
-                console.log("test ",CandT)
-                if(typeof(CandT) == "object"){
+                console.log("test ", CandT)
+                if (typeof (CandT) == "object") {
                     arrTotalSpread.push(CandT)
-                }else{
-                    arrTotalSpread.push({day:CandT})
+                } else {
+                    arrTotalSpread.push({ day: CandT })
                 }
                 // arrTotalSpread.push({CandT,dayTemp})
             }
@@ -243,7 +243,7 @@ function Table({
         console.log("arrTotalSpread ", arrTotalSpread)
 
         // {setArrTotal(arrTotalTemp)}
-        {setForTotalTemp(arrTotalTemp)}
+        { setForTotalTemp(arrTotalTemp) }
         { setArrTotal(arrTotalSpread) }
 
     }
@@ -297,7 +297,7 @@ function Table({
 
 function Week() {
 
-    const [day, setDay] = useState("Please select days")
+    const [day, setDay] = useState("Select day")
     const [monday, setMonday] = useState([])
     const [tuesday, setTuesday] = useState([])
     const [wednesday, setWednesday] = useState([])
@@ -312,7 +312,7 @@ function Week() {
 
     const [arrRoot, setArr] = useState([0])
     const [arrTotal, setArrTotal] = useState([])
-    const [forTotalTemp,setForTotalTemp] = useState([])
+    const [forTotalTemp, setForTotalTemp] = useState([])
 
     const [arrTemp, setArrTemp] = useState([])
     const [arrMonday, setArrMonday] = useState(["Monday"])
@@ -426,70 +426,72 @@ function Week() {
     console.log("dataTable", dataTable)
     console.log("arrTotal ", arrTotal)
     console.log("arrRoot ", arrRoot)
-    console.log("forTotalTemp",forTotalTemp)
+    console.log("forTotalTemp", forTotalTemp)
 
     return (
         <div className="Week">
-            <Form>
-                <CreatableSelect
-                    className="week__dropdown"
-                    isClearable
-                    onChange={handleOption}
-                    options={options}
-                />
-            </Form>
+            <div className="test"></div>
+            <div className="All_form">
+                
+                <h1 className="week__day">{day}</h1>
 
-            {/* <h1>{temp}</h1> */}
-            <h1>this is for Group booking page</h1>
-            <h1>{day}</h1>
+                <Form>
+                    <CreatableSelect
+                        className="week__dropdown"
+                        isClearable
+                        onChange={handleOption}
+                        options={options}
+                    />
+                </Form>
 
-            <div className="Afterbooking">
-                {dataTable?.length
+                {/* <h1>{day}</h1> */}
 
-                    ?
-                    <Styles>
-                        <div className="group1_table">
-                            <Table
-                                className="group1_eachtable"
-                                columns={columns}
-                                data={dataTable}
-                                arrRoot={arrRoot}
-                                setArr={setArr}
-                                day={day}
-                                arrMonday={arrMonday}
-                                arrTuesday={arrTuesday}
-                                arrWednesday={arrWednesday}
-                                arrThursday={arrThursday}
-                                arrFriday={arrFriday}
-                                arrSaturday={arrSaturday}
-                                arrSunday={arrSunday}
-                                setArrTotal={setArrTotal}
-                                setForTotalTemp={setForTotalTemp}
-                            />
-                        </div>
-                    </Styles>
-                    :
-                    <h1>nothing</h1>
-                }
-                <button
-                    className="Booking__clear"
-                    onClick={() => window.location.reload()}
-                >
-                    Clear
+                <div className="Afterbooking">
+                    {dataTable?.length
+
+                        ?
+                        <Styles>
+                            <div className="group_table">
+                                <Table
+                                    className="group_eachtable"
+                                    columns={columns}
+                                    data={dataTable}
+                                    arrRoot={arrRoot}
+                                    setArr={setArr}
+                                    day={day}
+                                    arrMonday={arrMonday}
+                                    arrTuesday={arrTuesday}
+                                    arrWednesday={arrWednesday}
+                                    arrThursday={arrThursday}
+                                    arrFriday={arrFriday}
+                                    arrSaturday={arrSaturday}
+                                    arrSunday={arrSunday}
+                                    setArrTotal={setArrTotal}
+                                    setForTotalTemp={setForTotalTemp}
+                                />
+                            </div>
+                        </Styles>
+                        :
+                        <div></div>
+                    }
+                    <button
+                        className="Booking__clear"
+                        onClick={() => window.location.reload()}
+                    >
+                        Clear
                  </button>
 
-                <Container
-                    triggerText={triggerText}
-                    onSubmit={onSubmit}
-                    // bookingDetail={arrRoot.arr}
-                    bookingDetail={arrTotal}
-                    bookingDetail3={forTotalTemp}
-                    date={date}
-                />
+                    <Container
+                        triggerText={triggerText}
+                        onSubmit={onSubmit}
+                        bookingDetail={arrTotal}
+                        bookingDetail3={forTotalTemp}
+                        date={date}
+                    />
 
 
+                </div>
             </div>
-
         </div>
     )
 }

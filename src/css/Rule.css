@@ -1,4 +1,33 @@
-.rule{
+body,html{
+    height: 100%;
+}
 
-    margin-top: 25%;
+.rule__background{
+    background-color: rgb(19,28,43);
+    height: 80vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    background-position: left;
+    left: 0;
+    top: 0;
+
+}
+
+.topic__page{
+    top:10%;
+    left: 25%;
+    height: 140px;
+    width: 800px;
+    display: block;
+    color: white;
+    position: absolute;
+    font-size: 140px;
+    font-weight: 700;
+    line-height: 140px;
+    text-decoration: none solid rgb(255,255,255);
+    text-align: center;
+    text-transform: uppercase;
+    word-spacing: 0px;
 }

@@ -17,12 +17,6 @@ function Bookinghistory() {
     const [dataTable, setDataTable] = useState([])
     const [actions, setActions] = useState([])
 
-//     useEffect(() => {
-//         HistoryServices.booking().then(
-//             setDataTable(response.data.something)
-//         )
-//     }, [])
-
 const handleOption = newValue => {
     if (newValue == null) { return setActions("") }
     setActions(newValue.value)

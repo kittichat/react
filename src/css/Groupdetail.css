@@ -31,3 +31,23 @@
 .Leave__group:active {
     background-color: white;
 }
+
+.Header__group{
+
+}
+
+.Header__table{
+    margin-right: 5px;
+    padding: 10px;
+}
+
+.Member__group{
+    display: flex;
+    
+}
+
+.Member__table{
+    margin-right: 20px;
+    padding: 10px;
+    font-size: 50px;
+}

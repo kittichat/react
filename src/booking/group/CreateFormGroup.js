@@ -10,27 +10,6 @@ import groupService from '../../services/groupservices'
 import createGroup from '../../services/createGroup'
 
 import '../../css/CreateFormGroup.css'
-// import "../../css/CreateForm.css"
-import { checkPropTypes } from 'prop-types'
-
-  // const handleChange = (group, {setListofmember}) => {
-
-  //   // {setListofmember(
-  //   //   const updated = 
-  //   // )}
-
-  //   // return (
-
-  //   //   // Some problem here, it is how to send props in hooks
-  //   //   <div>
-  //   //     <input 
-  //   //       type="checkbox"
-  //   //       checked={Change.isCheck}
-  //   //       onChange={() => setChange(!Change.isCheck)}
-  //   //     />
-  //   //   </div>
-  //   // )
-  // }
 
   const required = value => {
     if (!value){
@@ -59,23 +38,6 @@ import { checkPropTypes } from 'prop-types'
      this.handleCreate = this.handleCreate.bind(this)
      this.onChangeName = this.onChangeName.bind(this)
    }
-//  const CreateForm = (props) => {
-  // const [memberlist, setMemberlist] = useState({})
-
-  // useEffect(() => {
-  //   const member_list = Memberlist.member();
-  //   member_list.then((response) => {
-  //     setMemberlist(response.map())
-  //   })
-  // })
-
-  // const [Listofmember , setListofmember] = useState([])
-  // const [Successful , setSuccessful] = useState(false)
-  // const [createGroup, setCreateGroup]  = useState([])
-
-    // useEffect(() => {
-    //    retrieveAllmember() 
-    // }, [])
 
     onChangeName(e){
       this.setState({
@@ -91,7 +53,6 @@ import { checkPropTypes } from 'prop-types'
     retrieveAllmember(){
       Memberlist.getAll()
             .then(response => {
-                // setListofmember(response.data)   // data is list of name of group
                 this.setState({
                   Listofmember : response.data
                 })
@@ -103,26 +64,7 @@ import { checkPropTypes } from 'prop-types'
             .catch(e => {
                 console.log(e)
             })
-        // Memberlist.getAll()
-        //     .then(response => {
-        //         // setListofmember(response.data)   // data is list of name of group
-        //         if (!("Error" in response.data.message)){
-        //         this.setState({
-        //           Listofmember : response.data
-        //         })
-        //       }else{
-        //         this.setState({
-        //           Listofmember : []
-        //         })
-        //       }
-              
-        //         console.log("data from an api")
-        //         console.log(response.data.message)
-        //     },
-        //     )
-        //     .catch(e => {
-        //         console.log(e)
-        //     })
+
     }
 
     handleCreate(e){
@@ -154,6 +96,10 @@ import { checkPropTypes } from 'prop-types'
                 successful: false,
                 message: resMessage
               })
+              if(error.response.data.msg == "Can not create group because you are header in another group"){
+                window.alert("Sorry, The web application not allowed header to create group")
+                window.location.reload()
+              }
           }
         )
       }
@@ -230,11 +176,6 @@ import { checkPropTypes } from 'prop-types'
                 ))}
         </ul>
 
-        {/* <div className="form-group">
-         <button className="form-control btn btn-primary" type="submit">
-           Submit
-         </button>
-       </div> */}
 
         <div className="form-group">
          <button className="Group__submit" type="submit">

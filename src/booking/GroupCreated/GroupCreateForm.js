@@ -50,8 +50,6 @@ class GroupCreateForm extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      // Listofmember:[],
-  // successful:false,
       bookingDetail2:[],
       name:"",
       email:"",
@@ -65,23 +63,9 @@ class GroupCreateForm extends React.Component {
       
     }
 
-    // this.retrieveAllmember = this.retrieveAllmember.bind(this)
-  
     this.handleCreate = this.handleCreate.bind(this)
    
   }
-
-
-
-    // componentDidMount(){
-    
-       
-
-    // }
-
-
-    
-    
 
 // **********************************************************************
     handleCreate(e){
@@ -124,47 +108,6 @@ class GroupCreateForm extends React.Component {
 
     }
 
-    // bookingVerfify(e){
-    //   e.preventDefault()
-    //   this.form.validateAll();
-     
-    //   // this.setState({
-    //   //   Successful:false
-    //   // })
-
-    //  if(this.checkBtn.context._errors.length === 0){
-    //     BookingService.BookingVerify(
-    //       this.state.uuid,
-    //     )
-    //     .then(
-    //       response => {
-    //         this.setState({
-    //           message: response.data.message,
-    //           // isSuccess:true,
-    //           // Successful: true
-    //         })
-    //         window.location.reload()
-    //         window.alert("Your booking is Successful")
-    //       },
-    //       error => {
-    //         const resMessage = 
-    //         (error.response && 
-    //           error.response.data &&
-    //           error.response.data.message) ||
-    //           error.message ||
-    //           error.toString();
-
-    //           this.setState({
-    //             // successful: false,
-    //             message: resMessage
-    //           }) 
-    //       }
-    //     )
-    //   }
-
-      
-
-    // }
 
     render(){
       

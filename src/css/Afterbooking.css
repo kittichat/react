@@ -51,6 +51,10 @@
     background-color: green;
 }
 
+.Booking__submit:active{
+    background-color: white;
+}
+
 .Booking__clear{
     border: solid 2px;
     border-radius: 10px;
@@ -59,4 +63,8 @@
     font-size: 30px;
     color: white;
     background-color: orange;
+}
+
+.Booking__clear:active{
+    background-color: white;
 }

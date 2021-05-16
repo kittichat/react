@@ -16,7 +16,7 @@ import Paymenthistory from './history/Paymenthistory'
 import Bookinghistory from './history/Bookinghistory'
 import Group from './booking/Group'
 import Individualgroup from './booking/Individualgroup';
-import DateSelection from './booking/calendar/DateSelection'
+
 
 import Group1 from './booking/showall/Group1'
 import Group2 from './booking/showall/Group2'
@@ -54,7 +54,6 @@ function App() {
           <Route exact path="/paymenthistory" component={Paymenthistory} />
           <Route exact path="/groupplayer" component={Group} />
           <Route exact path="/individualgroup" component={Individualgroup} />
-          {/* <Route exact path="/dateselection" component={DateSelection} /> */}
           <Route exact path="/dateselection" component={Calendar_background} />
           <Route exact path="/group1" component={Group1} />
           <Route exact path="/group2" component={Group2} />
@@ -67,15 +66,9 @@ function App() {
           <Route exact path="/group9" component={Group9} />
           <Route exact path="/group10" component={Group10} />
           <Route exact path="/detail" component={Groupdetail} />
-          {/* <Route exact path="./dateselection" component={DateSelection} /> */}
-
-
-
-          {/* <Route exact path="" component={} /> */}
+ 
           
           <Route exact path="/login">
-         
-          {/* <Route exact path="/" /> */}
             <div className="App__login">
               <Login />
             </div>

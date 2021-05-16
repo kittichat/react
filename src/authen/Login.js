@@ -58,9 +58,7 @@ class Login extends React.Component {
            message:'',
            loading:true
        });
-       
-        // this.form.validateAll();
-
+ 
     if (this.checkBtn.context._errors.length === 0){
         AuthService.login(this.state.username, this.state.password).then(
             () => {
@@ -97,7 +95,7 @@ class Login extends React.Component {
             
             
             <div className="Login__input">
-                {/* <Avatar className="Login__avatar"/> */}
+
                 <h1 className="Login__header">Sign In</h1>
 
                 <Form 

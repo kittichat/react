@@ -159,25 +159,18 @@ class CreateForm extends React.Component {
               error.response.data.message) ||
               error.message ||
               error.toString();
-
               this.setState({
                 message: resMessage
               })
           }
         )
       }
-
-      
-
     }
 
     bookingVerfify(e){
       e.preventDefault()
       this.form.validateAll();
-     
-      // this.setState({
-      //   Successful:false
-      // })
+
 
       if(this.checkBtn.context._errors.length === 0){
         BookingService.BookingVerify(
@@ -315,8 +308,6 @@ class CreateForm extends React.Component {
                         <li
                           className = "li__booking"
                         >
-                            {/* {detail.time}
-                            {detail.column} */}
                           {detail.time}  {detail.column}
                         </li>
                     ))

@@ -66,14 +66,8 @@ class CreateForm extends React.Component {
 
     }
 
-    // this.retrieveAllmember = this.retrieveAllmember.bind(this)
-    // this.bookingInformation = this.bookingInformation.bind(this)
     this.handleCreate = this.handleCreate.bind(this)
-    // this.onChangename = this.onChangename.bind(this)
-    // this.onChangeemail = this.onChangeemail.bind(this)
-    // this.onChangephone = this.onChangephone.bind(this)
     this.memberCheck = this.memberCheck.bind(this)
-    // this.bookingVerfify = this.bookingVerfify.bind(this)
     this.RefundInformation = this.RefundInformation.bind(this)
     this.onChangeID = this.onChangeID.bind(this)
     this.onChangeName = this.onChangeName.bind(this)
@@ -82,16 +76,11 @@ class CreateForm extends React.Component {
 
 
   componentDidMount() {
-
-    //  this.bookingInformation();
-    //  this.memberCheck()
-
     this.RefundInformation()
 
   }
 
   memberCheck() {
-    // let user = AuthService.getCurrentUser()
     let user = document.cookie
     if (user) {
       this.setState({
@@ -99,13 +88,6 @@ class CreateForm extends React.Component {
       })
     }
   }
-
-  // bookingInformation(){
-  // this.setState({
-  //   bookingDetail2: this.props.bookingDetail,
-  //   bookingDetail3:this.props.bookingDetail3  
-  // })
-  // }
 
   onChangeName(e){
     this.setState({
@@ -144,26 +126,6 @@ class CreateForm extends React.Component {
     })
   }
 
-  // onChangename(e){
-  //   this.setState({
-  //     name:e.target.value
-  //   })
-  // }
-
-  // onChangeemail(e){
-  //   this.setState({
-  //     email:e.target.value
-  //   })
-  // }
-
-  // onChangephone(e){
-  //   this.setState({
-  //     phone:e.target.value
-  //   })
-  // }
-
-
-
   // **********************************************************************
   handleCreate(e) {
     e.preventDefault()
@@ -181,75 +143,9 @@ class CreateForm extends React.Component {
         window.alert("Your refunding is successfuly"),
         window.location.reload()
       )
-        // .then(
-        //   response => {
-        //     if (response.data.success == false) {
-        //       window.alert("Sorry, please check stage again")
-        //       window.location.reload()
-        //     }
-        //     this.setState({
-        //       message: response.data.message,
-        //       uuid: response.data.bookingid, // change this line 
-        //       price: response.data.price,
-        //       isSubmit: true,
-
-        //     })
-        //   },
-        //   error => {
-        //     const resMessage =
-        //       (error.response &&
-        //         error.response.data &&
-        //         error.response.data.message) ||
-        //       error.message ||
-        //       error.toString();
-
-        //     this.setState({
-        //       message: resMessage
-        //     })
-        //   }
-        // )
 
     }
   }
-
-  // bookingVerfify(e){
-  //   e.preventDefault()
-  //   this.form.validateAll();
-
-  //   this.setState({
-  //     Successful:false
-  //   })
-
-  //   if(this.checkBtn.context._errors.length === 0){
-  //     GroupBooking.BookingVerify(
-  //       this.state.uuid,
-  //     )
-  //     .then(
-  //       response => {
-  //         this.setState({
-  //           message: response.data.message,
-  //           // isSuccess:true,
-  //           // Successful: true
-  //         })
-  //         window.location.reload()
-  //         window.alert("Your booking is Successful")
-  //       },
-  //       error => {
-  //         const resMessage = 
-  //         (error.response && 
-  //           error.response.data &&
-  //           error.response.data.message) ||
-  //           error.message ||
-  //           error.toString();
-
-  //           this.setState({
-  //             // successful: false,
-  //             message: resMessage
-  //           })
-  //       }
-  //     )
-  //   }
-  // }
 
   render() {
 
