@@ -1,0 +1,109 @@
+.login__background{
+    background-color: rgb(19,28,43);
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    background-position: left;
+    left: 0;
+    top: 0;
+}
+
+.login__text{
+    top:10%;
+    left: 25%;
+    height: 140px;
+    width: 800px;
+    display: block;
+    color: white;
+    position: absolute;
+    font-size: 140px;
+    font-weight: 700;
+    line-height: 140px;
+    text-decoration: none solid rgb(255,255,255);
+    text-align: center;
+    text-transform: uppercase;
+    word-spacing: 0px;
+}
+
+
+.Login__input{
+    margin-top: -550px;
+    border-radius: 30px;
+    border: solid 2px;
+    padding: 20px;
+    background: rgb(255, 255, 255);
+    width: 400px;
+    margin-left: 568px;
+
+}
+
+.Login__avatar{
+
+    width: 50px;
+    align-items: center;
+}
+
+.Login__header{
+
+    font-size: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+}
+
+.Login__button{
+    padding: 10px;
+    margin-top: 20px;
+    width: 15em;
+    border: solid;
+    border-radius: 10px;
+    font-weight: 999;
+    font-size: large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: blue;
+    color: white;
+}
+
+
+.Input__checkbox{
+    display: flex;
+    padding: 15px;
+}
+
+.Input__rememberme{
+    margin-left: 20px;
+    margin-top: -3px;
+}
+
+.Input__forgotpass{
+    margin-left: 40px;
+    margin-top: -3px;
+}
+
+.Login__line{
+
+    margin-top: 20px;
+    width: 500px;
+}
+
+.Input__type{
+
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    border: solid;
+    border-radius: 20px;
+}
+.Input__icon{
+    padding-right: 10px;
+}
+
+.Input__input{
+    width: 20em;
+    height: 30px;
+    background-color: rgb(255, 255, 254);
+    border: none;
+}

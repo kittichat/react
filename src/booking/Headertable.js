@@ -11,18 +11,6 @@ function Headertable({ dataHeader, authority2}) {
 
     const group = GroupList.getCurrentGroup()
 
-// useEffect(() => {
-//   const group = GroupList.getCurrentGroup()
-//     GroupList.getMembers(group)
-//       .then(response => {
-
-//         setApi(response.data.detail.member)
-//         setAuthority(response.data.role)
-
-
-//       })
-// }, [])
-
 
 const handleDelete = (id) => {
   GroupList.deleteMember(group,id)
@@ -34,18 +22,6 @@ const handleDelete = (id) => {
     const columns = React.useMemo(
         () =>
           [
-            // {
-            //   Header: "Numbers",
-            //   accessor: "sequence"
-            // },
-            // {
-            //   Header: "Members",
-            //   accessor: "member"
-            // },
-            // {
-            //   Header: "Delete",
-            //   accessor: "manage"
-            // }
                 {
               Header: "Numbers",
               accessor: "number"
@@ -63,8 +39,7 @@ const handleDelete = (id) => {
         []
       )
     
-      // const data = React.useMemo(() => dataHeader, [])
-      // const data = dataApi
+
       const data =dataHeader
       console.log("this is data from Header", authority2)
           console.log(dataHeader)

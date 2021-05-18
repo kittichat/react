@@ -33,3 +33,20 @@
     font-size: 20px;
 }
 
+.price__details{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15   px;
+    color: black;
+    
+}
+
+.price__submit{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(40, 141, 10);
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 10px;
+}

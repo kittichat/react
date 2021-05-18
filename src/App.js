@@ -33,6 +33,7 @@ import Calendar_background from './booking/calendar/Calendar_background';
 import deleteme from './authen/deleteme';
 
 import Week from './booking/GroupBooking/Week'
+import Logintemp from './authen/Logintemp';
 
 function App() {
   return (
@@ -67,12 +68,12 @@ function App() {
           <Route exact path="/group10" component={Group10} />
           <Route exact path="/detail" component={Groupdetail} />
  
-          
-          <Route exact path="/login">
+          <Route exact path="/login" component={Logintemp} />
+          {/* <Route exact path="/login">
             <div className="App__login">
               <Login />
             </div>
-          </Route>
+          </Route> */}
           <Route path="/" component={Home} />
 
         </Switch>

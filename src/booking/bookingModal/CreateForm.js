@@ -1,15 +1,15 @@
 import React from 'react'
-import ReactDom from 'react-dom'
-import { Link } from "react-router-dom"
+
 import CheckButton from "react-validation/build/button"
 import Form from "react-validation/build/form"
 import {isEmail} from 'validator'
 import Input from 'react-validation/build/input'
 
 import BookingService from '../../services/booking_service'
-import AuthService from '../../services/auth_service'
 
+// import "../../css/CreateFormForMemberBk.css"
 import "../../css/CreateForm.css"
+// import "../../css/CreateFormForMemberBk.css"
 
   const required = value => {
     if (!value){
@@ -222,17 +222,19 @@ class CreateForm extends React.Component {
       }}
 
       >
-        {/* I think we should should some qr code for tranfers the money */}
-        <h1>Please sends your receipt to the admin through line</h1>
-        <h2>Thank you</h2>
-
-        <h1>Total price</h1>
-        <h1>{this.state.price.normal_price}</h1>
-        <h1>{this.state.price.discount_time}</h1>
-        <h1>{this.state.price.discouht_member}</h1>
+        <div className="price__details">
+                <h1>Please send your receipt to admin's LINE application</h1>
+                <h1>Total price</h1>
+                <h1><pre>Normal price          {this.state.price.normal_price}</pre></h1>
+                <h1><pre>Discount        </pre></h1>
+                <h1><pre> Promotion Time      -{this.state.price.discount_time}</pre></h1>
+                <h1><pre> Group               -{this.state.price.discount_member}</pre></h1>
+                <hr></hr>
+                <h1><pre>TOTAL                 {this.state.price.pay}</pre></h1>
+              </div>
 
         <div className="form-group">
-         <button className="form-control btn btn-primary" type="submit">
+         <button className="price__submit" type="submit">
            Verify
          </button>
        </div>
@@ -252,7 +254,9 @@ class CreateForm extends React.Component {
       </div>
      
      :
-    <div className="list_row">
+    <div 
+    // className="list_row"
+    >
       <Form 
         onSubmit={this.handleCreate}
         ref = {c => {
@@ -298,7 +302,8 @@ class CreateForm extends React.Component {
           />
        </div>
        </div>
-       : <h1>Booking Details</h1>
+       : 
+       <h1>Booking Details</h1>
       }
            <ul
             className ="ul__booking"
@@ -315,7 +320,7 @@ class CreateForm extends React.Component {
            </ul>
        
         <div className="form-group">
-         <button className="Booking__submit" type="submit">
+         <button className="price__submit" type="submit">
            Submit
          </button>
        </div>

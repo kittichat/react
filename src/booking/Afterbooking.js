@@ -202,30 +202,66 @@ function Afterbooking(props) {
     const [dataTemp, setDataTemp] = useState([])
     const [apidata,setApidata] = useState(undefined)
     const [isClear , setClear]  = useState(false)
+    const [columnApi, setColumnApi] = useState([])
     
    useEffect(() => {
-    //    BookingService.AllBookingInformation().then(response => 
-    //     {
-    //          setDataTemp(response.data.status)
-    //     }
-    //     )
+
      BookingService.GetBookingInformation(localStorage.getItem("date")).then(response => {
          setDataTemp(response.data.status)
+        //  setColumnApi(length(response.data.status[0]))
          localStorage.setItem("date2",response.data.date)
      })
+
+     columnSetting()
    }, []) 
+
+   const columnSetting = () => {
+       BookingService.GetBookingInformation(localStorage.getItem("date")).then(response => {
+           const count = response.data.status[0]
+           let count1 = 0
+           let col = 1
+           let arrLocal = [{Header:"time",accessor:"time"}]
+           let finalTemp = []
+           let test1 = 0
+           for (test1 in count){
+                count1++
+                
+           }
+           console.log("count1",count1)
+           while(col <= count1-1){
+                let temp = {
+                    Header:`Court${col}`,
+                    accessor:`Court${col}`
+                }
+                arrLocal.push(temp);
+                col++;
+           }
+        //    setColumnApi(arrLocal)
+        console.log(response.data.status)
+           console.log(arrLocal)
+           finalTemp.push({
+               Header:"All Courts",
+               columns:arrLocal
+           })
+           console.log(columnApi)
+           setColumnApi(finalTemp)
+       })
+      
+
+   }
    
    const columns = React.useMemo(
         () => [
             {
                         Header: "All courts",
-                        columns: [
-                            {Header:"time",accessor:"time"},
-                            {Header:"Court1",accessor:"Court1"},
-                            {Header:"Court2",accessor:"Court2"},                                            
-                            {Header:"Court3",accessor:"Court3"},   
+                        // columns: [
+                        //     {Header:"time",accessor:"time"},
+                        //     {Header:"Court1",accessor:"Court1"},
+                        //     {Header:"Court2",accessor:"Court2"},                                            
+                        //     {Header:"Court3",accessor:"Court3"},   
                                                                                                
-                        ]
+                        // ]
+                        columns:columnApi
                         // use this when you want to use data api 
                         // columns: [
                         //     {Header:"time",accessor:"time"},
@@ -266,6 +302,7 @@ function Afterbooking(props) {
      
     console.log("this is isClear")
     console.log(isClear)
+    console.log("ColumnApi ", columnApi)
 
     return (
         <div className="Afterbooking">
@@ -273,7 +310,7 @@ function Afterbooking(props) {
                 <div className="group1_table">
                     <Table 
                         className="group1_eachtable" 
-                        columns={columns} 
+                        columns={columnApi} 
                         data={dataTemp} 
                         arr={arrRoot} 
                         setArr={setArr} 

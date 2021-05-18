@@ -52,7 +52,7 @@ function Group() {
 
     return (
         <div className="list_row">
-
+            <div className="background"></div>
             <ul className="list_group" >
                 {Listofgroup &&
                     Listofgroup.map((group, index) => (

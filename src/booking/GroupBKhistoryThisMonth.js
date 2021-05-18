@@ -7,18 +7,6 @@ import '../css/GroupBKhistoryThisMonth.css'
 function GroupBKhistoryThisMonth({this_month}) {
 
 
-// useEffect(() => {
-//   const group = GroupList.getCurrentGroup()
-//   console.log("this is group ",group)
-//     GroupList.getMembers(group)
-//       .then(response => {
-
-//         setApi(response.data.detail.member)
-
-
-//       })
-// }, [])
-
     const columns = React.useMemo(
         () =>
             [

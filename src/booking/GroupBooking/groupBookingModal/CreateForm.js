@@ -203,7 +203,6 @@ class CreateForm extends React.Component {
               }}
 
             >
-              {/* I think we should should some qr code for tranfers the money */}
               <div className="price__details">
                 <h1>Please send your receipt to admin's LINE application</h1>
                 <h1>Total price</h1>
@@ -235,7 +234,9 @@ class CreateForm extends React.Component {
           </div>
 
           :
-          <div className="list_row">
+          <div
+          //  className="list_row"
+           >
             <Form
               onSubmit={this.handleCreate}
               ref={c => {

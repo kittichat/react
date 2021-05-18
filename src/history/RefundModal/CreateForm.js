@@ -8,6 +8,9 @@ import { ThumbUpSharp } from '@material-ui/icons'
 
 import HistoryServices from '../../services/history_servies'
 
+// import '../../css/RefundForm'
+import '../../css/RefundForm.css'
+
 const required = value => {
   if (!value) {
     return (
@@ -194,7 +197,9 @@ class CreateForm extends React.Component {
           </div>
 
           :
-          <div className="list_row">
+          <div
+          //  className="list_row"
+           >
             <Form
               onSubmit={this.handleCreate}
               ref={c => {
@@ -203,25 +208,32 @@ class CreateForm extends React.Component {
 
             >
 
-              <h1>Refunding Details</h1>
-              <div className="form-refund">
+              <h1 className="Refund__header">Refunding Details</h1>
+              <div
+               className="form-refund"
+               >
 
                 {/* <label className="Group__label">Group Name</label> */}
-
+                <div className="Refund__accountDetailID">
+                <h1 className="Refund__inputDetail">Account ID: </h1>
                 <Input
-                  className="accountID"
+                  className="Refund__accountID"
                   id="id"
                   onChange={this.onChangeID}
                   value={this.state.accountID}
                   validations={[required]}
                 />
+                </div>
+                <div className="Refund__accountDetailName">
+                <h1 className="Refund__inputDetail">Account Name: </h1>
                 <Input
-                  className="accountName"
+                  className="Refund__accountName"
                   id="name"
                   onChange={this.onChangeName}
                   value={this.state.accountName}
                   validations={[required]}
                 />
+                </div>
               </div>
               <ul
                 className="ul__booking"
@@ -231,15 +243,16 @@ class CreateForm extends React.Component {
                     <div>
 
                       <li
-                        className="li__booking"
+                        className="Refund__li"
                       >
                         {/* {detail.number} */}
                         <input
                           type="checkbox"
+                          className="Refund__checkbox"
                           // checked = {item.completed}
                           onChange={() => this.handleChange(detail.bookingid)}
                         />
-                        {detail.date} {detail.time} {detail.court}
+                        <pre>{detail.date}  {detail.time}  {detail.court}</pre>
                       </li>
                     </div>
                   ))
@@ -247,7 +260,7 @@ class CreateForm extends React.Component {
               </ul>
 
               <div className="form-group">
-                <button className="Booking__submit" type="submit">
+                <button className="Refund__submit" type="submit">
                   Submit
          </button>
               </div>

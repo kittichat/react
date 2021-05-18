@@ -323,6 +323,8 @@ function Week() {
     const [arrSaturday, setArrSaturday] = useState(["Saturday"])
     const [arrSunday, setArrSunday] = useState(["Sunday"])
 
+    const [columnApi, setColumnApi] = useState([])
+
     // const [arrTemp, setArrTemp] = useState([])
     // const [arrMonday, setArrMonday] = useState([])
     // const [arrTuesday, setArrTuesday] = useState([])
@@ -347,6 +349,8 @@ function Week() {
             setDate(response.data.date)
         })
 
+        columnSetting()
+
         // setMonday(datagroupbk.status[0])
         // setTuesday(datagroupbk.status[1])
         // setWednesday(datagroupbk.status[2])
@@ -355,6 +359,41 @@ function Week() {
         // setSaturday(datagroupbk.status[5])
         // setSunday(datagroupbk.status[6])
     }, [])
+
+    const columnSetting = () => {
+        groupBooking.getDays().then(response => {
+            const count = response.data.status[0].status[0]
+            let count1 = 0
+            let col = 1
+            let arrLocal = [{Header:"time",accessor:"time"}]
+            let finalTemp = []
+            let test1 = 0
+            
+            for (test1 in count){
+                 count1++
+                 
+            }
+            console.log("count1",count1)
+            while(col <= count1-1){
+                 let temp = {
+                     Header:`Court${col}`,
+                     accessor:`Court${col}`
+                 }
+                 arrLocal.push(temp);
+                 col++;
+            }
+         //    setColumnApi(arrLocal)
+         console.log(response.data.status)
+            console.log(arrLocal)
+            finalTemp.push({
+                Header:"All Courts",
+                columns:arrLocal
+            })
+            console.log(columnApi)
+            setColumnApi(finalTemp)
+        })
+    }
+       
 
     const options = [
         { value: 'Monday', label: 'Monday' },
@@ -454,7 +493,7 @@ function Week() {
                             <div className="group_table">
                                 <Table
                                     className="group_eachtable"
-                                    columns={columns}
+                                    columns={columnApi}
                                     data={dataTable}
                                     arrRoot={arrRoot}
                                     setArr={setArr}

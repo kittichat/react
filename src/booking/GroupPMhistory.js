@@ -4,20 +4,10 @@ import { useTable } from 'react-table'
 
 import '../css/GroupPMhistory.css'
 
+import BTable from 'react-bootstrap/Table';
+
 function GroupPMhistory({payment}) {
 
-
-// useEffect(() => {
-//   const group = GroupList.getCurrentGroup()
-//   console.log("this is group ",group)
-//     GroupList.getMembers(group)
-//       .then(response => {
-
-//         setApi(response.data.detail.member)
-
-
-//       })
-// }, [])
 
     const columns = React.useMemo(
         () =>
@@ -54,7 +44,8 @@ function GroupPMhistory({payment}) {
 
     return (
         <div className="PM__root">
-            <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
+          {/* // <div className="ReactTable">  */}
+            <BTable striped bordered hover size="sm" {...getTableProps()} style={{ border: 'solid 1px blue' }} className="ReactTable">
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
@@ -99,7 +90,8 @@ function GroupPMhistory({payment}) {
             )
           })}
         </tbody>
-      </table>
+      {/* </table> */}
+      </BTable>
       {/* <h1>test</h1> */}
         </div>
     )

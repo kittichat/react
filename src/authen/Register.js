@@ -187,7 +187,8 @@ class Register extends React.Component {
   }
   render(){
   return (  
-    <div>
+    <div className="Register__root">
+      <div className="bluecolor"></div>
     <div className="Register__bg">
       <h1 className="Register__topic">Register</h1>
       <Form className="Register__form"

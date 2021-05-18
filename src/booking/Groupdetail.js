@@ -255,9 +255,9 @@ function Groupdetail(props) {
   console.log("this is privacy value ", isPrivacy)
   return (
     <div className="group__detail">
-      
+
       <h1>Group: {presentGroup}</h1>
-      
+
       {authority == 0
         ?
         <div className="Header__group">
@@ -266,18 +266,28 @@ function Groupdetail(props) {
             authority2={authority}
             className="Header__table"
           />
-          <GroupBKhistoryThisMonth
-            this_month={groupOldBK}
-            className="Header__table"
-          />
-          <GroupBKhistoryNextMonth
-            next_month={groupNewBK}
-            className="Header__table"
-          />
-          <GroupPMhistory
-            payment={groupPM}
-            className="Header__table"
-          />
+          {groupOldBK?.length ?
+            <GroupBKhistoryThisMonth
+              this_month={groupOldBK}
+              className="Header__table"
+            />
+            :
+            <div />
+          }
+          {groupNewBK?.length ?
+            <GroupBKhistoryNextMonth
+              next_month={groupNewBK}
+              className="Header__table"
+            />
+            :
+            <div />
+          }
+          {groupPM?.length ?
+            <GroupPMhistory
+              payment={groupPM}
+              className="Header__table"
+            />
+            : <div />}
 
         </div>
         :
@@ -288,18 +298,29 @@ function Groupdetail(props) {
               members={dataApi}
               className="Member__table"
             />
-            <GroupBKhistoryThisMonth
-              this_month={groupOldBK}
-              className="Member__table"
-            />
-            <GroupBKhistoryNextMonth
-              next_month={groupNewBK}
-              className="Member__table"
-            />
-            <GroupPMhistory
-              payment={groupPM}
-              className="Member__table"
-            />
+            {groupOldBK?.length ?
+              <GroupBKhistoryThisMonth
+                this_month={groupOldBK}
+                className="Member__table"
+              />
+              :
+              <div />
+            }
+            {groupNewBK?.length ?
+              <GroupBKhistoryNextMonth
+                next_month={groupNewBK}
+                className="Member__table"
+              />
+              :
+              <div />}
+            {groupPM?.length ?
+              <GroupPMhistory
+                payment={groupPM}
+                className="Member__table"
+              />
+              :
+              <div />
+            }
 
           </div>
           :
