@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react'
 import GroupList from "../services/groupservices"
 import HistoryServices from '../services/history_servies'
 
+import {Container} from './GroupRefundModal/Container'
+
 import Grouptable from './Grouptable'
 import { useTable } from 'react-table'
 
@@ -152,9 +154,23 @@ function Groupdetail(props) {
 
   // services
   // ***************************************************************************
+
+  const triggerText = 'Refund'
+  const onSubmit = (event) => {
+    event.preventDefault(event)
+}
+
   const header = () => {
     return (
-      isPrivacy ?
+      <div>
+              <Container 
+                // className="Booking__submit"
+                triggerText={triggerText}
+                onSubmit={onSubmit} 
+                GrouprefundDetail={groupNewBK}
+                group={group}
+                />
+      {isPrivacy ?
         <button
           className="privacy__on"
           onClick={() => { handlePrivacy(false) }}
@@ -168,6 +184,8 @@ function Groupdetail(props) {
         >
           ON
           </button>
+  }
+          </div>
     )
 
   }

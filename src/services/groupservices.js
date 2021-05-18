@@ -67,6 +67,14 @@ const deleteMember = (group,id) => {
     return http.delete(`/group/${group}/?id=${id}`)
 }
 
+const refund = (group,group__booking,banking_id,banking_name) => {
+    return http.post(`/group/${group}/refund/`,{
+        banking_id:banking_id,
+        banking_name:banking_name,
+        group__booking,
+    })
+}
+
 export default {
     getAll,
     get,
@@ -80,5 +88,6 @@ export default {
     deleteMember,
     cancel,
     privacy,
+    refund,
 
 }
