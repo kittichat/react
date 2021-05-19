@@ -246,7 +246,9 @@ class CreateForm extends React.Component {
           </div>
 
           :
-          <div className="list_row">
+          <div 
+          // className="list_row"
+          >
 
               <h1>Refunding Details</h1>
               <div className="form-refund">

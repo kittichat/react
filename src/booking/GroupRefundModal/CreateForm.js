@@ -115,8 +115,8 @@ class CreateForm extends React.Component {
 
   handleChange(detail) {
     this.state.refundDetail.map(member => {
-      let memberBookingDetail = {day:member.weekday,court:member.court,time:member.time}
-      let detailBookingDetail = {day:detail.weekday,court:detail.court,time:detail.time} 
+      let memberBookingDetail = {weekday:member.weekday,court:member.court,time:member.time}
+      let detailBookingDetail = {weekday:detail.weekday,court:detail.court,time:detail.time} 
       if ( JSON.stringify(memberBookingDetail) === JSON.stringify(detailBookingDetail)) {
         if (this.state.refunding.includes(memberBookingDetail) === false) {
           this.state.refunding.push(
@@ -150,13 +150,22 @@ class CreateForm extends React.Component {
         this.state.accountName
         
       )
-      // .then(
-      //   window.alert("Your refunding is successfuly"),
-      //   window.location.reload()
-      // )
+      .then( response => {
+        if (response.data.success == true){
+        window.alert("Your refunding is successfuly");
+        window.location.reload();
+        
 
-    }
+        }
+        console.log(response)
+        
+      })
+
+    
+
+
   }
+}
 
   render() {
 

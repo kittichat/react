@@ -5,6 +5,8 @@ import GroupList from "../services/groupservices"
 
 import { useTable } from 'react-table'
 
+import styled from 'styled-components'
+
 function Headertable({ dataHeader, authority2}) {
     const [dataApi, setApi] = useState([])
     const [authority, setAuthority] = useState(undefined)
@@ -14,14 +16,45 @@ function Headertable({ dataHeader, authority2}) {
 
 const handleDelete = (id) => {
   GroupList.deleteMember(group,id)
-  .then(
-    window.location.reload()
+  .then(response => {
+    if(response.data.msg == "delete member successful")
+    window.alert("Delete successfully");
+    window.location.reload();
+  }
+
   )
 }
+
+const Styles = styled.div`
+padding: 1rem;
+table {
+  border-spacing: 0;
+  border: 1px solid black;
+  tr {
+    :last-child {
+      td {
+        border-bottom: 0;
+      }
+    }
+  }
+  th ,
+  td {
+    margin: 0;
+    padding: 1rem;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    :last-child {
+      border-right: 0;
+    }
+  }
+}
+`
 
     const columns = React.useMemo(
         () =>
           [
+            {Header:"Members",
+          columns:[
                 {
               Header: "Numbers",
               accessor: "number"
@@ -34,6 +67,8 @@ const handleDelete = (id) => {
               Header: "Delete",
               accessor: "delete"
             }
+          ]
+        }
           ]
         ,
         []
@@ -53,6 +88,7 @@ const handleDelete = (id) => {
     
     return (
         <div>
+          <Styles>
             <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
           <thead>
             {headerGroups.map(headerGroup => (
@@ -105,6 +141,7 @@ const handleDelete = (id) => {
             })}
           </tbody>
         </table>
+        </Styles>
         </div>
     )
 }

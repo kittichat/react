@@ -21,10 +21,10 @@ const Styles = styled.div`
         }
       }
     }
-    th,
+    th ,
     td {
       margin: 0;
-      padding: 0.5rem;
+      padding: 1rem;
       border-bottom: 1px solid black;
       border-right: 1px solid black;
       :last-child {
@@ -306,6 +306,8 @@ function Afterbooking(props) {
 
     return (
         <div className="Afterbooking">
+            <div className="userbooking__bg"></div>
+            <div className="userbookingRoot__bg">
             <Styles>
                 <div className="group1_table">
                     <Table 
@@ -331,6 +333,8 @@ function Afterbooking(props) {
                 triggerText={triggerText}
                 onSubmit={onSubmit} 
                 bookingDetail={arrRoot.arr}/>
+
+</div>
 
 
         </div>

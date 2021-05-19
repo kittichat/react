@@ -122,7 +122,7 @@ function Groupdetail(props) {
   }
 
   const handleLeave = () => {
-    GroupList.leaveGroup()
+    GroupList.leaveGroup(group)
       .then(
         window.location.reload()
       )
@@ -273,7 +273,8 @@ function Groupdetail(props) {
   console.log("this is privacy value ", isPrivacy)
   return (
     <div className="group__detail">
-
+      <div className="groupdetail__bg"></div>
+    <div className="groupdetailRoot__bg">
       <h1>Group: {presentGroup}</h1>
 
       {authority == 0
@@ -348,10 +349,11 @@ function Groupdetail(props) {
       }
       <div className="role_checks">
         {handleRole(authority)}
-        <h1>{authority}</h1>
+        {/* <h1>{authority}</h1> */}
 
 
       </div>
+    </div>
     </div>
   )
 }

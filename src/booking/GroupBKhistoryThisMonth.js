@@ -3,13 +3,39 @@ import React , {useState, useEffect}from 'react'
 import { useTable } from 'react-table'
 
 import '../css/GroupBKhistoryThisMonth.css'
+import styled from 'styled-components'
 
 function GroupBKhistoryThisMonth({this_month}) {
-
+  const Styles = styled.div`
+  padding: 1rem;
+  table {
+    border-spacing: 0;
+    border: 1px solid black;
+    tr {
+      :last-child {
+        td {
+          border-bottom: 0;
+        }
+      }
+    }
+    th ,
+    td {
+      margin: 0;
+      padding: 1rem;
+      border-bottom: 1px solid black;
+      border-right: 1px solid black;
+      :last-child {
+        border-right: 0;
+      }
+    }
+  }
+  `
 
     const columns = React.useMemo(
         () =>
             [
+              {Header:"Booking Details",
+            columns:[
                 {
                     Header: "Numbers",
                     accessor:"number"
@@ -26,6 +52,8 @@ function GroupBKhistoryThisMonth({this_month}) {
                     Header:"Time",
                     accessor:"time"
                 },
+              ]
+            }
             ]
         ,
         []
@@ -46,6 +74,7 @@ function GroupBKhistoryThisMonth({this_month}) {
 
     return (
         <div>
+          <Styles>
             <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
         <thead>
           {headerGroups.map(headerGroup => (
@@ -92,6 +121,7 @@ function GroupBKhistoryThisMonth({this_month}) {
           })}
         </tbody>
       </table>
+      </Styles>
       {/* <h1>test</h1> */}
         </div>
     )

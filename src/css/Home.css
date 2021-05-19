@@ -21,9 +21,19 @@
 }
 
 .home__text{
-    top:45%;
-    left: 45%;
+    top:198px;
+    left: 25%;
+    height: 140px;
+    width: 800px;
+    display: block;
     color: white;
     position: absolute;
+    font-size: 140px;
+    font-weight: 700;
+    line-height: 140px;
+    text-decoration: none solid rgb(255,255,255);
+    text-align: center;
+    text-transform: uppercase;
+    word-spacing: 0px;
 
 }

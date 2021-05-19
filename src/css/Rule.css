@@ -4,7 +4,7 @@ body,html{
 
 .rule__background{
     background-color: rgb(19,28,43);
-    height: 80vh;
+    height: 100vh;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -16,7 +16,7 @@ body,html{
 }
 
 .topic__page{
-    top:10%;
+    top:198px;
     left: 25%;
     height: 140px;
     width: 800px;

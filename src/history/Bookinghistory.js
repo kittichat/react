@@ -13,6 +13,7 @@ import HistoryServices from '../services/history_servies'
 import '../css/Bookinghistory.css'
 
 function Bookinghistory() {
+    
 
     const [dataTable, setDataTable] = useState([])
     const [actions, setActions] = useState([])

@@ -2,16 +2,42 @@ import React , {useState, useEffect}from 'react'
 
 import { useTable } from 'react-table'
 
+import styled from 'styled-components'
 import '../css/GroupPMhistory.css'
 
 import BTable from 'react-bootstrap/Table';
 
 function GroupPMhistory({payment}) {
-
+  const Styles = styled.div`
+  padding: 1rem;
+  table {
+    border-spacing: 0;
+    border: 1px solid black;
+    tr {
+      :last-child {
+        td {
+          border-bottom: 0;
+        }
+      }
+    }
+    th ,
+    td {
+      margin: 0;
+      padding: 1rem;
+      border-bottom: 1px solid black;
+      border-right: 1px solid black;
+      :last-child {
+        border-right: 0;
+      }
+    }
+  }
+  `
 
     const columns = React.useMemo(
         () =>
             [
+              {Header:"Payment History",
+            columns:[
                 {
                     Header: "Numbers",
                     accessor:"number"
@@ -24,6 +50,8 @@ function GroupPMhistory({payment}) {
                     Header:"Price",
                     accessor:"price"
                 },
+              ]
+            }
             ]
         ,
         []
@@ -45,7 +73,8 @@ function GroupPMhistory({payment}) {
     return (
         <div className="PM__root">
           {/* // <div className="ReactTable">  */}
-            <BTable striped bordered hover size="sm" {...getTableProps()} style={{ border: 'solid 1px blue' }} className="ReactTable">
+            <Styles>
+            <table striped bordered hover size="sm" {...getTableProps()} style={{ border: 'solid 1px blue' }} className="ReactTable">
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
@@ -91,7 +120,8 @@ function GroupPMhistory({payment}) {
           })}
         </tbody>
       {/* </table> */}
-      </BTable>
+      </table>
+      </Styles>
       {/* <h1>test</h1> */}
         </div>
     )

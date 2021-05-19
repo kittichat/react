@@ -156,14 +156,14 @@ class Logintemp extends React.Component {
                   
 
 
-                        <div className="Input__checkbox">
+                        {/* <div className="Input__checkbox">
 
                             <input type="checkbox" />
                             <h4 className="Input__rememberme">rememberme</h4>
                             <Link className="Input__forgotpass" to="https://google.com">Forgot Password</Link>
 
 
-                        </div>
+                        </div> */}
 
 
                     </div>

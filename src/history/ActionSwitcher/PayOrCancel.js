@@ -6,7 +6,34 @@ import { useTable } from 'react-table'
 
 import {Container} from '../PayOrCancelModal/Container'
 
+import styled from 'styled-components'
+
 function PayOrCancel() {
+  const Styles = styled.div`
+  padding: 1rem;
+  table {
+    border-spacing: 0;
+    border: 1px solid black;
+    tr {
+      :last-child {
+        td {
+          border-bottom: 0;
+        }
+      }
+    }
+    th ,
+    td {
+      margin: 0;
+      padding: 1rem;
+      border-bottom: 1px solid black;
+      border-right: 1px solid black;
+      :last-child {
+        border-right: 0;
+      }
+    }
+  }
+  `
+
 const [dataHT , setDataHT]  = useState([])
 
     useEffect(() => {
@@ -64,6 +91,7 @@ const [dataHT , setDataHT]  = useState([])
     console.log(dataHT)
     return (
         <div>
+          <Styles>
             <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
         <thead>
           {headerGroups.map(headerGroup => (
@@ -110,6 +138,7 @@ const [dataHT , setDataHT]  = useState([])
           })}
         </tbody>
       </table>
+      </Styles>
       
       <Container 
                 // className="Booking__submit"

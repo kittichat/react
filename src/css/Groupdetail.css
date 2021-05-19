@@ -1,7 +1,34 @@
 
 .group__detail{
-    margin-top: 100px;
+    margin-top: 140px;
     top:20px;
+}
+
+.groupdetail__bg{
+    display: flex;
+    /* background-image: url('/tennis.jpg'); */
+    background-color:rgb(19,28,43);
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    background-position: left;
+    left: 0;
+    margin-top: -140px;
+}
+
+.groupdetailRoot__bg{
+    margin-top: -39.5%;
+    background-color: rgb(19,28,43);
+    /* height: 200vh; */
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    background-position: left;
+    left: 0;
+    top: 0;
 }
 
 .Join__group{
@@ -33,7 +60,7 @@
 }
 
 .Header__group{
-
+    display: flex;
 }
 
 .Header__table{
@@ -51,4 +78,92 @@
     margin-right: 10px;
     padding: 10px;
     font-size: 10px;
+}
+
+.privacy__on{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
+    padding: 15px;
+    border: solid;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 20px;
+    margin-top: 10px;
+    background-color: rgb(150, 240, 65);
+}
+
+.privacy__on:active{
+    background-color: white;
+    color: black;
+}
+
+.privacy__on:hover{
+    background-color: white;
+    color: black;
+}
+
+.privacy__off{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
+    padding: 15px;
+    border: solid;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 20px;
+    margin-top: 10px;
+    background-color: rgb(218, 30, 30);
+}
+
+.privacy__off:active{
+    background-color: white;
+    color: black;
+}
+
+.privacy__off:hover{
+    background-color: white;
+    color: black;
+}
+
+.member__leave{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
+    padding: 15px;
+    border: solid;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 20px;
+    margin-top: 10px;
+    background-color: rgb(218, 30, 30);
+}
+
+.member__leave:active{
+    background-color: white;
+    color: black;
+}
+
+.member__leave:hover{
+    background-color: white;
+    color: black;
+}
+
+.free__join{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
+    padding: 25px;
+    border: solid;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 20px;
+    margin-top: 10px;
+    background-color: rgb(150, 240, 65);
+}
+
+.free__join:active{
+    background-color: white;
+    color: black;
+}
+
+.free__join:hover{
+    background-color: white;
+    color: black;
 }

@@ -264,7 +264,7 @@ class Register extends React.Component {
 
                   />
                 
-                <div className="Register__gender">
+                {/* <div className="Register__gender">
                     <label >Gender</label>
                 </div>
 
@@ -283,7 +283,7 @@ class Register extends React.Component {
 
                 <div className="Register__birthday__label">
                   <label >Birthday</label>
-                </div>
+                </div> */}
                 {/*this space for register component*/}
 
             </div>
