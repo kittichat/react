@@ -67,6 +67,16 @@
     color: white;
 }
 
+.Login__button:active{
+    background-color: white;
+    color: black;
+}
+
+.Login__button:hover{
+    background-color: white;
+    color: black;
+}
+
 
 .Input__checkbox{
     display: flex;

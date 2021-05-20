@@ -77,6 +77,8 @@ class Logintemp extends React.Component {
                         loading: false,
                         message: resMessage
                     });
+                    window.alert("User not found");
+                    window.location.reload();
 
                 }
             );
