@@ -275,7 +275,7 @@ function Groupdetail(props) {
     <div className="group__detail">
       <div className="groupdetail__bg"></div>
     <div className="groupdetailRoot__bg">
-      <h1>Group: {presentGroup}</h1>
+      <h1 className="groupdetail__details">Group: {presentGroup}</h1>
 
       {authority == 0
         ?
@@ -344,7 +344,7 @@ function Groupdetail(props) {
           </div>
           :
 
-          <h1>Please contact your admin this group is privacy</h1>
+          <h1 className="groupdetail__details">Please contact your admin this group is privacy</h1>
 
       }
       <div className="role_checks">

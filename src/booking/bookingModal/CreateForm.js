@@ -6,6 +6,7 @@ import {isEmail} from 'validator'
 import Input from 'react-validation/build/input'
 
 import BookingService from '../../services/booking_service'
+import AuthService from '../../services/auth_service'
 
 // import "../../css/CreateFormForMemberBk.css"
 import "../../css/CreateForm.css"
@@ -90,8 +91,8 @@ class CreateForm extends React.Component {
     }
 
     memberCheck(){
-      // let user = AuthService.getCurrentUser()
-      let user = document.cookie
+      let user = AuthService.getCurrentUser()
+      // let user = document.cookie
       if(user){
         this.setState({
           member : true

@@ -32,8 +32,11 @@ const options = [
 
     return (
         <div className="History__booking">
-            <h1>Booknig History</h1>
-            <Form>
+            <div className="HistoryBooking__bg"></div>
+            {/* <div className="HistoryBooking__details"> */}
+            <div className="HistoryBooking__root">
+            <h1 className="HistoryBooking__detail">Booking History</h1>
+            <Form >
                 <CreatableSelect
                     className="History__dropdown"
                     isClearable
@@ -45,14 +48,24 @@ const options = [
         ?             
         actions == "Refund" 
         ?
+        <div className="HistoryBooking__all">
          <Refund />  
-        
-         :
-          <PayOrCancel />
-        :
-        <BKhistorytable />
-        }            
         </div>
+         :
+         <div className="HistoryBooking__all">
+          <PayOrCancel />
+            </div>
+        :
+        <div className="HistoryBooking__all">
+        <BKhistorytable 
+            // className="HistoryBooking__all"
+        />
+        </div>
+        
+        }        
+        </div>
+        </div>    
+        // </div>
     )
 }
 

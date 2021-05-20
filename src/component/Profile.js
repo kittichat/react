@@ -60,8 +60,8 @@ class Profile extends React.Component {
                 <h1 className="profile_username">{this.state.username}</h1>
                 <hr/>
                 <h1 className="profile_topic_name">Name</h1>
-                <h1 className="profile_firstname"><pre>First Name:       {this.state.lastname}</pre></h1>
-                <h1 className="profile_firstname"><pre>Last Name:        {this.state.firstname}</pre></h1>
+                <h1 className="profile_firstname"><pre>First Name:       {this.state.firstname}</pre></h1>
+                <h1 className="profile_firstname"><pre>Last Name:        {this.state.lastname}</pre></h1>
                 <hr/>
                 <h1 className="profile_topic_contact">Contact Information</h1>
                 <h1 className="profile_email"><pre>Email:        {this.state.email}</pre></h1>

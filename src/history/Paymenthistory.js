@@ -10,9 +10,13 @@ function Paymenthistory() {
 
     return (
         <div className="History__payment">
-            <h1>Payment History</h1>
-
+            <div className="HistoryPayment__bg"></div>
+            <div className="HistoryPayment__root">
+            <h1 className="HistoryPayment__detail">Payment History</h1>
+            <div className="HistoryPayment__all"> 
             <PMhistorytable />
+            </div>
+            </div>
         </div>
     )
 }
