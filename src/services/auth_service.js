@@ -3,7 +3,9 @@ import { useCookies} from "react-cookie";
 
 axios.defaults.withCredentials = true;
 
-const API_URL = "http://localhost:8000/";
+// const API_URL = "http://localhost:8000/";
+
+const API_URL = "https://bcbproject.herokuapp.com/";
 
 // window.localStorage.setItem('user','test');
 

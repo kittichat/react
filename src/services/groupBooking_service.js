@@ -2,7 +2,8 @@ import axios from 'axios';
 
 axios.defaults.withCredentials = true;
 
-const API_URL = "http://localhost:8000/";
+// const API_URL = "http://localhost:8000/";
+const API_URL = "https://bcbproject.herokuapp.com/";
 
 class groupBooking {
 
