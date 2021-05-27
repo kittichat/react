@@ -117,7 +117,7 @@ class Calendar extends React.Component {
     ).then(response => {
       console.log(response)
       localStorage.setItem("date", response.date)
-      window.location.replace("https://bcbproject.herokuapp.com/userbooking")
+      window.location.replace("https://kittichat.github.io/userbooking")
     }
       ,
       error => {
