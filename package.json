@@ -26,6 +26,7 @@
     "react-dom": "^16.13.1",
     "react-hook-form": "^6.15.5",
     "react-router-dom": "^5.2.0",
+    "react-router-hash-history": "^0.2.3",
     "react-scripts": "3.4.3",
     "react-select": "^4.3.0",
     "react-table": "^7.6.3",
@@ -36,7 +37,7 @@
     "validator": "^13.1.17"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start --open-page react",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
