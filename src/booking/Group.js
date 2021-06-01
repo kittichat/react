@@ -8,23 +8,19 @@ import Groupdetail from './Groupdetail'
 
 import value from "../api/allgroup"
 import GroupList from "../services/groupservices"
+import GroupList_single_service from '../services/getAllgroup_service'
 
 
 import '../css/Group.css'
 
 function Group() {
-
-
     const triggerText = 'Create Group'
+
     const onSubmit = (event) => {
         event.preventDefault(event)
     }
 
-    // I think this part is no needed any more also include showGroup too.
-    // const Group_component =  value.map(response => <ShowGroup name={response.name} />)
-
     const [Listofgroup, setListofgroup] = useState([])
-    // const [nameOfGroup, setNameOfGroup] = useState(undefined)
 
     useEffect(() => {
         retrieveAllgroup()

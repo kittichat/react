@@ -347,9 +347,39 @@ function Week() {
             setSunday(response.data.status[6])
 
             setDate(response.data.date)
+
+            const count = response.data.status[0].status[0]
+            let count1 = 0
+            let col = 1
+            let arrLocal = [{Header:"time",accessor:"time"}]
+            let finalTemp = []
+            let test1 = 0
+            
+            for (test1 in count){
+                 count1++
+                 
+            }
+            console.log("count1",count1)
+            while(col <= count1-1){
+                 let temp = {
+                     Header:`Court${col}`,
+                     accessor:`Court${col}`
+                 }
+                 arrLocal.push(temp);
+                 col++;
+            }
+         //    setColumnApi(arrLocal)
+         console.log(response.data.status)
+            console.log(arrLocal)
+            finalTemp.push({
+                Header:"All Courts",
+                columns:arrLocal
+            })
+            console.log(columnApi)
+            setColumnApi(finalTemp)
         })
 
-        columnSetting()
+        // columnSetting()
 
         // setMonday(datagroupbk.status[0])
         // setTuesday(datagroupbk.status[1])
