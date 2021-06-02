@@ -34,6 +34,7 @@ table {
     :last-child {
       td {
         border-bottom: 0;
+        
       }
     }
   }
@@ -98,7 +99,7 @@ table {
                     {...column.getHeaderProps()}
                     style={{
                       borderBottom: 'solid 3px red',
-                      background: 'aliceblue',
+                      background: 'rgb(150, 240, 65)',
                       color: 'black',
                       fontWeight: 'bold',
                     }}
@@ -121,13 +122,33 @@ table {
                         style={{
                           padding: '10px',
                           border: 'solid 1px gray',
-                          background: 'papayawhip',
+                          background: 'whitesmoke',
+                          color: "black",
+                          fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
+                          fontSize:"20px",
                         }}
                       >
                         { typeof (cell.value) == "boolean" && authority2 == 0
                           ?
                           <div>
-                            <button onClick={() => handleDelete(cell.row.original.id)}>Delete</button>
+                            <button 
+                              onClick={() => handleDelete(cell.row.original.id)}
+                              style={{
+                                // padding: "10px",
+                                // border : "20px",
+                                fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
+                                padding: "10px",
+                                border: "solid",
+                                borderRadius: "20px",
+                                fontWeight: "bold",
+                                fontSize: "25px",
+                                marginLeft: "20px",
+                                marginTop: "10px",
+                                backgroundColor: "rgb(240, 243, 62)",
+                              }}
+                              >
+                                Delete
+                                </button>
                             {/* {setColumn(authority)} */}
                           </div>
                           :

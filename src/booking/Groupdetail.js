@@ -238,10 +238,6 @@ function Groupdetail(props) {
   const columns = React.useMemo(
     () =>
       [
-        // {
-        //   Header: "Numbers",
-        //   accessor: "id"
-        // },
         {
           Header: "Members",
           accessor: "firstname"
@@ -345,13 +341,9 @@ function Groupdetail(props) {
           :
 
           <h1 className="groupdetail__details">Please contact your admin this group is privacy</h1>
-
       }
       <div className="role_checks">
         {handleRole(authority)}
-        {/* <h1>{authority}</h1> */}
-
-
       </div>
     </div>
     </div>

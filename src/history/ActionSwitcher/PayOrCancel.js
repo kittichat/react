@@ -1,12 +1,15 @@
-import React , {useState, useEffect}from 'react'
+import React, { useState, useEffect } from 'react'
 
 import HistoryServices from '../../services/history_servies'
 
 import { useTable } from 'react-table'
 
-import {Container} from '../PayOrCancelModal/Container'
+import { Container } from '../PayOrCancelModal/Container'
 
 import styled from 'styled-components'
+
+import '../../css/PayOrCancel.css'
+
 
 function PayOrCancel() {
   const Styles = styled.div`
@@ -18,6 +21,7 @@ function PayOrCancel() {
       :last-child {
         td {
           border-bottom: 0;
+          
         }
       }
     }
@@ -34,122 +38,131 @@ function PayOrCancel() {
   }
   `
 
-const [dataHT , setDataHT]  = useState([])
+  const [dataHT, setDataHT] = useState([])
 
-    useEffect(() => {
-        HistoryServices.PayOrCancel_get().then(response =>
-            {setDataHT(response.data)
-            
-            })
-          
-    }, [])
+  useEffect(() => {
+    HistoryServices.PayOrCancel_get().then(response => {
+      setDataHT(response.data)
 
-    const triggerText = 'Pay/Cancel'
-    const onSubmit = (event) => {
-        event.preventDefault(event)
-    }
+    })
 
-   const columns = React.useMemo(
-        () =>
-          [
-            {
-              Header: "Numbers",
-              accessor: "number"
-            },
-            {
-              Header: "Date",
-              accessor: "date"
-            },
-            {
-              Header: "Court",
-              accessor: "court"
-            },
-            {
-              Header: "Time",
-              accessor: "time"
-            },
-            {
-              Header: "Timeout",
-              accessor: "timeout"
-            }
-          ]
-        ,
-        []
-      )
+  }, [])
 
-      // const data = React.useMemo(() => test, [])
-     const data = dataHT
-          console.log(dataHT)
-    const {
-        getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        rows,
-        prepareRow,
-      } = useTable({ columns , data })
-    
-    console.log(dataHT)
-    return (
-        <div>
-          <Styles>
-            <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
-        <thead>
-          {headerGroups.map(headerGroup => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map(column => (
-                <th
-                  {...column.getHeaderProps()}
-                  style={{
-                    borderBottom: 'solid 3px red',
-                    background: 'aliceblue',
-                    color: 'black',
-                    fontWeight: 'bold',
-                  }}
-                >
-                  {column.render('Header')}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody {...getTableBodyProps()}>
-          {rows.map(row => {
-            prepareRow(row)
-            return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map(cell => {
-                  return (
-                    <td
-                      {...cell.getCellProps()}
+  const triggerText = 'Pay/Cancel'
+  const onSubmit = (event) => {
+    event.preventDefault(event)
+  }
+
+  const columns = React.useMemo(
+    () =>
+      [
+        {
+          Header: "Numbers",
+          accessor: "number"
+        },
+        {
+          Header: "Date",
+          accessor: "date"
+        },
+        {
+          Header: "Court",
+          accessor: "court"
+        },
+        {
+          Header: "Time",
+          accessor: "time"
+        },
+        {
+          Header: "Timeout",
+          accessor: "timeout"
+        }
+      ]
+    ,
+    []
+  )
+
+  // const data = React.useMemo(() => test, [])
+  const data = dataHT
+  console.log(dataHT)
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    rows,
+    prepareRow,
+  } = useTable({ columns, data })
+
+  console.log(dataHT)
+  return (
+    <div className="payorcancel__root">
+      <div>
+        <Styles>
+          <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
+            <thead>
+              {headerGroups.map(headerGroup => (
+                <tr {...headerGroup.getHeaderGroupProps()}>
+                  {headerGroup.headers.map(column => (
+                    <th
+                      {...column.getHeaderProps()}
                       style={{
-                        padding: '10px',
-                        border: 'solid 1px gray',
-                        background: 'papayawhip',
+                        borderBottom: 'solid 3px red',
+                        background: 'rgb(150, 240, 65)',
+                        color: 'black',
+                        fontWeight: 'bold',
                       }}
                     >
-                      { 
-                        cell.render('Cell')
-                      }
-                    </td>
-                  )
-                })}
-              </tr>
-            )
-          })}
-        </tbody>
-      </table>
-      </Styles>
-      
-      <Container 
-                // className="Booking__submit"
-                triggerText={triggerText}
-                onSubmit={onSubmit} 
-                pocDetail={dataHT}
-                />
+                      {column.render('Header')}
+                    </th>
+                  ))}
+                </tr>
+              ))}
+            </thead>
+            <tbody {...getTableBodyProps()}>
+              {rows.map(row => {
+                prepareRow(row)
+                return (
+                  <tr {...row.getRowProps()}>
+                    {row.cells.map(cell => {
+                      return (
+                        <td
+                          {...cell.getCellProps()}
+                          style={{
+                            padding: '10px',
+                            border: 'solid 1px gray',
+                            background: 'whitesmoke',
+                            color: "black",
+                            fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
+                            fontSize: "20px",
+                          }}
+                        >
+                          {
+                            cell.render('Cell')
+                          }
+                        </td>
+                      )
+                    })}
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        </Styles>
 
 
-        </div>
-    )
+
+      </div>
+
+      <div className="payorcancel__button">
+        <Container
+          // className="payorcancel"
+          triggerText={triggerText}
+          onSubmit={onSubmit}
+          pocDetail={dataHT}
+        />
+      </div>
+
+    </div>
+  )
 }
 
 export default PayOrCancel

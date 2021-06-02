@@ -17,6 +17,7 @@ function GroupBookingOld({groupOldBK}) {
       :last-child {
         td {
           border-bottom: 0;
+          
         }
       }
     }
@@ -91,7 +92,7 @@ const data = dataHT
                   {...column.getHeaderProps()}
                   style={{
                     borderBottom: 'solid 3px red',
-                    background: 'aliceblue',
+                    background: 'rgb(150, 240, 65)',
                     color: 'black',
                     fontWeight: 'bold',
                   }}
@@ -114,7 +115,10 @@ const data = dataHT
                       style={{
                         padding: '10px',
                         border: 'solid 1px gray',
-                        background: 'papayawhip',
+                        background: 'whitesmoke',
+                        color: "black",
+                        fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
+                        fontSize:"20px",
                       }}
                     >
                       { 

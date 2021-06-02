@@ -5,7 +5,9 @@
 
 .History__dropdown{
     padding: 20px;
+    margin-left: 20px;
     margin-top: 5%;
+    margin-bottom: 20px;
     width: 30%;
     left: 35%;
     /* margin-left: 400; */
@@ -58,7 +60,7 @@
 }
 
 .HistoryBooking__all{
-    margin-left: 450px;
+    margin-left: 505px;
 }
 
 /* .HistoryBooking__dropdown{

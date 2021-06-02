@@ -16,6 +16,7 @@ function GroupBKhistoryNextMonth({next_month}) {
       :last-child {
         td {
           border-bottom: 0;
+          
         }
       }
     }
@@ -86,7 +87,7 @@ function GroupBKhistoryNextMonth({next_month}) {
                   {...column.getHeaderProps()}
                   style={{
                     borderBottom: 'solid 3px red',
-                    background: 'aliceblue',
+                    background: 'rgb(150, 240, 65)',
                     color: 'black',
                     fontWeight: 'bold',
                   }}
@@ -109,7 +110,10 @@ function GroupBKhistoryNextMonth({next_month}) {
                       style={{
                         padding: '10px',
                         border: 'solid 1px gray',
-                        background: 'papayawhip',
+                        background: 'whitesmoke',
+                        color: "black",
+                        fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
+                        fontSize:"20px",
                       }}
                     >
                       { 
